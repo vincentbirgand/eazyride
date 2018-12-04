@@ -4,22 +4,25 @@ def index
     # @journeys = Journey.where(source_city: params[:source_city], destination_city: params[:destination_city])
   end
 
-   def show
-    @journey = Journey.find(params[:id])
-  end
-
   def new
     @journey = Journey.new()
   end
-
+  
+   def show
+    @journey = Journey.find(params[:id])
+  end
+  
   def create
     @user
     #to do
   end
 
+
+
   def edit
     @journey = Journey.find(params[:id])
   end
+
 
   def update
     @journey = Journey.find(params[:id])
@@ -32,7 +35,12 @@ def index
     end
   end
 
-
+  def destroy
+    @journey = Journey.find(params[:id])
+    @journey.destroy
+    redirect_to journeys_path
+  end
+ 
   private
 
   def journey_params

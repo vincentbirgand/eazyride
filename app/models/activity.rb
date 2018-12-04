@@ -1,5 +1,5 @@
 class Activity < ApplicationRecord
-  has_many :journeys
+  has_many :journeys, dependent: :destroy
   CATEGORY = ["Sport de neige", "Sport d'eau"].freeze
   validates :category, inclusion: {
       in: CATEGORY,
