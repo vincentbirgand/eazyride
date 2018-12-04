@@ -1,0 +1,2 @@
+class PastJourneysController < ApplicationController
+end
