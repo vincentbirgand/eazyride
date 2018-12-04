@@ -2,9 +2,9 @@
 
 <div class="page-container">
   <div class="container" style="width: 700px; margin: 0 auto;">
-    <%= simple_form_for [@journey, @activity] do |f| %>
+    <%= simple_form_for @journey do |f| %>
       <%= f.input :description %>
-      </---activity.name ---/>
+      <%= f.association :activity, prompt: "choisis ton activité" %>
       <%= f.input :source_city %>
       <%= f.input :destination_city %>
       <%= f.input :start_time, as: :string, required: false, input_html: {class: "datepicker"} %>

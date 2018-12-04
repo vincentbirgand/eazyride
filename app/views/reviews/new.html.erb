@@ -1,11 +1,13 @@
 <div><h1>Noter</h1></div>
 
-<div>
-  <%= simple_form_for [@journey, @review] do |f| %>
-  <%= f.input :rating %>
-  <%= f.input :description %>
-  <%= f.button :submit, class: "btn-form btn-primary" %>
-  <% end %>
+<div class="page-container">
+  <div class="container" style="width: 700px; margin: 0 auto;">
+    <%= simple_form_for [@journey, @review] do |f| %>
+    <%= f.input :rating %>
+    <%= f.input :description %>
+    <%= f.button :submit, class: "btn-form btn-primary" %>
+    <% end %>
+  </div>
 </div>
 
 
