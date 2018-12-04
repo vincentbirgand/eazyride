@@ -5,18 +5,25 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-puts 'Cleaning database of users...'
-User.destroy_all
-puts 'Cleaning database of journey...'
-Journey.destroy_all
-puts 'Cleaning database of message...'
-Message.destroy_all
-puts 'Cleaning database of review...'
-Review.destroy_all
-puts 'Cleaning database of drivee...'
-Drivee.destroy_all
 puts 'Cleaning database of activity...'
 Activity.destroy_all
+
+puts 'Cleaning database of message...'
+Message.destroy_all
+
+puts 'Cleaning database of review...'
+Review.destroy_all
+
+puts 'Cleaning database of drivee...'
+Drivee.destroy_all
+
+puts 'Cleaning database of journey...'
+Journey.destroy_all
+
+puts 'Cleaning database of users...'
+User.destroy_all
+
+
 
 puts 'generating the best users with password 123456 '
 vincent = User.create!(
@@ -82,19 +89,20 @@ pauline = User.create!(
   verified: true,
   email: "pauline@eazyride.com",
   password: "123456",
-  address: "1 rue Alphonse Daudet, 75014 Paris, France"
+  address: "1 rue Alphonse Daudet, 75014 Paris, France",
+  photo: 'https://www.climbing.com/.image/ar_16:9%2Cc_fill%2Ccs_srgb%2Cfl_progressive%2Cg_faces:center%2Cq_auto:good%2Cw_620/MTQ4NTAxMDM1ODA2MTA2NzY1/o4bcgtff7lkuic44pxu4.jpg'
 )
-pauline.remote_photo_url = 'https://images.unsplash.com/photo-1507034589631-9433cc6bc453?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=662&q=80'
+# pauline.remote_photo_url = 'https://www.climbing.com/.image/ar_16:9%2Cc_fill%2Ccs_srgb%2Cfl_progressive%2Cg_faces:center%2Cq_auto:good%2Cw_620/MTQ4NTAxMDM1ODA2MTA2NzY1/o4bcgtff7lkuic44pxu4.jpg'
 pauline.save
 
 puts "5 users created"
 
 puts "creating activities"
 
-a1 = Activity.create(category:'sports de montagne', name:'Ski')
-a2 = Activity.create(category:'sports de montagne', name:'Snowboard')
-a3 = Activity.create(category:'sports de mer', name:'Surf')
-a4 = Activity.create(category:'sports de mer', name:'Kite-surf')
+a1 = Activity.create!(category:'Sport de neige', name:'Ski')
+a2 = Activity.create!(category:'Sport de neige', name:'Ski')
+a3 = Activity.create!(category:"Sport d'eau", name:'Surf')
+a4 = Activity.create!(category:"Sport d'eau", name:'Surf')
 
 
 puts "creating 1 journey for each user"
@@ -110,8 +118,8 @@ j1 = Journey.new(
   shares_gear: true,
   lends_gear: true
 )
-j1.user_id = vincent.id
-j1.activity_id = a3.id
+j1.user = vincent
+j1.activity = a3
 
 j1.save!
 
@@ -126,9 +134,29 @@ j2 = Journey.new(
   shares_gear: true,
   lends_gear: true
 )
-j2.user_id = arthur.id
+j2.user_id = pauline.id
 j2.activity_id = a2.id
 
+j2.save!
+
+
+puts "creating 2 reviews"
+r1 = Review.new(
+  rating: 5,
+  description: "superbe voyage",
+)
+r1.reviewee_id = vincent.id
+r1.reviewer_id = arthur.id
+r1.journey_id = j1.id
+j1.save!
+
+r2 = Review.new(
+  rating: 5,
+  description: "un super moment de partage avec des sportifs géniaux!",
+)
+r2.reviewee_id = pauline.id
+r2.reviewer_id = martin.id
+r2.journey_id = j2.id
 j2.save!
 
 
