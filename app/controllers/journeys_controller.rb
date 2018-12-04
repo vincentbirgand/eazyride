@@ -20,7 +20,7 @@ def index
   def destroy
     @journey = Journey.find(params[:id])
     @journey.destroy
-    redirect_to journey_path
+    redirect_to journeys_path
   end
 
 

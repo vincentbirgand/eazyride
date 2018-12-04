@@ -10,6 +10,5 @@
   <p><%= @journey.price %> € pour ton trip</p>
 </div>
 
-<% if @journey.destroy %>
+
 <%= link_to "Supprimer", journey_path(@journey),method: :delete, class: "btn btn-danger" %>
-<% end %>
