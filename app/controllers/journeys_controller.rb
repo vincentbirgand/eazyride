@@ -1,6 +1,7 @@
 class JourneysController < ApplicationController
 def index
     @journeys = Journey.all
+    # @journeys = Journey.where(source_city: params[:source_city], destination_city: params[:destination_city])
     #résultat de la recherche de la home
   end
 
@@ -14,7 +15,7 @@ def index
 
   def create
     @user
-
+  end
 
 
 
