@@ -7,10 +7,9 @@
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
 
-    <%= link_to "Rechercher", new_journey_path %>
-    <%= link_to "Proposer un trajet", new_journey_drivee_path(current_user) %>
-    <%= link_to "Inscription",  %>
-    <%= link_to "Connexion",  %>
+    <a href="" class="navbar-wagon-item navbar-wagon-link">Host</a>
+    <a href="" class="navbar-wagon-item navbar-wagon-link">Trips</a>
+    <a href="" class="navbar-wagon-item navbar-wagon-link">Messages</a>
 
     <!-- Profile picture with dropdown list -->
     <div class="navbar-wagon-item">
@@ -30,10 +29,9 @@
     <div class="dropdown">
       <i class="fas fa-bars dropdown-toggle" data-toggle="dropdown" role="button"></i>
       <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-        <li><%= link_to "Rechercher", new_journey_path %></li>
-        <li><%= link_to "Proposer un trajet", new_journey_drivee_path(current_user)%></li>
-        <li><%= link_to "Inscription",  %></li>
-        <li><%= link_to "Connexion",  %></li>
+        <li><a href="#">Host</a></li>
+        <li><a href="#">Trips</a></li>
+        <li><a href="#">Messagese</a></li>
       </ul>
     </div>
   </div>
