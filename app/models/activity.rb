@@ -1,4 +1,5 @@
 class Activity < ApplicationRecord
+  has_many :journeys
   CATEGORY = ["Sport de neige", "Sport d'eau"].freeze
   validates :category, inclusion: {
       in: CATEGORY,

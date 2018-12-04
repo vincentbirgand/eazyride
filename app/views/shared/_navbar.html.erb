@@ -4,8 +4,9 @@
     <img src="images/logo.png" alt="logo">
   </a>
   -->
-
-  <%= cl_image_tag @user.photo, height: 300, width: 400, crop: :fill, class:"navbar-wagon-brand" %>
+  <% if current_user %>
+    <%= cl_image_tag current_user.photo, height: 300, width: 400, crop: :fill, class:"navbar-wagon-brand" %>
+  <% end %>
 
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
