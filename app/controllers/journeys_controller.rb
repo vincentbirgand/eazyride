@@ -1,8 +1,7 @@
 class JourneysController < ApplicationController
 def index
     @journeys = Journey.all
-    @journeys = Journey.where(user: current_user)
-    # @journeys = policy_scope(Journey)
+    #résultat de la recherche de la home
   end
 
    def show
@@ -13,7 +12,12 @@ def index
     @journey = Journey.new()
   end
 
-  # def create
+  def create
+    @user
+
+
+
+
   #   @material = Material.find(params[:material_id])
   #   @location = Location.new(location_params)
   #   @location.material = @material

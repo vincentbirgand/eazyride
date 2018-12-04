@@ -1,17 +1,11 @@
+<h1>Mes Rides</h1>
 
-  <h1>Mes Rides</h1>
-
-<div class="container">
-    <% @journeys.each do |journey|%>
-    <div class="card" style="width: auto; height: 300px; color:black;margin: 15px;padding: 5px;">
-      <div class="card-body" style="color: black; margin: 15px;" >
-        <h3 class="card-title" style="font-size: 25px"><%= journey.activity.name %> du <%= journey.start_date %> au <%= journey.end_date %></h3>
-        <p class="card-text">Description: <%= journey.description %></p>
-        <p class="card-text">Category: <%= journey.activity.category %></p>
-        <p class="card-text">Price: <%= journey.activity.price %> € for your trip </p>
-        <a class="card-text"><%= link_to "Noter", new_journey_journey_review_path(journey.material), class: "btn btn-success" %></a>
-        <a class="card-text"><%= link_to "Relouer", new_material_location_path(location.material), class: "btn btn-primary" %></a>
-      </div>
-    </div>
-    <% end %>
+<% @journeys.each do |journey|%>
+  <p><%= journey.car_type %></p>
+  <p><%= journey.description %></p>
+  <p><%= journey.source_city %></p>
+  <p><%= journey.source_city %></p>
+  <p><%= journey.destination_city %></p>
+  <p><%= journey.price %> € for your trip </p>
+<% end %>
 </div>
