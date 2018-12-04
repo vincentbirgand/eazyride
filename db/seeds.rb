@@ -75,15 +75,17 @@ thibaut = User.create!(
 pauline = User.create!(
   first_name: "pauline"
   last_name: "garcin"
-  description: "Passionné d'escalade, je vais régulièrement m'entrainer et dispose de mon matériels"
+  description: "Passionnée d'escalade, je vais régulièrement m'entrainer et dispose de mon matériel"
   phone: "07 10 10 10 10"
   birth_date: "28 Avril 1988"
-  gender: "man"
+  gender: "female"
   verified: true
   email: "pauline@eazyride.com",
   password: "123456",
   address: "1 rue Alphonse Daudet, 75014 Paris, France"
 )
+pauline.remote_photo_url = 'https://images.unsplash.com/photo-1507034589631-9433cc6bc453?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=662&q=80'
+pauline.save
 
 puts "5 users created"
 
