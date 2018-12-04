@@ -1,2 +1,6 @@
 <h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<p>Regarde tous les Rides qui te sont proposés par les Drivers</p>
+  <% @journeys.each do |journey| %>
+  <p><%= journey.description %></p>
+<% end %>
+
