@@ -21,7 +21,6 @@ class ReviewsController < ApplicationController
     @journey = Journey.find(params[:journey_id])
     @review = Review.new(review_params)
     @review.journey = @journey
-    authorize @review
     if @review.save
       redirect_to journey_path(@journey)
     else

@@ -1,5 +1,11 @@
+<div>
+  <h1>Mon trajet</h1>
+</div>
 
-<h1><%= @journey.description %></h1>
-<h1><%= @journey.start_time %></h1>
-<h1><%= @journey.end_time %></h1>
-<h1><%= @journey.price %></h1>
+<div>
+  <p><%= @journey.car_type %></p>
+  <p><%= @journey.description %></p>
+  <p><%= @journey.source_city %></p>
+  <p><%= @journey.destination_city %></p>
+  <p><%= @journey.price %> € pour ton trip</p>
+</div>
