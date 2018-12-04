@@ -4,6 +4,7 @@
     <img src="images/logo.png" alt="logo">
   </a>
   -->
+
   <% if user_signed_in? %>
   <%= cl_image_tag current_user.photo, height: 300, width: 400, crop: :fill, class:"navbar-wagon-brand" %>
   <% end %>

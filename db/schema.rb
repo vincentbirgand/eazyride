@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_04_133102) do
+ActiveRecord::Schema.define(version: 2018_12_04_161920) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 2018_12_04_133102) do
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "status"
     t.index ["journey_id"], name: "index_drivees_on_journey_id"
     t.index ["user_id"], name: "index_drivees_on_user_id"
   end
@@ -54,13 +55,11 @@ ActiveRecord::Schema.define(version: 2018_12_04_133102) do
 
   create_table "messages", force: :cascade do |t|
     t.text "content"
-    t.string "status"
-    t.bigint "journey_id"
     t.bigint "sender_id"
     t.bigint "receiver_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["journey_id"], name: "index_messages_on_journey_id"
+    t.integer "drivee_id"
     t.index ["receiver_id"], name: "index_messages_on_receiver_id"
     t.index ["sender_id"], name: "index_messages_on_sender_id"
   end
@@ -106,7 +105,6 @@ ActiveRecord::Schema.define(version: 2018_12_04_133102) do
   add_foreign_key "drivees", "users"
   add_foreign_key "journeys", "activities"
   add_foreign_key "journeys", "users"
-  add_foreign_key "messages", "journeys"
   add_foreign_key "messages", "users", column: "receiver_id"
   add_foreign_key "messages", "users", column: "sender_id"
   add_foreign_key "reviews", "journeys"

@@ -1,0 +1,19 @@
+<h1>Updater mon ride</h1>
+
+<div class="page-container">
+  <div class="container" style="width: 700px; margin: 0 auto;">
+    <%= simple_form_for @journey do |f| %>
+      <%= f.input :description %>
+      <%= f.association :activity, prompt: "choisis ton activité" %>
+      <%= f.input :source_city %>
+      <%= f.input :destination_city %>
+      <%= f.input :start_time, as: :string, required: false, input_html: {class: "datepicker"} %>
+      <%= f.input :end_time, as: :string, required: false, input_html: {class: "datepicker"} %>
+      <%= f.input :price %>
+      <%= f.input :shares_gear %>
+      <%= f.input :accepts_gear %>
+      <%= f.input :lends_gear %>
+      <%= f.button :submit, "Update ton ride", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>
