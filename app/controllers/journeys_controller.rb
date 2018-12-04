@@ -2,7 +2,6 @@ class JourneysController < ApplicationController
 def index
     @journeys = Journey.all
     # @journeys = Journey.where(source_city: params[:source_city], destination_city: params[:destination_city])
-    #résultat de la recherche de la home
   end
 
    def show
@@ -15,32 +14,30 @@ def index
 
   def create
     @user
+    #to do
+  end
+
+  def edit
+    @journey = Journey.find(params[:id])
+  end
+
+  def update
+    @journey = Journey.find(params[:id])
+    @journey.update(journey_params)
+    @journey.user = current_user
+    if @journey.save
+      redirect to journeys_path
+    else
+      render :edit
+    end
   end
 
 
+  private
 
-  #   @material = Material.find(params[:material_id])
-  #   @location = Location.new(location_params)
-  #   @location.material = @material
-  #   authorize @location
-  #   @location.user = current_user
-  #   if @location.save
-  #     redirect_to material_validation_path(@material, @location)
-  #   else
-  #     render 'new'
-  #   end
-  # end
-
-  # def validation
-  #   @location = Location.find(params[:id])
-  #   authorize @location
-  # end
-
-  # private
-
-  # def location_params
-  #   params.require(:location).permit(:id, :start_date, :end_date, :user_id, :material_id)
-  # end
+  def journey_params
+    params.require(:journey).permit(:id, :description, :activity, :source_city, :destination_city, :price, :shares_gear, :lends_gear, :accepts_gear, :start_time, :end_time)
+  end
 
 end
 

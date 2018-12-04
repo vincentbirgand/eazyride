@@ -1,6 +1,7 @@
 class PagesController < ApplicationController
-
   def home
-      @journeys = Journey.all
+    @journeys = Journey.all
+    # redirect_to journeys_path
   end
+
 end
