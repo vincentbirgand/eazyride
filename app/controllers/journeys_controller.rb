@@ -17,6 +17,12 @@ def index
     @user
   end
 
+  def destroy
+    @journey = Journey.find(params[:id])
+    @journey.destroy
+    redirect_to journey_path
+  end
+
 
 
   #   @material = Material.find(params[:material_id])
