@@ -7,20 +7,20 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-puts 'Cleaning database of activity...'
-Activity.destroy_all
+puts 'Cleaning database of drivee...'
+Drivee.destroy_all
 
 puts 'Cleaning database of message...'
 Message.destroy_all
-
-puts 'Cleaning database of drivee...'
-Drivee.destroy_all
 
 puts 'Cleaning database of review...'
 Review.destroy_all
 
 puts 'Cleaning database of journey...'
 Journey.destroy_all
+
+puts 'Cleaning database of activity...'
+Activity.destroy_all
 
 puts 'Cleaning database of users...'
 User.destroy_all
