@@ -100,9 +100,9 @@ puts "5 users created"
 puts "creating activities"
 
 a1 = Activity.create!(category:'Sport de neige', name:'Ski')
-a2 = Activity.create!(category:'Sport de neige', name:'Ski')
+a2 = Activity.create!(category:'Sport de neige', name:'Snowboard')
 a3 = Activity.create!(category:"Sport d'eau", name:'Surf')
-a4 = Activity.create!(category:"Sport d'eau", name:'Surf')
+a4 = Activity.create!(category:"Sport d'eau", name:'Kite-Surf')
 
 
 puts "creating 1 journey for each user"

@@ -1,17 +1,18 @@
 class JourneysController < ApplicationController
 def index
-    @journeys = Journey.all
-    # @journeys = Journey.where(source_city: params[:source_city], destination_city: params[:destination_city])
+  raise
+    # return @journeys = Journey.all unless params[:journey].nil?
+    @journeys = Journey.where(activity_id: params[:journey][:activity_id])
   end
 
   def new
     @journey = Journey.new()
   end
-  
+
    def show
     @journey = Journey.find(params[:id])
   end
-  
+
   def create
     @user
     #to do
@@ -40,7 +41,7 @@ def index
     @journey.destroy
     redirect_to journeys_path
   end
- 
+
   private
 
   def journey_params
