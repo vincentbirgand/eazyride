@@ -1,10 +1,14 @@
 class JourneysController < ApplicationController
 
-def index
-  raise
-    # return @journeys = Journey.all unless params[:journey].nil?
-    @journeys = Journey.where(activity_id: params[:journey][:activity_id])
+  def index
+    @journeys = Journey.all
+    if params[:journey][:source_city].present?
+      @journeys = @journeys.where("source_city ILIKE ?", "%#{params[:journey][:source_city]}%")
+    end
 
+    if params[:journey][:activity_id].present?
+      @journeys = @journeys.where(activity_id: params[:journey][:activity_id])
+    end
   end
 
   def new

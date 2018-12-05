@@ -21,7 +21,7 @@
 
           <%= simple_form_for Journey.new, url: journeys_path, method: :get do |f| %>
             <%= f.input :activity_id, collection: Activity.all %>
-
+            <%= f.input :source_city %>
             <%= f.submit %>
           <% end %>
 
