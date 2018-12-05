@@ -3,14 +3,19 @@
 </div>
 
 <div>
-  <p>De <%= @journey.source_city %> à <%= @journey.destination_city %></p>
+  <p>De <%= @journey.source_city.capitalize %> à <%= @journey.destination_city.capitalize %></p>
   <p><%= @journey.price %> € pour ton trip</p>
-  <p><%= @journey.car_type %></p>
-  <p><%= @journey.description %></p>
+  <p>Voiture: <%= @journey.car_type %></p>
+  <p>Description du voyage: <%= @journey.description %></p>
   <p><%= @journey.seat_available %> places disponibles</p>
   <p>Je partage mon matériel: <%= @journey.shares_gear %></p>
   <p>Je veux partager mon activité: <%= @journey.accepts_gear %></p>
   <p>Je prête du matériel: <%= @journey.lends_gear %></p>
+  <%= simple_form_for [@journey, @drivee] do |f| %>
+  <%#= f.association :seat_available, collection: 1..@journey.seat_available %>
+  <%#= f.input :seat_available, collection: 1..@journey.seat_available %>
+  <%= f.submit 'yeappay' %>
+  <% end %>
 </div>
 
 <!-- Pundit : affichage en fonction de driver ou de rider

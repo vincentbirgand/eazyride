@@ -21,13 +21,15 @@ class JourneysController < ApplicationController
 
   end
 
-  def show
-    @journey = Journey.find(params[:id])
-  end
-
   def new
     @journey = Journey.new()
   end
+
+  def show
+    @journey = Journey.find(params[:id])
+    @drivee = Drivee.new
+  end
+
 
   def create
     @journey = Journey.new(journey_params)
