@@ -1,2 +1,12 @@
-new.html.erb
+<h1>Merci pour ta reservation, prepare toi et rejoins moi rider !!</h1>
+
+<h3>Récapitulatif reservation:</h3>
+<p>Lieux de départ : <%= @journey.source_city %></p>
+<p>Lieux d'arrivée : <%= @journey.destination_city %></p>
+<p>Activité : <%= @journey.activity.name %></p>
+<p>Début : <%= @journey.start_time %></p>
+<p>Fin : <%= @journey.end_time %></p>
+<p>Prix : <%= @journey.price %> €</p>
+
+
 

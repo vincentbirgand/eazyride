@@ -7,6 +7,7 @@
   <p><%= @journey.price %> € pour ton trip</p>
   <p><%= @journey.car_type %></p>
   <p><%= @journey.description %></p>
+  <p><%= @journey.seat_available %> places disponibles</p>
   <p>Je partage mon matériel: <%= @journey.shares_gear %></p>
   <p>Je veux partager mon activité: <%= @journey.accepts_gear %></p>
   <p>Je prête du matériel: <%= @journey.lends_gear %></p>
@@ -16,5 +17,5 @@
  -->
 <%= link_to "Modifier", edit_journey_path(@journey), class: "btn btn-primary" %>
 <%= link_to "Supprimer", journey_path(@journey),method: :delete, class: "btn btn-danger" %>
-<%= link_to "Je réserve", journey_path(@journey), class: "btn btn-success" %>
+<%= link_to "Je réserve", new_journey_drivee_path(@journey), class: "btn btn-success" %>
 <%= link_to "Message",  new_journey_message_path(@journey),method: :get, class: "btn btn-primary" %>
