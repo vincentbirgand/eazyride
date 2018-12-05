@@ -1,11 +1,16 @@
-<h1>Mes Rides</h1>
+<h1>Résultats recherche</h1>
 
 <% @journeys.each do |journey|%>
-  <p><%= journey.car_type %></p>
-  <p><%= journey.description %></p>
-  <p><%= journey.source_city %></p>
-  <p><%= journey.source_city %></p>
-  <p><%= journey.destination_city %></p>
-  <p><%= journey.price %> € for your trip </p>
-<% end %>
+  <h3>Trajet <%= journey.source_city %> / <%= journey.destination_city %></h3>
+  <p>Activité: <%= journey.activity.name %></p>
+  <p>Description: <%= journey.description %></p>
+  <p>Voiture: <%= journey.car_type %></p>
+  <p>Départ: <%= journey.source_city %></p>
+  <p>Arrivée: <%= journey.destination_city %></p>
+  <p>Prix: <%= journey.price %> € par rider </p>
+  <%= link_to "Voir ce trajet", journey_path(journey), class: "btn btn-primary" %>
+  </br>
+  </br>
+  <% end %>
 </div>
+
