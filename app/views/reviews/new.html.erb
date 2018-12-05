@@ -1,5 +1,7 @@
 <div><h1>Noter</h1></div>
-<%= @journey.user.first_name %>
+<p>TO DELETE - Driver :<%= @journey.user.name %></p>
+<p>TO DELETE - Drivees :<%= @journey.users.count %></p>
+
 <div class="page-container">
   <div class="container" style="width: 700px; margin: 0 auto;">
     <%= simple_form_for [@journey, @review] do |f| %>

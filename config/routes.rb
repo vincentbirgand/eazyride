@@ -4,8 +4,8 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
     resources :journeys do
       resources :drivees, only: :new
-      resources :messages, only: [:new, :create, ]
-      resources :reviews, only: [:new, :create]
+      resources :messages, only: [:new, :create]
+      resources :reviews, only: [:new, :create, :show, :index]
     end
     resources :profiles, only: [:show, :edit, :update]
     resources :past_journeys, only: :index
