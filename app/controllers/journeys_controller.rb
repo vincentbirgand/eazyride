@@ -9,6 +9,8 @@ class JourneysController < ApplicationController
     if params[:journey][:activity_id].present?
       @journeys = @journeys.where(activity_id: params[:journey][:activity_id])
     end
+
+
   end
 
   def new
