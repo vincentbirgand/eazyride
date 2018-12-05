@@ -1,0 +1,11 @@
+<%= simple_form_for @user, url: profile_path(@user) do |f| %>
+    <%= f.input :first_name %>
+    <%= f.input :last_name %>
+    <%= f.input :description %>
+    <%= f.input :email %>
+    <%= f.input :phone %>
+    <%= f.input :gender %>
+    <%= f.input :address %>
+    <%= f.input :photo %>
+    <%= f.submit "Update my profile", class: 'btn btn-primary' %>
+<% end %>

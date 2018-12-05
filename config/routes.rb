@@ -7,6 +7,6 @@ Rails.application.routes.draw do
       resources :messages, only: [:new, :create, ]
       resources :reviews, only: [:new, :create]
     end
-    resources :profiles, only: [:show, :update]
+    resources :profiles, only: [:show, :edit, :update]
     resources :past_journeys, only: :index
 end
