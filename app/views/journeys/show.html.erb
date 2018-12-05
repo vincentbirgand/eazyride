@@ -3,12 +3,18 @@
 </div>
 
 <div>
+  <p>De <%= @journey.source_city %> à <%= @journey.destination_city %></p>
+  <p><%= @journey.price %> € pour ton trip</p>
   <p><%= @journey.car_type %></p>
   <p><%= @journey.description %></p>
-  <p><%= @journey.source_city %></p>
-  <p><%= @journey.destination_city %></p>
-  <p><%= @journey.price %> € pour ton trip</p>
+  <p>Je partage mon matériel: <%= @journey.shares_gear %></p>
+  <p>Je veux partager mon activité: <%= @journey.accepts_gear %></p>
+  <p>Je prête du matériel: <%= @journey.lends_gear %></p>
 </div>
 
-
+<!-- Pundit : affichage en fonction de driver ou de rider
+ -->
+<%= link_to "Modifier", edit_journey_path(@journey), class: "btn btn-primary" %>
 <%= link_to "Supprimer", journey_path(@journey),method: :delete, class: "btn btn-danger" %>
+<%= link_to "Je réserve", journey_path(@journey), class: "btn btn-success" %>
+<%= link_to "Message",  new_journey_message_path(@journey),method: :get, class: "btn btn-primary" %>

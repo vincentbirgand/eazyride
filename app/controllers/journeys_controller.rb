@@ -1,5 +1,5 @@
 class JourneysController < ApplicationController
-def index
+  def index
     @journeys = Journey.all
     # @journeys = Journey.where(source_city: params[:source_city], destination_city: params[:destination_city])
   end
@@ -7,11 +7,11 @@ def index
   def new
     @journey = Journey.new()
   end
-  
+
    def show
     @journey = Journey.find(params[:id])
   end
-  
+
   def create
     @user
     #to do
@@ -29,7 +29,7 @@ def index
     @journey.update(journey_params)
     @journey.user = current_user
     if @journey.save
-      redirect to journeys_path
+      redirect_to journeys_path
     else
       render :edit
     end
@@ -40,7 +40,7 @@ def index
     @journey.destroy
     redirect_to journeys_path
   end
- 
+
   private
 
   def journey_params

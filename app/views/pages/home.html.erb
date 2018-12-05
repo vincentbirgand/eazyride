@@ -1,7 +1,11 @@
 <h1>Pages#home</h1>
-<p>Regarde tous les Rides qui te sont proposés par les Drivers</p>
+<p>Voici les derniers rides ajoutés!</p>
   <% @journeys.each do |journey| %>
   <p><%= journey.description %></p>
 <% end %>
+<!-- Faire un sample des derniers rides ajoutés
+ -->
 
-
+<%= link_to "Rechercher", journeys_path, class: "btn btn-primary" %>
+<!-- Bouton recherche doit amener au résultat de la recherche
+ -->
