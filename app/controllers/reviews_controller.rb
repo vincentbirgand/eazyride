@@ -1,9 +1,8 @@
 class ReviewsController < ApplicationController
   def index
     @reviews = Review.all
-    current_user
-    @reviews = Review.where(user: current_user)
-    @reviews = policy_scope(review)
+    @journey = Journey.find(params[:journey_id])
+
   end
 
    def show
@@ -13,7 +12,7 @@ class ReviewsController < ApplicationController
   def new
     @journey = Journey.find(params[:journey_id])
     @review = Review.new
-    @review.journey = @journey
+    # @review.journey = @journey
   end
 
   def create
@@ -21,7 +20,6 @@ class ReviewsController < ApplicationController
     @review = Review.new(review_params)
     @review.journey = @journey
     @review.reviewer = current_user
-    raise
     if @review.save
       redirect_to journey_path(@journey)
     else

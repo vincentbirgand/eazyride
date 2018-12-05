@@ -18,13 +18,14 @@ class User < ApplicationRecord
 
 
   def self.others_from_the_trip(journey, current_user)
-    all_riders = journey.users #drivees
+    all_riders = []
+    journey.users.each{|u| all_riders << u } #drivees
     all_riders << journey.user #driver
     all_riders_without_current_user = all_riders.reject{ |u| u.id != current_user.id }
     # tous les reviews existant pour ce trip
-    journeys_reviews = Review.where(journey: journey)
+    # journeys_reviews = Review.where(journey: journey)
     # en extraire tous les users impliqués
-    journeys_reviews_users = journeys_reviews.map{ |r| r.reviewee }
-    all_riders_without_current_user_no_reviews = all_riders_without_current_user.reject{ |u| journeys_reviews_users.include?(journeys_reviews_users) }
+    # journeys_reviews_users = journeys_reviews.map{ |r| r.reviewee }
+    # all_riders_without_current_user_no_reviews = all_riders_without_current_user.reject{ |u| journeys_reviews_users.include?(journeys_reviews_users) }
   end
 end
