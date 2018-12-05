@@ -4,13 +4,15 @@ class JourneysController < ApplicationController
     # @journeys = Journey.where(source_city: params[:source_city], destination_city: params[:destination_city])
   end
 
-  def show
-    @journey = Journey.find(params[:id])
-  end
-
   def new
     @journey = Journey.new()
   end
+
+  def show
+    @journey = Journey.find(params[:id])
+    @drivee = Drivee.new
+  end
+
 
   def create
     @journey = Journey.new(journey_params)
