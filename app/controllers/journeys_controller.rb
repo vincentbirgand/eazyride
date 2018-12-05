@@ -35,7 +35,7 @@ class JourneysController < ApplicationController
     @journey.save
     @journey.user = current_user
     if @journey.save
-      redirect_to journeys_path
+      redirect_to journey_path(@journey)
     else
       render :new
     end
@@ -50,7 +50,7 @@ class JourneysController < ApplicationController
     @journey.update(journey_params)
     @journey.user = current_user
     if @journey.save
-      redirect_to journeys_path
+      redirect_to journey_path(@journey)
     else
       render :edit
     end
@@ -59,7 +59,7 @@ class JourneysController < ApplicationController
   def destroy
     @journey = Journey.find(params[:id])
     @journey.destroy
-    redirect_to journeys_path
+    redirect_to root_path
   end
 
   private
