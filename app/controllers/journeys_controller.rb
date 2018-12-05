@@ -1,8 +1,10 @@
 class JourneysController < ApplicationController
+
 def index
   raise
     # return @journeys = Journey.all unless params[:journey].nil?
     @journeys = Journey.where(activity_id: params[:journey][:activity_id])
+
   end
 
   def new
@@ -30,7 +32,7 @@ def index
     @journey.update(journey_params)
     @journey.user = current_user
     if @journey.save
-      redirect to journeys_path
+      redirect_to journeys_path
     else
       render :edit
     end

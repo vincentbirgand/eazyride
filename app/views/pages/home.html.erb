@@ -1,8 +1,11 @@
 <h1>Pages#home</h1>
-<p>Regarde tous les Rides qui te sont proposés par les Drivers</p>
+<p>Voici les derniers rides ajoutés!</p>
   <% @journeys.each do |journey| %>
   <p><%= journey.description %></p>
 <% end %>
+<!-- Faire un sample des derniers rides ajoutés
+ -->
+
 
 
 <div class="home-wrapper", style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url(<%= image_path('banner.jpg') %>);">
@@ -26,4 +29,9 @@
     </div>
   </div>
 </div>
+
+
+<%= link_to "Rechercher", journeys_path, class: "btn btn-primary" %>
+<!-- Bouton recherche doit amener au résultat de la recherche
+ -->
 
