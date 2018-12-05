@@ -4,4 +4,7 @@ class PagesController < ApplicationController
     # redirect_to journeys_path
   end
 
+
+
+
 end

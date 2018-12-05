@@ -6,7 +6,7 @@ class Activity < ApplicationRecord
 
     }
 
-  NAME = ["Ski", "Surf"].freeze
+  NAME = ["Ski", "Surf", "Snowboard", "Kite-Surf"].freeze
   validates :name, inclusion: {
       in: NAME,
     }
