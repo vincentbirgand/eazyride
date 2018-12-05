@@ -1,6 +1,7 @@
 class JourneysController < ApplicationController
 
   def index
+
     @journeys = Journey.all
     if params[:journey][:source_city].present?
       @journeys = @journeys.where("source_city ILIKE ?", "%#{params[:journey][:source_city]}%")
@@ -15,7 +16,7 @@ class JourneysController < ApplicationController
     end
 
     if params[:journey][:start_time].present?
-      @journeys = @journeys.where(start_time: params[:journey][:start_time])
+    @journeys = @journeys.where('start BETWEEN ? AND ?', DateTime.parse(params[:journey][:start_time]).beginning_of_day, DateTime.parse(params[:journey][:start_time]).end_of_day).all
     end
 
 

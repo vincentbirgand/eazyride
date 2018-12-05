@@ -1,3 +1,4 @@
+require 'time'
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
 #
@@ -123,6 +124,7 @@ j1.activity = a3
 
 j1.save!
 
+
 j2 = Journey.new(
   car_type: "peugeot 308",
   seat_available: 3,
@@ -132,7 +134,9 @@ j2 = Journey.new(
   price: 40,
   accepts_gear: true,
   shares_gear: true,
-  lends_gear: true
+  lends_gear: true,
+  # start_time: "Wed, 05 Dec 2018"
+
 )
 j2.user_id = pauline.id
 j2.activity_id = a2.id
