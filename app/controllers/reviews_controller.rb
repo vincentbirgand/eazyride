@@ -20,17 +20,19 @@ class ReviewsController < ApplicationController
     @journey = Journey.find(params[:journey_id])
     @review = Review.new(review_params)
     @review.journey = @journey
+    @review.reviewer = current_user
+    raise
     if @review.save
       redirect_to journey_path(@journey)
     else
-      render 'new'
+      render :new
     end
   end
 
   private
 
   def review_params
-    params.require(:review).permit(:id, :rating, :description, :journey_id)
+    params.require(:review).permit(:id, :rating, :description, :journey_id, :reviewee_id)
   end
 
 end

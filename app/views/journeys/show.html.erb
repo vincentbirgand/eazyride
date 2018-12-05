@@ -18,3 +18,5 @@
 <%= link_to "Supprimer", journey_path(@journey),method: :delete, class: "btn btn-danger" %>
 <%= link_to "Je réserve", new_journey_drivee_path(@journey), class: "btn btn-success" %>
 <%= link_to "Message",  new_journey_message_path(@journey),method: :get, class: "btn btn-primary" %>
+
+<%= link_to "je laisse un commentaire",new_journey_review_path(@journey)  %>
