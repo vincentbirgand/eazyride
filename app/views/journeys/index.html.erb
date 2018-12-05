@@ -1,5 +1,4 @@
 <h1>Résultats recherche</h1>
-
 <% @journeys.each do |journey|%>
   <h3>Trajet <%= journey.source_city %> / <%= journey.destination_city %></h3>
   <p>Activité: <%= journey.activity.name %></p>
