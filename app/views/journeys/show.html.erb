@@ -36,16 +36,19 @@
     Non
     <% end %>
   </p>
+
   <% if @journey.seat_available > 0 %>
     <%= simple_form_for [@journey, @drivee] do |f| %>
   <%# ceci renvoie un formulaire qui pointe vers une methode post create du controller drivee car on lui a dit dans le controller journey de show que @drivee = Drivee.new. Si @drivee existait déjà, on aurait renvoyait vers une méthode update en cliquant sur le formulaire  %>
     <%= f.submit 'Je réserve' %>
     <% end %>
   <% end %>
+
 <!-- A rajouter : les drivee déja inscrit sur le trajet
  -->
 <!-- Pundit : affichage en fonction de driver ou de rider
  -->
+
   <%= link_to "Modifier", edit_journey_path(@journey), class: "btn btn-primary" %>
   <%= link_to "Supprimer", journey_path(@journey),method: :delete, class: "btn btn-danger" %>
   <% if @journey.seat_available > 0 %>
