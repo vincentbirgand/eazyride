@@ -1,24 +1,23 @@
 class JourneysController < ApplicationController
 
   def index
+
     @journeys = Journey.all
-    if params[:journey][:source_city].present?
+     if params[:journey][:source_city].present?
       @journeys = @journeys.where("source_city ILIKE ?", "%#{params[:journey][:source_city]}%")
-    end
+     end
 
-    if params[:journey][:activity_id].present?
-      @journeys = @journeys.where(activity_id: params[:journey][:activity_id])
-    end
-
-     if params[:journey][:destination_city].present?
-      @journeys = @journeys.where("destination_city ILIKE ?", "%#{params[:journey][:destination_city]}%")
-    end
+     if params[:journey][:activity_id].present?
+       @journeys = @journeys.where(activity_id: params[:journey][:activity_id])
+     end
 
     if params[:journey][:start_time].present?
-      @journeys = @journeys.where(start_time: params[:journey][:start_time])
+    @journeys = @journeys.where('start BETWEEN ? AND ?', DateTime.parse(params[:journey][:start_time]).beginning_of_day, DateTime.parse(params[:journey][:start_time]).end_of_day).all
     end
 
-
+     if params[:journey][:start_time].present?
+       @journeys = @journeys.where(start_time: params[:journey][:start_time])
+     end
   end
 
   def new
@@ -36,7 +35,7 @@ class JourneysController < ApplicationController
     @journey.save
     @journey.user = current_user
     if @journey.save
-      redirect_to journeys_path
+      redirect_to journey_path(@journey)
     else
       render :new
     end
@@ -51,7 +50,7 @@ class JourneysController < ApplicationController
     @journey.update(journey_params)
     @journey.user = current_user
     if @journey.save
-      redirect_to journeys_path
+      redirect_to journey_path(@journey)
     else
       render :edit
     end
@@ -60,7 +59,7 @@ class JourneysController < ApplicationController
   def destroy
     @journey = Journey.find(params[:id])
     @journey.destroy
-    redirect_to journeys_path
+    redirect_to root_path
   end
 
   private
