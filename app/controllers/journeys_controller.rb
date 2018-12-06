@@ -2,7 +2,8 @@ class JourneysController < ApplicationController
 
   def index
 
-    @journeys = Journey.all
+    @journeys = Journey.where("seat_available > ?", 0)
+
      if params[:journey][:source_city].present?
       @journeys = @journeys.where("source_city ILIKE ?", "%#{params[:journey][:source_city]}%")
      end
@@ -11,12 +12,17 @@ class JourneysController < ApplicationController
        @journeys = @journeys.where(activity_id: params[:journey][:activity_id])
      end
 
-    if params[:journey][:start_time].present?
-    @journeys = @journeys.where('start BETWEEN ? AND ?', DateTime.parse(params[:journey][:start_time]).beginning_of_day, DateTime.parse(params[:journey][:start_time]).end_of_day).all
-    end
+     if params[:journey][:destination_city].present?
+      @journeys = @journeys.where("destination_city ILIKE ?", "%#{params[:journey][:destination_city]}%")
+     end
 
      if params[:journey][:start_time].present?
-       @journeys = @journeys.where(start_time: params[:journey][:start_time])
+      search_start_time_mindnight = DateTime.parse(params[:journey][:start_time])
+      search_start_time_end_of_the_day = search_start_time_mindnight.end_of_day
+
+      @journeys = @journeys.select do |journey|
+        journey.start_time.day == search_start_time_mindnight.day && journey.start_time.month == search_start_time_mindnight.month
+      end
      end
   end
 
