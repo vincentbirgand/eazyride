@@ -7,14 +7,22 @@
   <p><%= @journey.price %> € pour ton trip</p>
   <p>Voiture: <%= @journey.car_type %></p>
   <p>Description du voyage: <%= @journey.description %></p>
-  <p><%= @journey.seat_available %> places disponibles</p>
+  <p>
+    <% if @journey.seat_available > 0 %>
+      <%= @journey.seat_available %> places disponibles
+    <% else %>
+      <p> Désolé, il n'y a plus de place disponible pour ce trajet ! </p>
+    <% end %>
+  </p>
   <p>Je partage mon matériel: <%= @journey.shares_gear %></p>
   <p>Je veux partager mon activité: <%= @journey.accepts_gear %></p>
   <p>Je prête du matériel: <%= @journey.lends_gear %></p>
-  <%= simple_form_for [@journey, @drivee] do |f| %>
-  <%#= f.association :seat_available, collection: 1..@journey.seat_available %>
-  <%#= f.input :seat_available, collection: 1..@journey.seat_available %>
-  <%= f.submit 'yeappay' %>
+  <% if @journey.seat_available > 0 %>
+    <%= simple_form_for [@journey, @drivee] do |f| %>
+
+  <%# ceci renvoie un formulaire qui pointe vers une methode post create du controller drivee car on lui a dit dans le controller journey de show que @drivee = Drivee.new. Si @drivee existait déjà, on aurait renvoyait vers une méthode update en cliquant sur le formulaire  %>
+    <%= f.submit 'Je réserve' %>
+    <% end %>
   <% end %>
 </div>
 
@@ -22,7 +30,11 @@
  -->
 <%= link_to "Modifier", edit_journey_path(@journey), class: "btn btn-primary" %>
 <%= link_to "Supprimer", journey_path(@journey),method: :delete, class: "btn btn-danger" %>
-<%= link_to "Je réserve", new_journey_drivee_path(@journey), class: "btn btn-success" %>
+<% if @journey.seat_available > 0 %>
+  <%= link_to "Confirmer ma réservation", new_journey_drivee_path(@journey), class: "btn btn-success" %>
+<% else %>
+  <%= link_to "Chercher un autre trajet", journey_path(@journey), class: "btn btn-success" %>
+<% end %>
 <%= link_to "Message",  new_journey_message_path(@journey),method: :get, class: "btn btn-primary" %>
 
 <%= link_to "je laisse un commentaire",new_journey_review_path(@journey)  %>
