@@ -26,6 +26,13 @@ class JourneysController < ApplicationController
 
   def show
     @journey = Journey.find(params[:id])
+    results = Geocoder.search(@journey.source_city)
+    @journey_origin_lon = results.first.data["lon"]
+    @journey_origin_lat = results.first.data["lat"]
+    results = Geocoder.search(@journey.destination_city)
+    @journey_dest_lon = results.first.data["lon"]
+    @journey_dest_lat = results.first.data["lat"]
+    @distance = Geocoder::Calculations.distance_between([@journey_origin_lat, @journey_origin_lon], [@journey_dest_lat, @journey_dest_lon])
     @drivee = Drivee.new
   end
 
