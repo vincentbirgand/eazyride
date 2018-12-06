@@ -17,7 +17,7 @@
       </div>
     </div>
     <br />
-    <form class="form-inline">
+    <div class="form-inline"
        <div id="journeys">
         <%= simple_form_for Journey.new, url: journeys_path, method: :get do |f| %>
         <%= f.input :activity_id, collection: Activity.all, prompt: "Choisis ton activité ", label: false %>
@@ -27,11 +27,10 @@
               <!-- <label class="form-control-label string optional" for="search_starts_time" >Starts time</label> -->
               <input class="form-control string optional datepicker flatpickr-input" type="text" name="journey[start_time]" id="search_starts_time" readonly="readonly" placeholder="Date">
         </div>
-
             <%= f.button :submit, "C'est parti", class: "btn btn-success" %>
-      <% end %>
+        <% end %>
       </div>
-     </form>
+     </div>
      </div>
     </div>
    </div>
@@ -70,9 +69,6 @@
 
 
 
-<% @journeys.each do |journey| %>
-  <p><%= journey.description %></p>
-<% end %>
 
 
   <div class="small-banner-home",  style="background-image: linear-gradient(-225deg, rgba(92,141,137,0.15) 10%, rgba(0,36,61,0.6) 100%), url(<%= cl_image_path("dino-reichmuth-115620-unsplash.jpg") %>);">
