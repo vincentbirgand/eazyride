@@ -23,20 +23,22 @@
             <%= f.input :activity_id, collection: Activity.all %>
             <%= f.input :source_city %>
             <%= f.input :destination_city %>
-            <div class="container">
+            <!-- <div class="container">
               <div class="form-wrapper" style="width: 400px; margin: 0 auto;">
-                <h2>Flatpickr Demo</h2>
+                <h2>Flatpickr Demo</h2> -->
 
-                <%= simple_form_for :search, method: "get" do |f| %>
-                  <%= f.input :starts_time, as: :string, required: false, input_html: {class: "datepicker"} %>
-
-                  <%= f.button :submit, "Go", class: "btn btn-primary" %>
-                <% end %>
-              </div>
+                <%#= simple_form_for :search, method: "get" do |f| %>
+                  <%#= f.input :starts_time, as: :string, required: false, input_html: {class: "datepicker"} %>
+                <%# end %>
+              <!-- </div>
+            </div> -->
+            <div class="form-group string optional search_starts_time">
+              <label class="form-control-label string optional" for="search_starts_time">Starts time</label>
+              <input class="form-control string optional datepicker flatpickr-input" type="text" name="journey[start_time]" id="search_starts_time" readonly="readonly">
             </div>
 
 
-
+            <%= f.button :submit, "Go", class: "btn btn-primary" %>
           <% end %>
 
       </div>
@@ -45,7 +47,5 @@
 </div>
 
 
-<%= link_to "Rechercher", journeys_path, class: "btn btn-primary" %>
-<!-- Bouton recherche doit amener au résultat de la recherche
- -->
+
 
