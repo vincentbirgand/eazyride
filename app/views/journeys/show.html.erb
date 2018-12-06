@@ -23,9 +23,23 @@
 
 <div class="container">
   <div class="row">
-    <p>Je partage mon matériel: <%= @journey.shares_gear %></p>
-    <p>Je veux partager mon activité: <%= @journey.accepts_gear %></p>
-    <p>Je prête du matériel: <%= @journey.lends_gear %></p>
+    <% if @journey.shares_gear == true %>
+      <p class = "true"> <i class="fas fa-check"></i> Je partage mon activité %></p>
+    <% else %>
+      <p class = "false"> <i class="fas fa-times"></i> Je partage mon activité </p>
+    <% end %>
+
+    <% if @journey.lends_gear == true %>
+      <p class = "true"> <i class="fas fa-check"></i> Je prête du matériel %></p>
+    <% else %>
+      <p class = "false"> <i class="fas fa-times"></i> Je prête du matériel </p>
+    <% end %>
+
+    <% if @journey.accepts_gear == true %>
+      <p class = "true"> <i class="fas fa-check"></i> J'accepte de transporter votre matériel </p>
+    <% else %>
+      <p class = "false"> <i class="fas fa-times"></i> J'accepte de transporter votre matériel </p>
+    <% end %>
   </div>
 </div>
 
@@ -42,11 +56,11 @@
 </div>
 
 
-<div class="container driver">
-  <div class="row">
-    <% if @journey.user.photo.present? %>
+<div class="container card-driver">
+  <div class="row1">
+
     <%= image_tag "fakelogo.png", height: 50 %>
-    <% end %>
+
     <p>A propos du driver</p>
   </div>
   <div class="row">
@@ -54,7 +68,7 @@
   </div>
   <hr/>
   <div class="row">
-    <p> ✅ Driver certifié</p>
+    <p><i class="far fa-check-circle"></i> Driver certifié</p>
   </div>
   <hr/>
   <div class="row">
