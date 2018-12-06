@@ -138,7 +138,7 @@ j3 = Journey.new(
   price: 40,
   accepts_gear: true,
   shares_gear: false,
-  lends_gear: false
+  lends_gear: false,
   start_time: DateTime.new(2018, 12, 20, 9),
   end_time: DateTime.new(2018, 12, 20, 18, 30)
 )

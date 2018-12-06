@@ -12,9 +12,9 @@
       <%= f.input :seat_available, label: "Combien de places proposes-tu?" %>
       <%= f.input :car_type, label: "Quel est le modèle de ta voiture ?" %>
       <%= f.input :price, label: "Prix - €" %>
-      <%= f.input :shares_gear %>
-      <%= f.input :accepts_gear %>
-      <%= f.input :lends_gear %>
+      <%= f.input :shares_gear, label: "Je veux partager mon activité"  %>
+      <%= f.input :accepts_gear, label: "J'accepte du matériel dans ma voiture"  %>
+      <%= f.input :lends_gear, label: "J'accepte de partager mon matériel"  %>
       <%= f.button :submit, "Créer ton ride", class: "btn btn-primary" %>
     <% end %>
   </div>
