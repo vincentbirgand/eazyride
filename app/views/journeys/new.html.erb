@@ -4,12 +4,14 @@
   <div class="container" style="width: 700px; margin: 0 auto;">
     <%= simple_form_for @journey do |f| %>
       <%= f.input :description %>
-      <%= f.association :activity, prompt: "choisis ton activité" %>
-      <%= f.input :source_city %>
-      <%= f.input :destination_city %>
-      <%= f.input :start_time, as: :string, required: false, input_html: {class: "datepicker"} %>
-      <%= f.input :end_time, as: :string, required: false, input_html: {class: "datepicker"} %>
-      <%= f.input :price %>
+      <%= f.association :activity, label: "Sport", prompt: "Choisis ton activité" %>
+      <%= f.input :source_city, label: "Départ" %>
+      <%= f.input :destination_city, label: "Arrivée" %>
+      <%= f.input :start_time, as: :string, required: false, input_html: {class: "datepicker"}, label: "Date et heure de départ" %>
+      <%= f.input :end_time, as: :string, required: false, input_html: {class: "datepicker"}, label: "Date et heure de d'arrivée" %>
+      <%= f.input :seat_available, label: "Combien de places proposes-tu?" %>
+      <%= f.input :car_type, label: "Quel est le modèle de ta voiture ?" %>
+      <%= f.input :price, label: "Prix - €" %>
       <%= f.input :shares_gear %>
       <%= f.input :accepts_gear %>
       <%= f.input :lends_gear %>
