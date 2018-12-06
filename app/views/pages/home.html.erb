@@ -1,51 +1,42 @@
-<h1>Pages#home</h1>
-<p>Voici les derniers rides ajoutés!</p>
-  <% @journeys.each do |journey| %>
-  <p><%= journey.description %></p>
-<% end %>
-<!-- Faire un sample des derniers rides ajoutés
- -->
-
-
-
 <div class="home-wrapper", style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url(<%= image_path('banner.jpg') %>);">
   <h1>Rechercher un trajet <br >ENTRE PARTICULIERS</h1>
   <br >
 
-
-
-<div class="container">
-  <div class="row">
-    <div class="col-sm-8 col-sm-offset-2">
-      <div id="journeys">
-
-          <%= simple_form_for Journey.new, url: journeys_path, method: :get do |f| %>
-            <%= f.input :activity_id, collection: Activity.all %>
-            <%= f.input :source_city %>
-            <%= f.input :destination_city %>
-            <div class="container">
-              <div class="form-wrapper" style="width: 400px; margin: 0 auto;">
-                <h2>Flatpickr Demo</h2>
-
-                <%= simple_form_for :search, method: "get" do |f| %>
-                  <%= f.input :starts_time, as: :string, required: false, input_html: {class: "datepicker"} %>
-
-                  <%= f.button :submit, "Go", class: "btn btn-primary" %>
-                <% end %>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-8 col-sm-offset-2">
+        <div id="journeys">
+            <%= simple_form_for Journey.new, url: journeys_path, method: :get do |f| %>
+              <%= f.input :activity_id, collection: Activity.all %>
+              <%= f.input :source_city %>
+              <%= f.input :destination_city %>
+              <!-- <div class="container">
+                <div class="form-wrapper" style="width: 400px; margin: 0 auto;">
+                  <h2>Flatpickr Demo</h2> -->
+                  <%#= simple_form_for :search, method: "get" do |f| %>
+                    <%#= f.input :starts_time, as: :string, required: false, input_html: {class: "datepicker"} %>
+                  <%# end %>
+                <!-- </div>
+              </div> -->
+              <div class="form-group string optional search_starts_time">
+                <label class="form-control-label string optional" for="search_starts_time">Starts time</label>
+                <input class="form-control string optional datepicker flatpickr-input" type="text" name="journey[start_time]" id="search_starts_time" readonly="readonly">
               </div>
-            </div>
-
-
-
-          <% end %>
-
+              <%= f.button :submit, "Go", class: "btn btn-primary" %>
+            <% end %>
+        </div>
       </div>
     </div>
   </div>
 </div>
 
-
-<%= link_to "Rechercher", journeys_path, class: "btn btn-primary" %>
-<!-- Bouton recherche doit amener au résultat de la recherche
+<div>
+<h3>Voici les derniers rides ajoutés!</h3>
+  <% @journeys.each do |journey| %>
+  <p>De <%= journey.source_city %> à <%= journey.destination_city %></p>
+<% end %>
+  <br >
+<!-- Faire un sample des derniers rides ajoutés
  -->
+</div>
 
