@@ -3,5 +3,6 @@ import "flatpickr/dist/flatpickr.min.css" // Note this is important!
 
 flatpickr(".datepicker", {})
 flatpickr(".datetimepicker", {
-  enableTime: true
+  enableTime: true,
+  time_24hr: true
 })
