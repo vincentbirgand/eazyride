@@ -10,7 +10,7 @@ class DriveesController < ApplicationController
     @journey = Journey.find(params[:journey_id]) # je connais le journey params[:journey_id]
     @drivee = Drivee.new(user: current_user, journey: @journey, status: 'pending')
     @drivee.save
-    @journey.seat_available - 1
+    @journey.seat_available -= 1
     @journey.save
     redirect_to journey_path(@journey)
   end

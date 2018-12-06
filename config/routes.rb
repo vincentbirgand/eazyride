@@ -6,10 +6,9 @@ Rails.application.routes.draw do
 
       resources :drivees, only: [:new, :create]
       resources :messages, only: [:new, :create]
-      resources :reviews, only: [:new, :create, :show, :index]
-
-
+      resources :reviews, only: [:new, :create, :show]
     end
     resources :profiles, only: [:show, :edit, :update]
     resources :past_journeys, only: :index
+    resources :reviews, only: :index
 end

@@ -1,4 +1,5 @@
 require 'time'
+
 puts 'Cleaning database of drivee...'
 Drivee.destroy_all
 puts 'Cleaning database of message...'
@@ -11,7 +12,9 @@ puts 'Cleaning database of activity...'
 Activity.destroy_all
 puts 'Cleaning database of users...'
 User.destroy_all
+
 puts 'generating 5 users with password 123456 '
+
 vincent = User.create!(
   first_name: "Vincent",
   last_name: "Birgand",
@@ -24,6 +27,7 @@ vincent = User.create!(
   password: "123456",
   address: "26 rue Edouard Vaillant, 93140 Bondy, France"
  )
+
  arthur = User.create!(
   first_name: "Arthur",
   last_name: "d'Achon",
@@ -36,6 +40,7 @@ vincent = User.create!(
   password: "123456",
   address: "3 rue de la Pompe, 75016 Paris, France"
 )
+
 martin = User.create!(
   first_name: "Martin",
   last_name: "Jordan",
@@ -76,13 +81,17 @@ pauline = User.create!(
 # pauline.remote_photo_url = 'https://www.climbing.com/.image/ar_16:9%2Cc_fill%2Ccs_srgb%2Cfl_progressive%2Cg_faces:center%2Cq_auto:good%2Cw_620/MTQ4NTAxMDM1ODA2MTA2NzY1/o4bcgtff7lkuic44pxu4.jpg'
 pauline.save
 puts "5 users created"
+
 puts "creating 5 activities"
+
 a1 = Activity.create!(category:'Sport de neige', name:'Ski')
 a2 = Activity.create!(category:'Sport de neige', name:'Snowboard')
 a3 = Activity.create!(category:"Sport d'eau", name:'Surf')
 a4 = Activity.create!(category:"Sport d'eau", name:'Kite-Surf')
 a5 = Activity.create!(category:"Sport de montagne", name:'Escalade')
+
 puts "5 activities created"
+
 puts "creating 1 journey for each user"
 j1 = Journey.new(
   car_type: "Peugeot 5008",
@@ -96,11 +105,12 @@ j1 = Journey.new(
   lends_gear: true,
   start_time: DateTime.new(2018, 12, 20, 9),
   end_time: DateTime.new(2018, 12, 20, 18, 30)
-  # start_time: "Wed, 05 Dec 2018"
 )
+
 j1.user_id = arthur.id
 j1.activity_id = a1.id
 j1.save!
+
 j2 = Journey.new(
   car_type: "Porsche Boxter",
   seat_available: 3,
@@ -113,11 +123,12 @@ j2 = Journey.new(
   lends_gear: true,
   start_time: DateTime.new(2018, 12, 20, 9),
   end_time: DateTime.new(2018, 12, 20, 18, 30)
-  # start_time: "Wed, 05 Dec 2018"
 )
+
 j2.user_id = martin.id
 j2.activity_id = a2.id
 j2.save!
+
 j3 = Journey.new(
   car_type: "Volkswagen Polo",
   seat_available: 2,
@@ -127,13 +138,15 @@ j3 = Journey.new(
   price: 40,
   accepts_gear: true,
   shares_gear: false,
-  lends_gear: false,
+  lends_gear: false
   start_time: DateTime.new(2018, 12, 20, 9),
   end_time: DateTime.new(2018, 12, 20, 18, 30)
 )
+
 j3.user_id = vincent.id
 j3.activity_id = a3.id
 j3.save!
+
 j4 = Journey.new(
   car_type: "Volkswagen Combi",
   seat_available: 4,
@@ -146,11 +159,13 @@ j4 = Journey.new(
   lends_gear: true,
   start_time: DateTime.new(2018, 12, 20, 9),
   end_time: DateTime.new(2018, 12, 20, 18, 30)
-  # start_time: "Wed, 05 Dec 2018"
 )
+
 j4.user_id = thibaut.id
 j4.activity_id = a4.id
 j4.save!
+
+
 j5 = Journey.new(
   car_type: "peugeot 308",
   seat_available: 3,
@@ -163,13 +178,15 @@ j5 = Journey.new(
   lends_gear: true,
   start_time: DateTime.new(2018, 12, 21, 9),
   end_time: DateTime.new(2018, 12, 21, 18, 30)
-  # start_time: "Wed, 05 Dec 2018"
 )
+
 j5.user_id = pauline.id
 j5.activity_id = a5.id
 j5.save!
+
 puts "5 journeys created"
 puts "creating 4 reviews for trip 1"
+
 r1 = Review.new(
   rating: 5,
   description: "Super trip, Arthur est très sympa. Je le recommande vivement. A refaire!",
@@ -178,6 +195,7 @@ r1.reviewee_id = arthur.id
 r1.reviewer_id = vincent.id
 r1.journey_id = j1.id
 r1.save!
+
 r2 = Review.new(
   rating: 1,
   description: "A fuir!!! Arthur est arrivé en retard, et ne s'est même pas excusé. Conduite désastreuse. Fuyez pour votre sécurité!",
@@ -185,7 +203,8 @@ r2 = Review.new(
 r2.reviewee_id = arthur.id
 r2.reviewer_id = martin.id
 r2.journey_id = j1.id
-r1.save!
+r2.save!
+
 r3 = Review.new(
   rating: 5,
   description: "Top! Le courant est vraiment bien passé avec Martin. Je pense qu'on repartira très vite rider ensemble, trop cool ;) !",
@@ -194,6 +213,7 @@ r3.reviewee_id = martin.id
 r3.reviewer_id = arthur.id
 r3.journey_id = j1.id
 r3.save!
+
 r4 = Review.new(
   rating: 4,
   description: "Vincent était en retard, ce qui nous a malheureusement fait tomber dans les bouchons. Mais il est très sympa et bon esprit. Je le recommande.",
@@ -202,20 +222,22 @@ r4.reviewee_id = vincent.id
 r4.reviewer_id = arthur.id
 r4.journey_id = j1.id
 r4.save!
+
 puts " 4 reviews created"
 puts " 2 drivees for journey 1"
+
 d1 = Drivee.new(status: "En attente")
 d1.journey_id = j1.id
 d1.user_id = vincent.id
 d1.save!
+
 d2 = Drivee.new(status: "En attente")
 d2.journey_id = j1.id
 d2.user_id = martin.id
 d2.save!
+
 puts " 2 drivees created"
 puts "Seed finished!"
-
-
 
 
 
