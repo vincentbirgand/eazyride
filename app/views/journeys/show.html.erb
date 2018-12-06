@@ -55,7 +55,6 @@
   </div>
 </div>
 
-
 <div class="container card-driver">
   <div class="row1">
 
@@ -90,7 +89,7 @@
     <% end %>
   </div>
   <hr/>
-  </div>
+</div>
 
     <!-- Pundit : affichage en fonction de driver ou de rider
      -->
@@ -102,9 +101,18 @@
     <%= link_to "Modifier", edit_journey_path(@journey), class: "btn btn-primary" %>
     <%= link_to "Supprimer", journey_path(@journey),method: :delete, class: "btn btn-danger" %>
     <%= link_to "Message",  new_journey_message_path(@journey),method: :get, class: "btn btn-primary" %>
-
     <%= link_to "je laisse un commentaire",new_journey_review_path(@journey)  %>
-
-
   </div>
 </div>
+
+<div
+  id="map"
+  style="width: 100%;
+  height: 300px;"
+  data-markers="<%#= @markers.to_json %>"
+  data-mapbox-api-key="<%= ENV['mapboxgl.accessToken'] %>"
+  data-orig-lat="<%= @journey_origin_lon %>"
+  data-orig-lon="<%= @journey_origin_lat %>"
+  data-dest-lat="<%= @journey_dest_lon %>"
+  data-dest-lon="<%= @journey_dest_lat %>"
+></div>
