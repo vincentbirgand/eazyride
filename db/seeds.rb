@@ -2,19 +2,14 @@ require 'time'
 
 puts 'Cleaning database of drivee...'
 Drivee.destroy_all
-
 puts 'Cleaning database of message...'
 Message.destroy_all
-
 puts 'Cleaning database of review...'
 Review.destroy_all
-
 puts 'Cleaning database of journey...'
 Journey.destroy_all
-
 puts 'Cleaning database of activity...'
 Activity.destroy_all
-
 puts 'Cleaning database of users...'
 User.destroy_all
 
@@ -58,7 +53,6 @@ martin = User.create!(
   password: "123456",
   address: "6 rue Euryale Dehaynin, 75019 Paris, France"
 )
-
 thibaut = User.create!(
   first_name: "Thibaut",
   last_name: "Duroute",
@@ -71,7 +65,6 @@ thibaut = User.create!(
   password: "123456",
   address: "16 villa Gaudelet, 75011 Paris, France"
 )
-
 pauline = User.create!(
   first_name: "Pauline",
   last_name: "Garcin",
@@ -87,7 +80,6 @@ pauline = User.create!(
 )
 # pauline.remote_photo_url = 'https://www.climbing.com/.image/ar_16:9%2Cc_fill%2Ccs_srgb%2Cfl_progressive%2Cg_faces:center%2Cq_auto:good%2Cw_620/MTQ4NTAxMDM1ODA2MTA2NzY1/o4bcgtff7lkuic44pxu4.jpg'
 pauline.save
-
 puts "5 users created"
 
 puts "creating 5 activities"
@@ -101,7 +93,6 @@ a5 = Activity.create!(category:"Sport de montagne", name:'Escalade')
 puts "5 activities created"
 
 puts "creating 1 journey for each user"
-
 j1 = Journey.new(
   car_type: "Peugeot 5008",
   seat_available: 3,
@@ -112,7 +103,8 @@ j1 = Journey.new(
   accepts_gear: true,
   shares_gear: true,
   lends_gear: true,
-  # start_time: "Wed, 05 Dec 2018"
+  start_time: DateTime.new(2018, 12, 20, 9),
+  end_time: DateTime.new(2018, 12, 20, 18, 30)
 )
 
 j1.user_id = arthur.id
@@ -129,7 +121,8 @@ j2 = Journey.new(
   accepts_gear: true,
   shares_gear: true,
   lends_gear: true,
-  # start_time: "Wed, 05 Dec 2018"
+  start_time: DateTime.new(2018, 12, 20, 9),
+  end_time: DateTime.new(2018, 12, 20, 18, 30)
 )
 
 j2.user_id = martin.id
@@ -146,6 +139,8 @@ j3 = Journey.new(
   accepts_gear: true,
   shares_gear: false,
   lends_gear: false
+  start_time: DateTime.new(2018, 12, 20, 9),
+  end_time: DateTime.new(2018, 12, 20, 18, 30)
 )
 
 j3.user_id = vincent.id
@@ -162,12 +157,14 @@ j4 = Journey.new(
   accepts_gear: true,
   shares_gear: true,
   lends_gear: true,
-  # start_time: "Wed, 05 Dec 2018"
+  start_time: DateTime.new(2018, 12, 20, 9),
+  end_time: DateTime.new(2018, 12, 20, 18, 30)
 )
 
 j4.user_id = thibaut.id
 j4.activity_id = a4.id
 j4.save!
+
 
 j5 = Journey.new(
   car_type: "peugeot 308",
@@ -179,7 +176,8 @@ j5 = Journey.new(
   accepts_gear: true,
   shares_gear: true,
   lends_gear: true,
-  # start_time: "Wed, 05 Dec 2018"
+  start_time: DateTime.new(2018, 12, 21, 9),
+  end_time: DateTime.new(2018, 12, 21, 18, 30)
 )
 
 j5.user_id = pauline.id
@@ -187,7 +185,6 @@ j5.activity_id = a5.id
 j5.save!
 
 puts "5 journeys created"
-
 puts "creating 4 reviews for trip 1"
 
 r1 = Review.new(
@@ -227,7 +224,6 @@ r4.journey_id = j1.id
 r4.save!
 
 puts " 4 reviews created"
-
 puts " 2 drivees for journey 1"
 
 d1 = Drivee.new(status: "En attente")
@@ -241,7 +237,6 @@ d2.user_id = martin.id
 d2.save!
 
 puts " 2 drivees created"
-
 puts "Seed finished!"
 
 
