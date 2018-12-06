@@ -1,8 +1,8 @@
-<div>
+<div class="">
   <h1>Trajet</h1>
 </div>
 
-<div>
+<div class="container">
   <p>De <%= @journey.source_city.capitalize %> à <%= @journey.destination_city.capitalize %></p>
   <p>Du <%= @journey.start_time%> au <%= @journey.end_time%></p>
   <p><%= @journey.price %> € pour ton trip</p>
@@ -46,17 +46,17 @@
     <%= f.submit 'Je réserve' %>
     <% end %>
   <% end %>
-</div>
 
 <!-- Pundit : affichage en fonction de driver ou de rider
  -->
-<%= link_to "Modifier", edit_journey_path(@journey), class: "btn btn-primary" %>
-<%= link_to "Supprimer", journey_path(@journey),method: :delete, class: "btn btn-danger" %>
-<% if @journey.seat_available > 0 %>
-  <%= link_to "Confirmer ma réservation", new_journey_drivee_path(@journey), class: "btn btn-success" %>
-<% else %>
-  <%= link_to "Chercher un autre trajet", journey_path(@journey), class: "btn btn-success" %>
-<% end %>
-<%= link_to "Message",  new_journey_message_path(@journey),method: :get, class: "btn btn-primary" %>
+  <%= link_to "Modifier", edit_journey_path(@journey), class: "btn btn-primary" %>
+  <%= link_to "Supprimer", journey_path(@journey),method: :delete, class: "btn btn-danger" %>
+  <% if @journey.seat_available > 0 %>
+    <%= link_to "Confirmer ma réservation", new_journey_drivee_path(@journey), class: "btn btn-success" %>
+  <% else %>
+    <%= link_to "Chercher un autre trajet", journey_path(@journey), class: "btn btn-success" %>
+  <% end %>
+  <%= link_to "Message",  new_journey_message_path(@journey),method: :get, class: "btn btn-primary" %>
 
-<%= link_to "je laisse un commentaire",new_journey_review_path(@journey)  %>
+  <%= link_to "je laisse un commentaire",new_journey_review_path(@journey)  %>
+</div>
