@@ -1,8 +1,6 @@
 class ReviewsController < ApplicationController
   def index
     @reviews = Review.all
-    @journey = Journey.find(params[:journey_id])
-
   end
 
    def show
