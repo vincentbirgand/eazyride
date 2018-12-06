@@ -10,13 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_04_161920) do
+ActiveRecord::Schema.define(version: 2018_12_06_115626) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "activities", force: :cascade do |t|
     t.string "category"
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "categories", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -30,6 +36,14 @@ ActiveRecord::Schema.define(version: 2018_12_04_161920) do
     t.string "status"
     t.index ["journey_id"], name: "index_drivees_on_journey_id"
     t.index ["user_id"], name: "index_drivees_on_user_id"
+  end
+
+  create_table "journey_categories", force: :cascade do |t|
+    t.string "journey"
+    t.string "references"
+    t.string "category"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "journeys", force: :cascade do |t|
