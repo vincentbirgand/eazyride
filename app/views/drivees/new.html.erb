@@ -1,12 +1,27 @@
-<h1>Merci pour ta reservation, prepare toi et rejoins moi rider !!</h1>
-
-<h3>Récapitulatif reservation:</h3>
-<p>Lieux de départ : <%= @journey.source_city %></p>
-<p>Lieux d'arrivée : <%= @journey.destination_city %></p>
-<p>Activité : <%= @journey.activity.name %></p>
-<p>Début : <%= @journey.start_time %></p>
-<p>Fin : <%= @journey.end_time %></p>
-<p>Prix : <%= @journey.price %> €</p>
 
 
 
+<div class="banner-page", style="background-image: url(<%= asset_path 'banner.jpg' %>), linear-gradient(-225deg, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.1) 40%)">
+  <h1> Merci pour ta reservation, prepare toi et rejoins moi rider !! </h1>
+</div>
+
+  <ul class="container">
+    <h3>Récapitulatif reservation:</h3>
+    <li class="card-trajet" >
+          <div class="profile" >
+            <p>Lieux de départ : <%= @journey.source_city %></p>
+            <p>Lieux d'arrivée : <%= @journey.destination_city %></p>
+            <img src:"fakelogo.png" alt="Avatar" class="avatar">
+            <p>Activité : <%= @journey.activity.name %></p>
+          </div>
+          <div class="desc-trip">
+            <p>Début : <%= @journey.start_time %></p>
+            <p>Fin : <%= @journey.end_time %></p>
+          </div>
+          <div class="offer">
+            <p>Prix : <%= @journey.price %> €</p>
+          </div>
+
+    </li>
+
+  </ul>
