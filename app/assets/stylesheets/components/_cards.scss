@@ -68,6 +68,20 @@
 }
 
 
+.card-trajet-resa {
+  text-decoration: none;
+  background: white;
+  display: flex;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 15px;
+  border: 1px solid lightgrey;
+  box-shadow: 0 0 5px lightgrey;
+  transition: all 0.3s ease;
+  justify-content: space-around;
+  align-items: center;
+}
+
 .card-trajet-profil {
   display: flex;
   align-items: center;
