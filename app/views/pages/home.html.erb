@@ -67,9 +67,31 @@
    </div>
  </div>
 
-
-
-
+    <div class="container">
+      <h2 class="text-center">Nos derniers trajets</h2>
+      <br />
+     <div class="row">
+      <% @journeys.each do |journey| %>
+       <div class="col-xs-12 col-sm-4">
+        <div class="card-home">
+            <div class="card-home-photo" style="background-image:  linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.2)), url(<%= cl_image_path("cbjvnfinwkdbnat2grzq.jpg") %>);">
+            <%= link_to "", journey_path(journey), class: "card-link" %>
+           </div>
+          <div class="card-home-footer">
+            <p><strong><%= journey.activity.name %></strong>  <br /> 📍<%= journey.source_city %> <br /> 🏁<%= journey.destination_city %></p>
+           <div class="card-footer-controls">
+              <img src="https://res.cloudinary.com/dscu7dmwa/image/upload/v1544179254/image_3.png" alt="Avatar" class="avatar">
+              <br />
+            <div class="text-center"><strong><font color="#74b49b"><%= journey.price %> € </font></strong>
+            <p><font color="#74b49b">par place</font></p>
+            </div>
+           </div>
+         </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
 
   <div class="small-banner-home",  style="background-image: linear-gradient(-225deg, rgba(92,141,137,0.15) 10%, rgba(0,36,61,0.6) 100%), url(<%= cl_image_path("dino-reichmuth-115620-unsplash.jpg") %>);">
       <br >
@@ -78,8 +100,6 @@
       <%= link_to "Proposer un trajet", new_journey_path, class: "btn btn-success" %>
   </div>
 </div>
-
-
 
   <div class="footer">
       <div class="footer-info">
@@ -104,5 +124,12 @@
  </body>
 </html>
 
+
+<div class="view overlay">
+    <img src="https://mdbootstrap.com/img/Photos/Others/forest-sm.jpg" class="img-fluid " alt="smaple image">
+    <div class="mask flex-center rgba-blue-light">
+        <p class="white-text">Light overlay</p>
+    </div>
+</div>
 
 
