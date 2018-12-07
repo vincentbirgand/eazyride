@@ -40,35 +40,79 @@
     <div class="icone text-center">
      <div class="row">
       <div class="col-sm-4 col-md-4">
-      <!-- <ul class="list-inline">
-        <li class="text-center"> -->
           <img src='https://res.cloudinary.com/dscu7dmwa/image/upload/v1544107574/double-arrow.svg' height="42" width="42">
           <br >
         <p><strong>Trajet <br /> Aller/Retour</strong></p>
-       <!-- </li> -->
       </div>
 
       <div class="col-sm-4 col-md-4">
-       <!-- <li class="text-center"> -->
           <img src='https://res.cloudinary.com/dscu7dmwa/image/upload/v1544107621/heart.svg' height="42" width="42">
           <br >
         <p><strong>Convivial <br /> et écologique</strong></p>
       </div>
-       <!-- </li> -->
-       <!-- <li class="text-center"> -->
         <div class="col-sm-4 col-md-4">
            <img src='https://res.cloudinary.com/dscu7dmwa/image/upload/v1544107743/euro.svg' height="42" width="42">
           <br >
         <p><strong>Aucune <br /> commission</strong></p>
       </div>
     </div>
-     <!--   </li>
-     </ul> -->
    </div>
  </div>
 
+    <div class="container">
+      <h2 class="text-center">Nos derniers trajets</h2>
+      <br />
+     <div class="row">
+      <% @journeys.last(3).each do |journey| %>
+       <div class="col-xs-12 col-sm-4">
+        <div class="card-home">
+            <div class="card-home-photo" style="background-image:  linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.2)), url(<%= cl_image_path("cbjvnfinwkdbnat2grzq.jpg") %>);">
+            <%= link_to "", journey_path(journey), class: "card-link" %>
+           </div>
+          <div class="card-home-footer">
+            <p><strong><%= journey.activity.name %></strong>  <br /> 📍<%= journey.source_city %> <br /> 🏁<%= journey.destination_city %></p>
+           <div class="card-footer-controls">
+              <img src="https://res.cloudinary.com/dscu7dmwa/image/upload/v1544179254/image_3.png" alt="Avatar" class="avatar-card">
+              <br />
+            <div class="text-center"><strong><font color="#74b49b"><%= journey.price %> € </font></strong>
+            <p><font color="#74b49b">par place</font></p>
+            </div>
+           </div>
+         </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
 
 
+  <div class="picto text-center">
+    <h2 class="text-center">Comment ça marche ?</h2>
+    <br />
+    <br />
+     <div class="row">
+      <div class="col-sm-4 col-md-4">
+          <img src='https://res.cloudinary.com/dscu7dmwa/image/upload/v1544184016/cup.svg' height="60" width="60">
+         <br />
+        <p><strong>Choisis ton activité</strong></p>
+        <p>Choisis le sport que tu veux aller faire <br /> à la date de ton choix</p>
+      </div>
+
+      <div class="col-sm-4 col-md-4">
+          <img src='https://res.cloudinary.com/dscu7dmwa/image/upload/v1544184278/pin.svg' height="60" width="60">
+         <br />
+        <p><strong>Choisis ta destination</strong></p>
+        <p>Laisse-toi guider en regardant tous les trajets <br /> disponibles sur ton activité</p>
+      </div>
+        <div class="col-sm-4 col-md-4">
+           <img src='https://res.cloudinary.com/dscu7dmwa/image/upload/v1544184675/like_1.svg' height="60" width="60">
+          <br />
+        <p><strong>Enjoy</strong></p>
+        <p>Partage ton activité favorite <br /> avec des passionnés, comme toi.</p>
+      </div>
+    </div>
+   </div>
+ </div>
 
 
   <div class="small-banner-home",  style="background-image: linear-gradient(-225deg, rgba(92,141,137,0.15) 10%, rgba(0,36,61,0.6) 100%), url(<%= cl_image_path("dino-reichmuth-115620-unsplash.jpg") %>);">
@@ -78,8 +122,6 @@
       <%= link_to "Proposer un trajet", new_journey_path, class: "btn btn-success" %>
   </div>
 </div>
-
-
 
   <div class="footer">
       <div class="footer-info">

@@ -1,27 +1,53 @@
+<html>
+<body>
+
 <div class="banner-page", style="background-image: url(<%= asset_path 'banner.jpg' %>), linear-gradient(-225deg, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.1) 40%)">
-  <h1>Résultats recherche</h1>
+</div>
+<div class="main-container-index">
+  <div class="left-container-index">
+    <% @journeys.each do |journey|%>
+   <h3 class="text-center">Liste des trajets pour l'activité <%= journey.activity.name %> </h3>
+        <br />
+
+          <div class="card-trajet-index" >
+            <div class="profile text-center">
+              <img src="https://res.cloudinary.com/dscu7dmwa/image/upload/v1544179254/image_3.png" alt="Avatar" class="avatar-index">
+              <h4>Michel</h4>
+            </div>
+            <div class="desc-trip">
+              <h4><%= journey.source_city %> / <%= journey.destination_city %></h4>
+              <p>Le <%= journey.start_time %></p>
+              <!-- <p><%= journey.car_type %></p> -->
+            </div>
+            <div class="offer">
+              <h4><font color="#74b49b"><%= journey.price %> €</font> <font color="#74b49b">/rider </font></h4>
+              <%= link_to "Voir ce trajet", journey_path(journey), class: "btn btn-success" %>
+            </div>
+          </div>
+          <% end %>
+  </div>
+
+
+  <div class="right-container-index">
+    <% if @markers.present? %>
+    <div style = "width: 100%;height: 800px" id="map-index" data-markers=<%= @markers.to_json %> data-mapbox-api-key=<%= ENV["mapboxgl.accessToken"] %>></div>
+    <% end %>
+  </div>
 </div>
 
-<ul class="container">
-  <% @journeys.each do |journey|%>
-  <li class="card-trajet" >
-    <div class="profile" >
-      <h3>Michel</h3>
-      <img src="fakelogo.png" alt="Avatar" class="avatar">
-      <%= link_to "Voir ce trajet", journey_path(journey), class: "btn btn-primary" %>
-    </div>
-    <div class="desc-trip">
-      <h3><%= journey.source_city %> / <%= journey.destination_city %></h3>
-      <p>Le <%= journey.start_time %></p>
-      <p>Activité: <%= journey.activity.name %></p>
-    </div>
-    <div class="offer">
-      <h3><%= journey.price %> € par rider </h3>
-      <p>Voiture: <%= journey.car_type %></p>
-    </div>
-    </br>
-  </li>
-  </br>
-  <% end %>
-</ul>
 
+ <div class="footer">
+      <div class="footer-info">
+        <h4>Eazyride</h4>
+        <p>Eazyride est le site de <strong><font color="#74b49b">covoiturage</font></strong> qui te permet de réaliser ton <br /><strong><font color="#74b49b">activité sportive favorite</font></strong> de manière écologique, économique, <br /> conviviale et sécuritaire.</p>
+      </div>
+        <div class="footer-links text-center">
+          <h4>Rejoignez-nous</h4>
+          <br />
+          <img src="https://res.cloudinary.com/dscu7dmwa/image/upload/v1544115120/instagram.svg" height="50" width="50">
+          <img src="https://res.cloudinary.com/dscu7dmwa/image/upload/v1544115124/facebook.svg" height="50" width="50">
+      </div>
+    </div>
+
+</body>
+</html>

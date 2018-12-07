@@ -18,6 +18,15 @@ class JourneysController < ApplicationController
         journey.start_time.day == search_start_time_mindnight.day && journey.start_time.month == search_start_time_mindnight.month
       end
      end
+
+    @markers = []
+
+    @journeys.each do |journey|
+      results = Geocoder.search(journey.destination_city)
+      @long = results.first.data["lon"]
+      @lata = results.first.data["lat"]
+      @markers << { lat: @lata, lng: @long }
+    end
   end
 
   def new
