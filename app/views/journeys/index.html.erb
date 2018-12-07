@@ -1,41 +1,48 @@
 <div class="banner-page", style="background-image: url(<%= asset_path 'banner.jpg' %>), linear-gradient(-225deg, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.1) 40%)">
   <h1>Résultats recherche</h1>
 </div>
+<div class="main-container">
+  <div class="left-container">
+      <div class="row">
+          <% @journeys.each do |journey|%>
+          <li class="card-trajet" >
+            <div class="profile" >
+              <h3>Michel</h3>
+              <img src="fakelogo.png" alt="Avatar" class="avatar">
+              <%= link_to "Voir ce trajet", journey_path(journey), class: "btn btn-primary" %>
+            </div>
+            <div class="desc-trip">
+              <h3><%= journey.source_city %> / <%= journey.destination_city %></h3>
+              <p>Le <%= journey.start_time %></p>
+              <p>Activité: <%= journey.activity.name %></p>
+            </div>
+            <div class="offer">
+              <h3><%= journey.price %> € par rider </h3>
+              <p>Voiture: <%= journey.car_type %></p>
+            </div>
 
-<ul class="container">
-  <div class="row">
-    <div class="col-xs-6">
-
-      <% @journeys.each do |journey|%>
-      <li class="card-trajet" >
-        <div class="profile" >
-          <h3>Michel</h3>
-          <img src="fakelogo.png" alt="Avatar" class="avatar">
-          <%= link_to "Voir ce trajet", journey_path(journey), class: "btn btn-primary" %>
-        </div>
-        <div class="desc-trip">
-          <h3><%= journey.source_city %> / <%= journey.destination_city %></h3>
-          <p>Le <%= journey.start_time %></p>
-          <p>Activité: <%= journey.activity.name %></p>
-        </div>
-        <div class="offer">
-          <h3><%= journey.price %> € par rider </h3>
-          <p>Voiture: <%= journey.car_type %></p>
-        </div>
-
+            </br>
+          </li>
+      </br>
+      <% end %>
+    </ul>
   </div>
+</div>
 
-        </br>
-      </li>
-  </br>
-  <% end %>
-</ul>
-
-
-
-
-  <div
-    id="map"
-    data-mapbox-api-key="<%= ENV['mapboxgl.accessToken'] %>"
-    </li>
-    ></div>
+<div class="right-container">
+    <div class="container">
+      <div class="row">
+        <div
+          id="map"
+          style="width: 100%;
+          height: 300px;"
+          data-markers="<%#= @markers.to_json %>"
+          data-mapbox-api-key="<%= ENV['mapboxgl.accessToken'] %>"
+          data-orig-lat="<%= @journey_origin_lon %>"
+          data-orig-lon="<%= @journey_origin_lat %>"
+          data-dest-lat="<%= @journey_dest_lon %>"
+          data-dest-lon="<%= @journey_dest_lat %>"
+      ></div>
+    </div>
+  </div>
+</div>
