@@ -1,6 +1,20 @@
-.trajet{
-  display:flex;
+.main-container{
+  display: flex;
+  margin: 20px;
 }
+
+
+.left-container{
+  flex: 0 0 55%;
+}
+
+// #map {
+//   flex: 0 0 450px;
+//   height: 100vh;
+//   top: 0 !important;
+// }
+
+
 
 .city-depart{
   margin: 18px;
@@ -19,7 +33,3 @@
   border: solid 0.5px;
 }
 
-
-.row1{
-  display: flex;
-}
