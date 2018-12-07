@@ -4,7 +4,8 @@
 }
 
 .card-home {
-  display: flex;
+  margin-bottom: 20px;
+  // border: 0.5px solid #000000;
 }
 
 .card-home-photo {
@@ -12,6 +13,8 @@
    background-size: cover;
    color: white;
    position: relative;
+   opacity: 1;
+   transition: .5s ease;
 }
 
 .card-home-title {
@@ -26,17 +29,18 @@
 .card-home-footer {
   display: flex;
   justify-content: space-between;
+  background: white;
   padding: 10px;
-  height: 130px;
+  height: 100px;
   p {
-    color: rgba(0,0,0,0.4);
+    color: rgba(0,0,0,0.8);
     font-size: 16px;
   }
 }
 
-.card-footer-controls {
-  display: flex;
-}
+.card-footer-controls p {
+  font-size: 14px;
+ }
 
 .card-link {
   position: absolute;
@@ -49,13 +53,18 @@
 }
 
 .card-trajet {
-    flex: 1 1 auto;
-    /* margin: 10px; */
-    border-radius: 15px;
-    border: 1px solid #000000;
-    box-shadow: 0 0 5px rgba(0,0,0,0.3);
-    transition: all 0.3s ease;
+  text-decoration: none;
+  display: flex;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 15px;
+  border: 1px solid lightgrey;
+  box-shadow: 0 0 5px lightgrey;
+  transition: all 0.3s ease;
+  justify-content: space-around;
+  align-items: center;
 }
+
 
 .card-trajet-profil {
   display: flex;
@@ -95,4 +104,8 @@
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 }
 
+.profile {
+  flex: 0 0 20%;
+
+}
 
