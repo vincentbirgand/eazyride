@@ -1,24 +1,25 @@
-.main-container{
+.main-container-journey{
   display: flex;
   margin: 20px;
+  .left-container{
+    flex: 0 0 52%;
+    .line-para{
+      margin-bottom: 50px;
+    }
+    .flexed{
+      text-align: center;
+      justify-content: space-between;
+    }
+  }
 }
 
 
-.left-container{
-  flex: 0 0 55%;
-}
 
 // #map {
 //   flex: 0 0 450px;
 //   height: 100vh;
 //   top: 0 !important;
 // }
-
-
-
-.city-depart{
-  margin: 18px;
-}
 
 .true{
   color: green;
@@ -31,5 +32,17 @@
 
 .card-driver{
   border: solid 0.5px;
+  margin-left: 82px;
+  padding: 35px;
+  margin-bottom: 10px;
 }
 
+
+.card-driver p{
+  margin-top: 10px;
+}
+
+
+.cta{
+  margin-top: 15px;
+}

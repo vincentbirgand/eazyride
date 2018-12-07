@@ -1,14 +1,21 @@
-<div class="main-container">
+<div class="container">
+
+<div class="text-center">
+  <h4> <%= @journey.activity.category.upcase %> | <%= @journey.source_city.capitalize %> - <%= @journey.destination_city.capitalize %>  </h4>
+  <!-- <h6> Temps trajet aller - km </h6> -->
+</div>
+
+<div class="main-container-journey">
   <div class="left-container">
-    <div class="text-center">
-      <h4> <%= @journey.activity.category.upcase %> | <%= @journey.source_city.capitalize %> - <%= @journey.destination_city.capitalize %>  </h4>
-      <h6> Temps trajet aller - km </h6>
-    </div>
     <div class="">
       <div class="">
         <h5> <%= @journey.activity.name.capitalize %> à <%= @journey.destination_city.capitalize %> </h5>
         <p> <em><%= @journey.description %></em></p>
-        <div class= "flexed-around">
+
+        <br>
+
+
+        <div class= "flexed-around ">
           <div>
             <p> <strong> Départ </strong> </p>
             <p>  📍<%= @journey.source_city.capitalize %> </p>
@@ -22,65 +29,85 @@
         </div>
       </div>
     </div>
-
+<br>
     <div class="">
-      <div class="list-inline">
+      <div class="flexed">
         <% if @journey.shares_gear == true %>
-          <p class = "true"> <i class="fas fa-check"></i> Je partage mon activité</p>
+          <div class="true">
+            <i class="fas fa-check"></i>
+            <p>Je partage<br>mon activité</p>
+          </div>
         <% else %>
-          <p class = "false"> <i class="fas fa-times"></i> Je partage mon activité </p>
+          <div class="false">
+          <i class="fas fa-times"></i>
+          <p>Je partage<br>mon activité </p>
+          </div>
         <% end %>
 
+        <br>
+        <br>
+
         <% if @journey.lends_gear == true %>
-          <p class = "true"> <i class="fas fa-check"></i> Je prête du matériel </p>
+           <div class="true">
+            <i class="fas fa-check"></i>
+            <p> Je prête<br>du matériel </p>
+            </div>
         <% else %>
-          <p class = "false"> <i class="fas fa-times"></i> Je prête du matériel </p>
+          <div class="false">
+          <i class="fas fa-times"></i>
+          <p> Je prête<br>du matériel </p>
+          </div>
         <% end %>
 
         <% if @journey.accepts_gear == true %>
-          <p class = "true"> <i class="fas fa-check"></i> J'accepte de transporter votre matériel </p>
+          <div class="true">
+          <i class="fas fa-check"></i>
+          <p>J'accepte de<br>transporter votre matériel </p>
+          </div>
         <% else %>
-          <p class = "false"> <i class="fas fa-times"></i> J'accepte de transporter votre matériel </p>
+          <div class="false">
+          <i class="fas fa-times"></i>
+          <p>J'accepte de<br>transporter votre matériel </p>
+          </div>
         <% end %>
       </div>
+    </div>
+
+  <div class="cta text-center">
+    <% if @journey.seat_available > 0 %>
+      <%= link_to "Confirmer ma réservation", new_journey_drivee_path(@journey), class: "btn btn-success" %>
+    <% else %>
+      <%= link_to "Chercher un autre trajet", journey_path(@journey), class: "btn btn-success" %>
+    <% end %>
+    <%#= link_to "Modifier", edit_journey_path(@journey), class: "btn btn-primary" %>
+    <%#= link_to "Supprimer", journey_path(@journey),method: :delete, class: "btn btn-danger" %>
+    <%= link_to "Message",  new_journey_message_path(@journey),method: :get, class: "btn btn-primary" %>
+    <br>
+    <br>
+    <div><%= link_to "Je laisse un commentaire",new_journey_review_path(@journey)  %>
+    </div>
     </div>
   </div>
 
   <div class="right-container">
-    <div class="container">
-      <div class="row">
-        <div
-          id="map"
-          style="width: 100%;
-          height: 300px;"
-          data-markers="<%#= @markers.to_json %>"
-          data-mapbox-api-key="<%= ENV['mapboxgl.accessToken'] %>"
-          data-orig-lat="<%= @journey_origin_lon %>"
-          data-orig-lon="<%= @journey_origin_lat %>"
-          data-dest-lat="<%= @journey_dest_lon %>"
-          data-dest-lon="<%= @journey_dest_lat %>"
-        ></div>
-      </div>
-    </div>
-
-    <div class="container card-driver">
-      <div class="row">
+    <div class="card-driver">
         <div class="flexed">
-          <%= image_tag "fakelogo.png", height: 50, class: "marged-right" %>
-          <p>A propos du driver</p>
+          <%#= cl_image_tag  @journey.user.photo, class: "marged-right" %>
+          <%= image_tag "http://kitt.lewagon.com/placeholder/users/paulinegcn", class: "avatar marged-right" %>
+          <h5>A propos du driver</h5>
         </div>
-      </div>
-      <div class="row">
+
+        <div class="line-para">
         <p><%= @journey.user.description%></p>
-      </div>
-      <hr/>
-      <div class="row">
+        </div>
+
+        <div class="line-para">
         <p><i class="far fa-check-circle"></i> Driver certifié</p>
-      </div>
-      <hr/>
-      <div class="row">
+        </div>
+
+        <div class="line-para">
         <p>Modèle de la voiture : <%= @journey.car_type%></p>
-        <hr/>
+        </div>
         <p>
           <% if @journey.seat_available > 0 %>
             <%= @journey.seat_available %> places disponibles
@@ -89,26 +116,32 @@
           <% end %>
         </p>
         <p><%= @journey.price %> €/personne </p>
-        <hr/>
+
         <% if @journey.seat_available > 0 %>
           <%= simple_form_for [@journey, @drivee] do |f| %>
-            <%= f.submit 'Je réserve' %>
+            <div class= "text-center"><%= f.submit 'Je réserve', class: "btn btn-primary" %></div>
           <% end %>
         <% end %>
       </div>
-      <hr/>
     </div>
-
-    <% if @journey.seat_available > 0 %>
-      <%= link_to "Confirmer ma réservation", new_journey_drivee_path(@journey), class: "btn btn-success" %>
-    <% else %>
-      <%= link_to "Chercher un autre trajet", journey_path(@journey), class: "btn btn-success" %>
-    <% end %>
-    <%= link_to "Modifier", edit_journey_path(@journey), class: "btn btn-primary" %>
-    <%= link_to "Supprimer", journey_path(@journey),method: :delete, class: "btn btn-danger" %>
-    <%= link_to "Message",  new_journey_message_path(@journey),method: :get, class: "btn btn-primary" %>
-    <%= link_to "je laisse un commentaire",new_journey_review_path(@journey)  %>
   </div>
+
+
+  <div class="container">
+    <div class="row">
+      <div
+        id="map"
+        style="width: 100%;
+        height: 600px;"
+        data-markers="<%#= @markers.to_json %>"
+        data-mapbox-api-key="<%= ENV['mapboxgl.accessToken'] %>"
+        data-orig-lon="<%= @journey_origin_lon %>"
+        data-orig-lat="<%= @journey_origin_lat %>"
+        data-dest-lon="<%= @journey_dest_lon %>"
+        data-dest-lat="<%= @journey_dest_lat %>"
+      ></div>
+    </div>
+</div>
 </div>
 
 
