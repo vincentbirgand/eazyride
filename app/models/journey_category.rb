@@ -1,0 +1,2 @@
+class JourneyCategory < ApplicationRecord
+end
