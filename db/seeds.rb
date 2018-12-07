@@ -26,8 +26,6 @@ vincent = User.create!(
   email: "vincent@eazyride.com",
   password: "123456",
   address: "26 rue Edouard Vaillant, 93140 Bondy, France",
-  latitude: "48.8948753",
-  longitude: "2.4891953"
  )
 
  arthur = User.create!(
