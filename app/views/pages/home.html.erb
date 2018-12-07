@@ -71,7 +71,7 @@
       <h2 class="text-center">Nos derniers trajets</h2>
       <br />
      <div class="row">
-      <% @journeys.each do |journey| %>
+      <% @journeys.last(3).each do |journey| %>
        <div class="col-xs-12 col-sm-4">
         <div class="card-home">
             <div class="card-home-photo" style="background-image:  linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.2)), url(<%= cl_image_path("cbjvnfinwkdbnat2grzq.jpg") %>);">
@@ -124,12 +124,5 @@
  </body>
 </html>
 
-
-<div class="view overlay">
-    <img src="https://mdbootstrap.com/img/Photos/Others/forest-sm.jpg" class="img-fluid " alt="smaple image">
-    <div class="mask flex-center rgba-blue-light">
-        <p class="white-text">Light overlay</p>
-    </div>
-</div>
 
 
