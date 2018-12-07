@@ -22,9 +22,10 @@ class JourneysController < ApplicationController
     @markers = []
 
     @journeys.each do |journey|
-      user = journey.user
-      next if user.latitude.nil? || user.longitude.nil?
-      @markers << { lat: user.latitude, lng: user.longitude }
+      results = Geocoder.search(journey.destination_city)
+      @long = results.first.data["lon"]
+      @lata = results.first.data["lat"]
+      @markers << { lat: @lata, lng: @long }
     end
   end
 
