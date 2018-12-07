@@ -1,32 +1,35 @@
 <div class="banner-page", style="background-image: url(<%= asset_path 'banner.jpg' %>), linear-gradient(-225deg, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.1) 40%)">
   <h1>Résultats recherche</h1>
 </div>
+<div class="main-container-index">
+  <div class="left-container-index">
 
-<ul class="container">
-  <% @journeys.each do |journey|%>
-  <li class="card-trajet" >
-    <div class="profile" >
-      <h3>Michel</h3>
-      <img src="fakelogo.png" alt="Avatar" class="avatar">
-      <%= link_to "Voir ce trajet", journey_path(journey), class: "btn btn-primary" %>
-    </div>
-    <div class="desc-trip">
-      <h3><%= journey.source_city %> / <%= journey.destination_city %></h3>
-      <p>Le <%= journey.start_time %></p>
-      <p>Activité: <%= journey.activity.name %></p>
-    </div>
-    <div class="offer">
-      <h3><%= journey.price %> € par rider </h3>
-      <p>Voiture: <%= journey.car_type %></p>
-    </div>
-
-    </br>
-  </li>
-  </br>
-  <% end %>
-  <% if @markers.present? %>
-  <div id="map-index" data-markers=<%= @markers.to_json %> data-mapbox-api-key=<%= ENV["mapboxgl.accessToken"] %> style="width: 100%; height: 400px">
+          <% @journeys.each do |journey|%>
+          <div class="card-trajet" >
+            <div class="profile" >
+              <h3>Michel</h3>
+              <img src="fakelogo.png" alt="Avatar" class="avatar">
+              <%= link_to "Voir ce trajet", journey_path(journey), class: "btn btn-primary" %>
+            </div>
+            <div class="desc-trip">
+              <h3><%= journey.source_city %> / <%= journey.destination_city %></h3>
+              <p>Le <%= journey.start_time %></p>
+              <p>Activité: <%= journey.activity.name %></p>
+            </div>
+            <div class="offer">
+              <h3><%= journey.price %> € par rider </h3>
+              <p>Voiture: <%= journey.car_type %></p>
+            </div>
+          </div>
+          <% end %>
   </div>
-  <% end %>
-</ul>
 
+
+
+
+  <div class="right-container-index">
+    <% if @markers.present? %>
+    <div style = "width: 100%;height: 800px" id="map-index" data-markers=<%= @markers.to_json %> data-mapbox-api-key=<%= ENV["mapboxgl.accessToken"] %>></div>
+    <% end %>
+  </div>
+</div>

@@ -63,6 +63,8 @@
   transition: all 0.3s ease;
   justify-content: space-around;
   align-items: center;
+  margin-bottom: 10px;
+  margin-right: 6px;
 }
 
 
@@ -109,3 +111,10 @@
 
 }
 
+.map {
+
+  flex: 0 0 450px;
+  height: 100vh;
+  position: sticky !important; /* !important to override Gmaps inline CSS */
+  top: 0 !important;
+}
