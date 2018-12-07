@@ -18,6 +18,14 @@ class JourneysController < ApplicationController
         journey.start_time.day == search_start_time_mindnight.day && journey.start_time.month == search_start_time_mindnight.month
       end
      end
+
+    @markers = []
+
+    @journeys.each do |journey|
+      user = journey.user
+      next if user.latitude.nil? || user.longitude.nil?
+      @markers << { lat: user.latitude, lng: user.longitude }
+    end
   end
 
   def new
