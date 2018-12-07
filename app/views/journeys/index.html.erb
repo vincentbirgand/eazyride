@@ -19,9 +19,14 @@
       <h3><%= journey.price %> € par rider </h3>
       <p>Voiture: <%= journey.car_type %></p>
     </div>
+
     </br>
   </li>
   </br>
+  <% end %>
+  <% if @markers.present? %>
+  <div id="map-index" data-markers=<%= @markers.to_json %> data-mapbox-api-key=<%= ENV["mapboxgl.accessToken"] %> style="width: 100%; height: 400px">
+  </div>
   <% end %>
 </ul>
 
