@@ -1,0 +1,27 @@
+.flexed {
+  display: flex;
+  align-items: center;
+}
+
+.flexed-around {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.marged-right {
+  margin-right: 20px;
+}
+
+.marged-left {
+  margin-left: 20px;
+}
+
+.right-container, .left-container{
+  margin-top: 20px;
+}
+
+.line-para{
+  border-bottom: 1px solid grey;
+
+}
