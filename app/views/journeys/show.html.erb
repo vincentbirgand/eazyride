@@ -74,6 +74,16 @@
           </div>
         <% end %>
       </div>
+        <h4>Ils sont aussi du voyage:</h4>
+        <div class="other-riders">
+          <% @journey.drivees.each do |drivee| %>
+          <div class="riders">
+          <img src="https://res.cloudinary.com/dscu7dmwa/image/upload/v1544179254/image_3.png" alt="Avatar" class="avatar">
+            <%#= A mettre photo de chaque user cliquable  %>
+          <p><%= drivee.user.first_name %><%= link_to "Profile", profile_path(drivee.user_id) %></p>
+          </div>
+          <% end %>
+        </div>
     </div>
 
   <div class="cta text-center">
@@ -136,6 +146,7 @@
   </div>
 
 <h5>Itinéaire</h5>
+
 
   <div class="container">
     <div class="row">
