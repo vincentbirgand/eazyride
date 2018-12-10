@@ -36,7 +36,7 @@ class JourneysController < ApplicationController
   end
 
   def show
-    authorize @journey
+
     @journey = Journey.find(params[:id])
     results = Geocoder.search(@journey.source_city)
     @journey_origin_lon = results.first.data["lon"]
@@ -46,6 +46,7 @@ class JourneysController < ApplicationController
     @journey_dest_lat = results.first.data["lat"]
     @distance = Geocoder::Calculations.distance_between([@journey_origin_lat, @journey_origin_lon], [@journey_dest_lat, @journey_dest_lon])
     @drivee = Drivee.new
+    authorize @journey
   end
 
 
@@ -81,7 +82,7 @@ class JourneysController < ApplicationController
   def destroy
     @journey = Journey.find(params[:id])
     @journey.destroy
-    authorize @material
+    authorize @journey
     redirect_to root_path
   end
 

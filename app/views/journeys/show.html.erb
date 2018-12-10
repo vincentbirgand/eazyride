@@ -13,6 +13,7 @@
       <div class="">
         <h5> <%= @journey.activity.name.capitalize %> à <%= @journey.destination_city.capitalize %> </h5>
         <p> <em><%= @journey.description %></em></p>
+        <p><em><%= @distance.round %> Km</em></p>
 
         <br>
 
@@ -81,10 +82,19 @@
     <% else %>
       <%= link_to "Chercher un autre trajet", journey_path(@journey), class: "btn btn-success" %>
     <% end %>
-    <%#= link_to "Modifier", edit_journey_path(@journey), class: "btn btn-primary" %>
+
+    <% if policy(@journey).edit? %>
+    <%= link_to "Modifier", edit_journey_path(@journey), class: "btn btn-primary" %>
+    <% end %>
+
     <%#= link_to "Supprimer", journey_path(@journey),method: :delete, class: "btn btn-danger" %>
     <%= link_to "Message",  new_journey_message_path(@journey),method: :get, class: "btn btn-primary" %>
     <br>
+
+    <% if policy(@journey).destroy? %>
+    <%= link_to "Supprimer", journey_path(@journey),method: :delete, class: "btn btn-danger"%>
+    <% end %>
+
     <br>
     <div><%= link_to "Je laisse un commentaire",new_journey_review_path(@journey)  %>
     </div>
