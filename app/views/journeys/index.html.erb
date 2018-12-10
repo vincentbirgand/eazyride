@@ -2,9 +2,9 @@
 <body>
 
 
-<% @journeys.each do |journey|%>
-  <%= cl_image_tag journey.activity.photo, class:"banner-page" %>
-<% end %>
+
+  <%= cl_image_tag @journeys.first.activity.photo, class:"banner-page" %>
+
 
 <div class="main-container-index">
   <div class="left-container-index">
@@ -12,9 +12,9 @@
 
    <h3 class="text-center">Liste des trajets pour l'activité <%= @journeys.first.activity.name %> </h3>
         <br />
+        <% @journeys.each do |journey|%>
 
 
-    <% @journeys.each do |journey|%>
           <div class="card-trajet-index" >
             <div class="profile text-center">
               <img src="https://res.cloudinary.com/dscu7dmwa/image/upload/v1544179254/image_3.png" alt="Avatar" class="avatar-index">
