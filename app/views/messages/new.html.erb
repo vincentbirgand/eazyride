@@ -1,2 +1,14 @@
 <h1>messages</h1>
 <p>new.html.erb</p>
+
+
+<h1>Contacter le conducteur</h1>
+
+<div class="message-container">
+  <div class="container" style="width: 700px; margin: 0 auto;">
+    <%= simple_form_for @message do |f| %>
+      <%= f.input :content, label: ton message %>
+      <%= f.button :submit, "Envoyer", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>
