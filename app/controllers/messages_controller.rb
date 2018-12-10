@@ -10,11 +10,6 @@ class MessagesController < ApplicationController
     @message = Message.new
     @message.journey = @journey
 
-    ?
-
-    @drivee = Drivee.find(params[:id])
-    @message = Message.new
-    @message.drivee = @message
   end
 
   def show
@@ -30,6 +25,7 @@ class MessagesController < ApplicationController
       redirect_to new_journey_path(@drivee.journey)
     else
       render :new
+    end
   end
 
 
@@ -37,6 +33,7 @@ class MessagesController < ApplicationController
 
   def message_params
     params.require(:message).require(:content, :sender_id, :receiver_id, :drivee_id)
+  end
 
 end
 
