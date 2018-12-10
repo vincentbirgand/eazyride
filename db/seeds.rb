@@ -84,11 +84,11 @@ puts "5 users created"
 
 puts "creating 5 activities"
 
-a1 = Activity.create!(category:'Sport de neige', name:'Ski')
-a2 = Activity.create!(category:'Sport de neige', name:'Snowboard')
-a3 = Activity.create!(category:"Sport d'eau", name:'Surf')
-a4 = Activity.create!(category:"Sport d'eau", name:'Kite-Surf')
-a5 = Activity.create!(category:"Sport de montagne", name:'Escalade')
+a1 = Activity.create!(category:'Sport de neige', name:'Ski', photo: 'https://res.cloudinary.com/dscu7dmwa/image/upload/v1544450679/sport_de_neige.jpg')
+a2 = Activity.create!(category:'Sport de neige', name:'Snowboard', photo: 'https://res.cloudinary.com/dscu7dmwa/image/upload/v1544450679/sport_de_neige.jpg')
+a3 = Activity.create!(category:"Sport d'eau", name:'Surf', photo: 'https://res.cloudinary.com/dscu7dmwa/image/upload/v1544450832/ocean.jpg')
+a4 = Activity.create!(category:"Sport d'eau", name:'Kite-Surf', photo: 'https://res.cloudinary.com/dscu7dmwa/image/upload/v1544450832/ocean.jpg')
+a5 = Activity.create!(category:"Sport de montagne", name:'Escalade', photo: 'https://res.cloudinary.com/dscu7dmwa/image/upload/v1544450900/climbing.jpg')
 
 puts "5 activities created"
 

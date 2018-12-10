@@ -1,8 +1,11 @@
 <html>
 <body>
 
-<div class="banner-page", style="background-image: url(<%= asset_path 'banner.jpg' %>), linear-gradient(-225deg, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.1) 40%)">
-</div>
+<% @journeys.each do |journey|%>
+  <%= cl_image_tag journey.activity.photo, class:"banner-page" %>
+<% end %>
+<!-- <div class="banner-page", style="background-image: url(<%= asset_path 'banner.jpg' %>), linear-gradient(-225deg, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.1) 40%)">
+</div> -->
 <div class="main-container-index">
   <div class="left-container-index">
     <% @journeys.each do |journey|%>
