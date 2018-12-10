@@ -76,7 +76,7 @@ u5_pauline = User.create!(
   email: "pauline@eazyride.com",
   password: "123456",
   address: "1 rue Alphonse Daudet, 75014 Paris, France",
-  # photo: 'https://www.climbing.com/.image/ar_16:9%2Cc_fill%2Ccs_srgb%2Cfl_progressive%2Cg_faces:center%2Cq_auto:good%2Cw_620/MTQ4NTAxMDM1ODA2MTA2NzY1/o4bcgtff7lkuic44pxu4.jpg'
+  # remote_photo_url: 'https://res.cloudinary.com/dscu7dmwa/image/upload/v1544435956/Pauline_Linkedin.jpg'
 )
 # pauline.remote_photo_url = 'https://www.climbing.com/.image/ar_16:9%2Cc_fill%2Ccs_srgb%2Cfl_progressive%2Cg_faces:center%2Cq_auto:good%2Cw_620/MTQ4NTAxMDM1ODA2MTA2NzY1/o4bcgtff7lkuic44pxu4.jpg'
 # pauline.save
@@ -145,9 +145,6 @@ u10_julien = User.create!(
   password: "123456",
   address: "16 villa Gaudelet, 75011 Paris, France"
  )
-
-
-
 
 puts "10 users created"
 
