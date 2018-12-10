@@ -10,11 +10,6 @@ class MessagesController < ApplicationController
     @message = Message.new
     @message.journey = @journey
 
-    ?
-
-    @drivee = Drivee.find(params[:id])
-    @message = Message.new
-    @message.drivee = @message
   end
 
   def show
