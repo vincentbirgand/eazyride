@@ -1,3 +1,6 @@
+<div class="banner-page", style="background-image: url(<%= asset_path 'banner.jpg' %>), linear-gradient(-225deg, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.1) 40%)">
+</div>
+
 <div class="container">
 
 <div class="text-center">
@@ -15,7 +18,7 @@
         <br>
 
 
-        <div class= "flexed-around ">
+        <div class= "flexed-around text-center">
           <div>
             <p> <strong> Départ </strong> </p>
             <p>  📍<%= @journey.source_city.capitalize %> </p>
@@ -74,17 +77,12 @@
     </div>
 
   <div class="cta text-center">
-    <% if @journey.seat_available > 0 %>
-      <%= link_to "Confirmer ma réservation", new_journey_drivee_path(@journey), class: "btn btn-success" %>
-    <% else %>
-      <%= link_to "Chercher un autre trajet", journey_path(@journey), class: "btn btn-success" %>
-    <% end %>
     <%#= link_to "Modifier", edit_journey_path(@journey), class: "btn btn-primary" %>
     <%#= link_to "Supprimer", journey_path(@journey),method: :delete, class: "btn btn-danger" %>
-    <%= link_to "Message",  new_journey_message_path(@journey),method: :get, class: "btn btn-primary" %>
+    <%= link_to "Contacter le conducteur",  new_journey_message_path(@journey),method: :get, class: "btn btn-primary" %>
     <br>
     <br>
-    <div><%= link_to "Je laisse un commentaire",new_journey_review_path(@journey)  %>
+    <div><%= link_to "Laisser un commentaire",new_journey_review_path(@journey)  %>
     </div>
     </div>
   </div>
@@ -92,9 +90,13 @@
   <div class="right-container">
     <div class="card-driver">
         <div class="flexed">
-          <%#= cl_image_tag  @journey.user.photo, class: "marged-right" %>
-          <%= image_tag "http://kitt.lewagon.com/placeholder/users/paulinegcn", class: "avatar marged-right" %>
-          <h5>A propos du driver</h5>
+          <% if @journey.user.photo.present? %>
+            <%#= cl_image_tag  @journey.user.photo, class: "marged-right" %>
+          <% else %>
+            <%#= image_tag "http://kitt.lewagon.com/placeholder/users/paulinegcn", class: "avatar marged-right" %>
+          <% end %>
+
+          <h5>A propos du conducteur</h5>
         </div>
 
         <div class="line-para">
@@ -102,30 +104,38 @@
         </div>
 
         <div class="line-para">
-        <p><i class="far fa-check-circle"></i> Driver certifié</p>
+        <p><i class="far fa-check-circle"></i> Conducteur validé</p>
         </div>
 
         <div class="line-para">
         <p>Modèle de la voiture : <%= @journey.car_type%></p>
         </div>
+
+        <div class="center">
         <p>
           <% if @journey.seat_available > 0 %>
             <%= @journey.seat_available %> places disponibles
+            <p><%= @journey.price %> € par place </p>
           <% else %>
             <p> Désolé, il n'y a plus de place disponible pour ce trajet ! </p>
           <% end %>
         </p>
-        <p><%= @journey.price %> €/personne </p>
+        </div>
 
+        <div class="center">
         <% if @journey.seat_available > 0 %>
           <%= simple_form_for [@journey, @drivee] do |f| %>
-            <div class= "text-center"><%= f.submit 'Je réserve', class: "btn btn-primary" %></div>
-          <% end %>
+            <div class= "text-center"><%= f.submit 'Je réserve', class: "btn btn-success" %></div>
+            <% end %>
+        <% else %>
+            <%= link_to "Chercher un autre trajet", root_path, class: "btn btn-success" %>
         <% end %>
+        </div>
       </div>
     </div>
   </div>
 
+<h5>Itinéaire</h5>
 
   <div class="container">
     <div class="row">
@@ -156,5 +166,4 @@
   data-dest-lat="<%= @journey_dest_lon %>"
   data-dest-lon="<%= @journey_dest_lat %>"
 ></div>
-
 
