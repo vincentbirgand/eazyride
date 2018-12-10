@@ -1,0 +1,5 @@
+meta_product_name: "EAZYRIDE"
+meta_title: "EAZYRIDE - Le site de covoiturage pour les sportifs"
+meta_description: "Eazyride est le site de covoiturage qui te permet de réaliser ton activité sportive favorite de manière écologique, économique,conviviale et sécuritaire."
+meta_image: "cover.png"                       # should exist in `app/assets/images/`
+twitter_account: "@lewagonparis"   # required for Twitter Cards
