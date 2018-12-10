@@ -1,14 +1,16 @@
-<div><h1>Noter</h1></div>
 <p>TO DELETE - Driver :<%= @journey.user.name %></p>
 <p>TO DELETE - Drivees :<%= @journey.users.name %></p>
 
 <div class="page-container">
   <div class="container" style="width: 700px; margin: 0 auto;">
+    <h1>Laisser un avis</h1>
+    <h4>Trajet de <%=@journey.source_city%> à <%=@journey.destination_city%></h4>
+    </br>
     <%= simple_form_for [@journey, @review] do |f| %>
-    <%= f.association :reviewee, collection: User.others_from_the_trip(@journey, current_user) %>
-    <%= f.input :rating %>
-    <%= f.input :description %>
-    <%= f.button :submit, class: "btn-form btn-primary" %>
+    <%= f.association :reviewee, label:"Quel Eazyrider souhaites-tu noter?",  collection: User.others_from_the_trip(@journey, current_user) %>
+    <%= f.input :rating, label: "Ta note (de 1 à 5)"  %>
+    <%= f.input :description, label: "Rédiges-ton message" %>
+    <div class="text-center"> <%= f.button :submit, "C'est fait!", class: "btn-form btn-primary" %></div>
     <% end %>
   </div>
 </div>

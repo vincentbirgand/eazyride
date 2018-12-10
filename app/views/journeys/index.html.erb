@@ -1,15 +1,20 @@
 <html>
 <body>
 
+
 <% @journeys.each do |journey|%>
   <%= cl_image_tag journey.activity.photo, class:"banner-page" %>
 <% end %>
+
 <div class="main-container-index">
   <div class="left-container-index">
-    <% @journeys.each do |journey|%>
-   <h3 class="text-center">Liste des trajets pour l'activité <%= journey.activity.name %> </h3>
+
+
+   <h3 class="text-center">Liste des trajets pour l'activité <%= @journeys.first.activity.name %> </h3>
         <br />
 
+
+    <% @journeys.each do |journey|%>
           <div class="card-trajet-index" >
             <div class="profile text-center">
               <img src="https://res.cloudinary.com/dscu7dmwa/image/upload/v1544179254/image_3.png" alt="Avatar" class="avatar-index">
@@ -17,15 +22,16 @@
             </div>
             <div class="desc-trip">
               <h4><%= journey.source_city %> / <%= journey.destination_city %></h4>
-              <p>Le <%= journey.start_time %></p>
+              <p><%= journey.formated_time %></p>
               <!-- <p><%= journey.car_type %></p> -->
             </div>
             <div class="offer">
               <h4><font color="#74b49b"><%= journey.price %> €</font> <font color="#74b49b">/rider </font></h4>
+              <p><%= journey.seat_available %> places restantes </p>
               <%= link_to "Voir ce trajet", journey_path(journey), class: "btn btn-success" %>
             </div>
           </div>
-          <% end %>
+      <% end %>
   </div>
 
 
@@ -36,19 +42,6 @@
   </div>
 </div>
 
-
- <div class="footer">
-      <div class="footer-info">
-        <h4>Eazyride</h4>
-        <p>Eazyride est le site de <strong><font color="#74b49b">covoiturage</font></strong> qui te permet de réaliser ton <br /><strong><font color="#74b49b">activité sportive favorite</font></strong> de manière écologique, économique, <br /> conviviale et sécuritaire.</p>
-      </div>
-        <div class="footer-links text-center">
-          <h4>Rejoignez-nous</h4>
-          <br />
-          <img src="https://res.cloudinary.com/dscu7dmwa/image/upload/v1544115120/instagram.svg" height="50" width="50">
-          <img src="https://res.cloudinary.com/dscu7dmwa/image/upload/v1544115124/facebook.svg" height="50" width="50">
-      </div>
-    </div>
 
 </body>
 </html>
