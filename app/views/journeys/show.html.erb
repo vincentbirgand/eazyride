@@ -1,5 +1,6 @@
 <%= cl_image_tag @journey.activity.photo, class:"banner-page" %>
 
+
 <div class="container">
 
 <div class="text-center">
@@ -18,7 +19,7 @@
         <br>
 
 
-        <div class= "flexed-around ">
+        <div class= "flexed-around text-center">
           <div>
             <p> <strong> Départ </strong> </p>
             <p>  📍<%= @journey.source_city.capitalize %> </p>
@@ -73,7 +74,39 @@
           <p>J'accepte de<br>transporter votre matériel </p>
           </div>
         <% end %>
+        </div>
+
+        <div class="center">
+        <p>
+          <% if @journey.seat_available > 0 %>
+            <%= @journey.seat_available %> places disponibles
+            <p><%= @journey.price %> € par place </p>
+          <% else %>
+            <p> Désolé, il n'y a plus de place disponible pour ce trajet ! </p>
+          <% end %>
+        </p>
+
+        <div class="">
+        <% if @journey.seat_available > 0 %>
+          <%= simple_form_for [@journey, @drivee] do |f| %>
+            <div class= "text-center"><%= f.submit 'Je réserve', class: "btn btn-success" %></div>
+            <% end %>
+        <% else %>
+            <%= link_to "Chercher un autre trajet", root_path, class: "btn btn-success" %>
+        <% end %>
+        </div>
+
       </div>
+        <h4>Ils sont aussi du voyage:</h4>
+        <div class="other-riders">
+          <% @journey.drivees.each do |drivee| %>
+          <div class="riders">
+          <img src="https://res.cloudinary.com/dscu7dmwa/image/upload/v1544179254/image_3.png" alt="Avatar" class="avatar">
+            <%#= A mettre photo de chaque user cliquable  %>
+          <p><%= drivee.user.first_name %><%= link_to "Profile", profile_path(drivee.user_id) %></p>
+          </div>
+          <% end %>
+        </div>
     </div>
 
   <div class="cta text-center">
@@ -92,8 +125,12 @@
     <% end %>
 
       <%= link_to "Message",  new_journey_message_path(@journey),method: :get, class: "btn btn-primary" %>
+
+    <%= link_to "Contacter le conducteur",  new_journey_message_path(@journey),method: :get, class: "btn btn-primary" %>
     <br>
-    <div><%= link_to "Je laisse un commentaire",new_journey_review_path(@journey)  %>
+
+    <br>
+    <div><%= link_to "Laisser un commentaire",new_journey_review_path(@journey)  %>
     </div>
     </div>
   </div>
@@ -101,39 +138,36 @@
   <div class="right-container">
     <div class="card-driver">
         <div class="flexed">
-          <%#= cl_image_tag  @journey.user.photo, class: "marged-right" %>
-          <%= image_tag "http://kitt.lewagon.com/placeholder/users/paulinegcn", class: "avatar marged-right" %>
-          <h5>A propos du driver</h5>
+          <% if @journey.user.photo.present? %>
+            <%= cl_image_tag  @journey.user.photo, class: "marged-right" %>
+          <% else %>
+            <%= cl_image_tag 'https://res.cloudinary.com/dscu7dmwa/image/upload/v1544458825/speech-bubbles.png', class: "avatar marged-right" %>
+          <% end %>
+
+          <h5>A propos du conducteur</h5>
         </div>
 
         <div class="line-para">
         <p><%= @journey.user.description%></p>
         </div>
 
-        <div class="line-para">
-        <p><i class="far fa-check-circle"></i> Driver certifié</p>
-        </div>
+        <p><%#= @journey.reviews%></p>
 
         <div class="line-para">
+        <p><i class="far fa-check-circle"></i> Conducteur validé</p>
+        </div>
+
+        <div class="">
         <p>Modèle de la voiture : <%= @journey.car_type%></p>
         </div>
-        <p>
-          <% if @journey.seat_available > 0 %>
-            <%= @journey.seat_available %> places disponibles
-          <% else %>
-            <p> Désolé, il n'y a plus de place disponible pour ce trajet ! </p>
-          <% end %>
-        </p>
-        <p><%= @journey.price %> €/personne </p>
 
-        <% if @journey.seat_available > 0 %>
-          <%= simple_form_for [@journey, @drivee] do |f| %>
-            <div class= "text-center"><%= f.submit 'Je réserve', class: "btn btn-primary" %></div>
-          <% end %>
-        <% end %>
+
+
       </div>
     </div>
   </div>
+
+<h5>Itinéaire</h5>
 
 
   <div class="container">
@@ -165,5 +199,4 @@
   data-dest-lat="<%= @journey_dest_lon %>"
   data-dest-lon="<%= @journey_dest_lat %>"
 ></div>
-
 

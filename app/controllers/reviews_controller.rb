@@ -3,7 +3,7 @@ class ReviewsController < ApplicationController
     @reviews = Review.all
   end
 
-   def show
+  def show
     @review = Review.find(params[:id])
   end
 
@@ -30,5 +30,4 @@ class ReviewsController < ApplicationController
   def review_params
     params.require(:review).permit(:id, :rating, :description, :journey_id, :reviewee_id)
   end
-
 end
