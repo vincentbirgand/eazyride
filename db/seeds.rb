@@ -26,6 +26,7 @@ vincent = User.create!(
   email: "vincent@eazyride.com",
   password: "123456",
   address: "26 rue Edouard Vaillant, 93140 Bondy, France",
+  photo: "https://res.cloudinary.com/dscu7dmwa/image/upload/v1544179254/image_3.png"
  )
 
  arthur = User.create!(
@@ -38,7 +39,8 @@ vincent = User.create!(
   verified: true,
   email: "arthur@eazyride.com",
   password: "123456",
-  address: "3 rue de la Pompe, 75016 Paris, France"
+  address: "3 rue de la Pompe, 75016 Paris, France",
+  photo: "https://res.cloudinary.com/dscu7dmwa/image/upload/v1544179254/image_3.png"
 )
 
 martin = User.create!(
@@ -51,7 +53,8 @@ martin = User.create!(
   verified: true,
   email: "martin@eazyride.com",
   password: "123456",
-  address: "6 rue Euryale Dehaynin, 75019 Paris, France"
+  address: "6 rue Euryale Dehaynin, 75019 Paris, France",
+  photo: "https://res.cloudinary.com/dscu7dmwa/image/upload/v1544179254/image_3.png"
 )
 thibaut = User.create!(
   first_name: "Thibaut",
@@ -63,7 +66,8 @@ thibaut = User.create!(
   verified: true,
   email: "thibault@eazyride.com",
   password: "123456",
-  address: "16 villa Gaudelet, 75011 Paris, France"
+  address: "16 villa Gaudelet, 75011 Paris, France",
+  photo: "https://res.cloudinary.com/dscu7dmwa/image/upload/v1544179254/image_3.png"
 )
 pauline = User.create!(
   first_name: "Pauline",
@@ -76,7 +80,7 @@ pauline = User.create!(
   email: "pauline@eazyride.com",
   password: "123456",
   address: "1 rue Alphonse Daudet, 75014 Paris, France",
-  # photo: 'https://www.climbing.com/.image/ar_16:9%2Cc_fill%2Ccs_srgb%2Cfl_progressive%2Cg_faces:center%2Cq_auto:good%2Cw_620/MTQ4NTAxMDM1ODA2MTA2NzY1/o4bcgtff7lkuic44pxu4.jpg'
+  photo: "https://res.cloudinary.com/dscu7dmwa/image/upload/v1544179254/image_3.png"
 )
 # pauline.remote_photo_url = 'https://www.climbing.com/.image/ar_16:9%2Cc_fill%2Ccs_srgb%2Cfl_progressive%2Cg_faces:center%2Cq_auto:good%2Cw_620/MTQ4NTAxMDM1ODA2MTA2NzY1/o4bcgtff7lkuic44pxu4.jpg'
 pauline.save

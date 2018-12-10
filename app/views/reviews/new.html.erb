@@ -4,6 +4,7 @@
 <div class="page-container">
   <div class="container" style="width: 700px; margin: 0 auto;">
     <h1>Laisser un avis</h1>
+    <h4>Trajet de <%=@journey.source_city%> à <%=@journey.destination_city%></h4>
     </br>
     <%= simple_form_for [@journey, @review] do |f| %>
     <%= f.association :reviewee, label:"Quel Eazyrider souhaites-tu noter?",  collection: User.others_from_the_trip(@journey, current_user) %>
