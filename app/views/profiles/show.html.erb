@@ -1,28 +1,28 @@
-<h6>Show profile. Je peux consulter le profil d'un utilisateur</h6>
-
-
-<div class="container">
+<div class="container-profile">
   <div class="text-center">
       <img src="https://res.cloudinary.com/dscu7dmwa/image/upload/v1544179254/image_3.png" alt="Avatar" class="avatar-profile">
     <h2><%= @user.first_name %></h2>
   </div>
-  </br>
+</br>
+  <div class="text-align" >
     <p><%= @user.description %></p>
     <p><i class="far fa-envelope"></i> <%= @user.email %></p>
     <p><i class="fas fa-phone"></i> <%= @user.phone %></p>
     <p><i class="fas fa-map-marker-alt"></i> <%= @user.address %></p>
     <p>Note globale: <%= @user.average_rating %>/5 - <%= @user.amount_rating %> avis</p>
     <br>
+  </div>
      <h4>Reviews:</h4>
-    <ul>
      <% @user.reviews.each do |review| %>
-      <li>
         <p>De: <%= review.reviewer.first_name %></p>
         <p>Note: <%= review.rating %>/5</p>
         <p>Commentaire: <%= review.description %></p>
-     </li>
+     </br>
      <% end%>
-     </ul>
+  <div class="text-center"><%= link_to "Contactez-le!", edit_profile_path(@user), class: "btn btn-success" %></div>
+  </br>
 </div>
+
+
 
 <%= link_to "Update my profile",  edit_profile_path(@user) %>
