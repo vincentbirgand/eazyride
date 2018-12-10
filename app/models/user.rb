@@ -27,4 +27,17 @@ class User < ApplicationRecord
     journeys_reviews_users = journeys_reviews.map{ |r| r.reviewee }
     all_riders_without_current_user_no_reviews = all_riders_without_current_user.reject{ |u| journeys_reviews_users.include?(journeys_reviews_users) }
   end
+
+  def average_rating
+    reviews_done = []
+    self.reviews.each do |review|
+      reviews_done << review.rating
+    end
+    average = reviews_done.inject{ |sum, el| sum + el }.to_f / reviews_done.size
+    average.round(1)
+  end
+
+  def amount_rating
+    self.reviews.count
+  end
 end
