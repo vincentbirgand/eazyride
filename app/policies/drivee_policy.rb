@@ -5,9 +5,9 @@ class DriveePolicy < ApplicationPolicy
     end
   end
   def new?
-    return true
+    create?
   end
   def create?
-    return true
+    record.journey.user != user
   end
 end

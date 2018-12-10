@@ -13,7 +13,8 @@ class DriveesController < ApplicationController
     @drivee.save
     @journey.seat_available -= 1
     @journey.save
-    redirect_to journey_path(@journey)
     authorize @drivee
+    redirect_to journey_path(@journey)
+
   end
 end
