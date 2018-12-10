@@ -3,6 +3,7 @@ class DriveesController < ApplicationController
     @journey = Journey.find(params[:journey_id])
     @drivee = Drivee.new
     @drivee.journey = @journey
+    authorize @drivee
   end
 
   def create
@@ -13,5 +14,6 @@ class DriveesController < ApplicationController
     @journey.seat_available -= 1
     @journey.save
     redirect_to journey_path(@journey)
+    authorize @drivee
   end
 end

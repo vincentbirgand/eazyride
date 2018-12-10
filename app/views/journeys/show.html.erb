@@ -84,17 +84,14 @@
     <% end %>
 
     <% if policy(@journey).edit? %>
-    <%= link_to "Modifier", edit_journey_path(@journey), class: "btn btn-primary" %>
+      <%= link_to "Modifier", edit_journey_path(@journey), class: "btn btn-primary" %>
     <% end %>
-
-    <%#= link_to "Supprimer", journey_path(@journey),method: :delete, class: "btn btn-danger" %>
-    <%= link_to "Message",  new_journey_message_path(@journey),method: :get, class: "btn btn-primary" %>
-    <br>
 
     <% if policy(@journey).destroy? %>
-    <%= link_to "Supprimer", journey_path(@journey),method: :delete, class: "btn btn-danger"%>
+      <%= link_to "Supprimer", journey_path(@journey),method: :delete, class: "btn btn-danger"%>
     <% end %>
 
+      <%= link_to "Message",  new_journey_message_path(@journey),method: :get, class: "btn btn-primary" %>
     <br>
     <div><%= link_to "Je laisse un commentaire",new_journey_review_path(@journey)  %>
     </div>
