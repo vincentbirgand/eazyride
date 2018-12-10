@@ -25,7 +25,7 @@
 
 
 .true{
-  color: green;
+  color: $my-green;
 }
 
 .false{
@@ -33,7 +33,7 @@
 }
 
 .card-driver{
-  border: solid 0.5px #6FBB8C;
+  border: solid 0.5px $my-green;
   margin-left: 82px;
   padding: 35px;
   margin-bottom: 10px;
