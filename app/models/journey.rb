@@ -11,7 +11,7 @@ class Journey < ApplicationRecord
   has_many :categories, through: :journey_categories
 
 
-  def seat_availability
-    # capacity - drivees.count
+  def formated_time
+    start_time.strftime("%b %d, %Y, %H, %M") if start_time
   end
 end
