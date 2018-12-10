@@ -22,7 +22,7 @@
         <%= simple_form_for Journey.new, url: journeys_path, method: :get do |f| %>
         <%= f.input :activity_id, collection: Activity.all, prompt: "Choisis ton activité ", label: false %>
         <%= f.input :source_city, placeholder: "Ville de départ", label: false %>
-        <%= f.input :destination_city, placeholder: "Ville d'arrivée", label: false %>
+        <%= f.input :destination_city, placeholder: "Ville d'arrivée", label: false, input_html: { title:  "Vous ne savez pas où aller ? Chercher partout", class: 'btn btn-default', data: {toggle: "tooltip", placement: "bottom", trigger: "click"}} %>
         <div class="form-group string optional search_starts_time">
               <!-- <label class="form-control-label string optional" for="search_starts_time" >Starts time</label> -->
               <input class="form-control string optional datepicker flatpickr-input" type="text" name="journey[start_time]" id="search_starts_time" readonly="readonly" placeholder="Date">
@@ -36,6 +36,9 @@
    </div>
   </div>
 </header>
+
+
+<!-- <button type="button" class="btn btn-default" data-toggle="tooltip" data-placement="bottom" title="Tooltip on bottom">Tooltip on bottom</button> -->
 
     <div class="icone text-center">
      <div class="row">

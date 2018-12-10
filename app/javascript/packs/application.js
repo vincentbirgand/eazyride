@@ -8,3 +8,5 @@ import { initMapbox, initMapboxIndex } from '../plugins/init_mapbox';
 initMapbox();
 initMapboxIndex();
 initAutocomplete();
+
+$('[data-toggle="tooltip"]').tooltip()
