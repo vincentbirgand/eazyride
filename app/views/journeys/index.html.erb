@@ -24,6 +24,7 @@
             </div>
             <div class="offer">
               <h4><font color="#74b49b"><%= journey.price %> €</font> <font color="#74b49b">/rider </font></h4>
+              <p><%= journey.seat_available %> places restantes </p>
               <%= link_to "Voir ce trajet", journey_path(journey), class: "btn btn-success" %>
             </div>
           </div>
