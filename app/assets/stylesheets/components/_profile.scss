@@ -9,13 +9,18 @@ justify-content: space-around;
 
 .container-profile {
   max-width: 700px;
-  margin: 50px auto;
+  margin: 35px auto;
   background-color: white;
-  padding: 15px;
+  padding: 45px;
   border-radius: 15px;
-
+  background-color: #f8f8f8;
 }
 
-h2.container-profile {
-  color: red;
+.container-profile h2 {
+  color: #569F83;
+;
+}
+
+.checked {
+  color: #569F83;
 }

@@ -1,11 +1,17 @@
-<%= simple_form_for @user, url: profile_path(@user) do |f| %>
-    <%= f.input :first_name %>
-    <%= f.input :last_name %>
+<div class="page-container">
+  <div class="container" style="width: 700px; margin: 0 auto;">
+    <h1>Modifier mon profil</h1>
+    <%= simple_form_for @user, url: profile_path(@user) do |f| %>
+    <%= f.input :first_name, label:"Prénom" %>
+    <%= f.input :last_name, label:"Nom" %>
     <%= f.input :description %>
-    <%= f.input :email %>
-    <%= f.input :phone %>
-    <%= f.input :gender %>
-    <%= f.input :address %>
-    <%= f.input :photo %>
-    <%= f.submit "Update my profile", class: 'btn btn-primary' %>
+    <%= f.input :email, label:"Email" %>
+    <%= f.input :phone, label:"Téléphone" %>
+    <%= f.input :gender, label:"Sexe" %>
+    <%= f.input :address, label:"Adresse" %>
+    <%= f.input :photo, label:"Photo" %>
+    <div class="text-center"><%= f.submit "C'est fait!", class: 'btn btn-success' %></div>
+  </br>
 <% end %>
+</div>
+</div>
