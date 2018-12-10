@@ -15,7 +15,6 @@
 }
 
 
-
 // #map {
 //   flex: 0 0 450px;
 //   height: 100vh;
@@ -26,16 +25,15 @@
 
 
 .true{
-  color: green;
+  color: $my-green;
 }
 
 .false{
   color: grey;
 }
 
-
 .card-driver{
-  border: solid 0.5px;
+  border: solid 0.5px $my-green;
   margin-left: 82px;
   padding: 35px;
   margin-bottom: 10px;
