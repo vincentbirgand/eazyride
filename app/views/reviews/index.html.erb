@@ -1,8 +1,9 @@
 <%@reviews.each do |review| %>
+<p>Trip: <%=review.journey.source_city%> à <%=review.journey.destination_city%></p>
 <p>Rating: <%=review.rating%></p>
+<p>Reviewee: <%=review.reviewee.name%></p>
+<p>Reviewer: <%=review.reviewer.name%></p>
 <p>Desc: <%=review.description%></p>
-<p>Reviewee.id: <%=review.reviewee_id%></p>
-<p>Reviewer.id: <%=review.reviewer_id%></p>
 <p>Journey.id: <%=review.journey_id%></p>
 </br>
 <% end %>
