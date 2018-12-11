@@ -1,6 +1,6 @@
 <div class="container-profile">
   <div class="text-center">
-    <%= cl_image_tag  @user.photo, class: "avatar-profile", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
+    <%= cl_image_tag  @user.photo, class: "avatar-profile"%>
     <h2><%= @user.first_name %></h2>
   </div>
 </br>
@@ -14,17 +14,23 @@
   </div>
 
   <% if @user.reviews.present? %>
-     <h4>Avis:</h4>
-     <% @user.reviews.each do |review| %>
-        <p style="font-size: 17px">De: <%= review.reviewer.first_name %></p>
+    <h4>Avis reçus:</h4>
+    <% @user.reviews.each do |review| %>
+    <div class="reviews" style="display: flex">
+      <div class="review-profile" style="margin-right: 20px">
+        <%= cl_image_tag  review.reviewer.photo, class: "avatar" %>
+          <p style="font-size: 13px ; text-align: center"><%= review.reviewer.first_name %></p>
+      </div>
+      <div class="review-comment">
         <% review.rating.to_i.times do %><span class="fa fa-star checked"></span>
         <% end %>
         <% stars = review.rating.to_i%>
         <% stars_new = 5 - stars %>
         <% stars_new.times do%><span class="fa fa-star"></span>
         <% end %>
-
-        <p style="font-size: 15px">Commentaire: <%= review.description %></p>
+          <p style="font-size: 15px"><%= review.description %></p>
+      </div>
+    </div>
 
      </br>
      <% end%>
@@ -38,9 +44,9 @@
    <div class="text-center"><%= link_to "Modifier mon profil", edit_profile_path(@user), class: "btn btn-success" %></div>
   </div>
 <% end %>
-<div class="text-center"><%= link_to "Précédent", :back, class: "btn btn-success" %></div>
-  </br>
 
 </div>
+<div class="text-center"><%= link_to "Précédent", :back, class: "btn btn-light" %></div>
+</br>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">

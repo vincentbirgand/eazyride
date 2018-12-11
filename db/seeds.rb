@@ -251,9 +251,9 @@ j2.save!
 j3 = Journey.new(
   car_type: "Volkswagen Polo",
   seat_available: 2,
-  description: "Hello, je proppose un voyage Lyon à la Station de Savoie Grand Revard, n'hésitez pas à me PM pour plus d'infos. A toute!",
+  description: "Hello, je proppose un voyage Lyon à la'Alpe d'Huez, n'hésitez pas à me PM pour plus d'infos. A toute!",
   source_city: "Lyon",
-  destination_city: "Station de Savoie Grand Revard",
+  destination_city: "Alpe d'Huez",
   price: 40,
   accepts_gear: true,
   shares_gear: false,
