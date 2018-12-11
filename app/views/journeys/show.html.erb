@@ -23,12 +23,12 @@
           <div>
             <p> <strong> Départ </strong> </p>
             <p>  📍<%= @journey.source_city.capitalize %> </p>
-            <p>  🗓<%= @journey.start_time %> </p>
+            <p>  🗓<%= @journey.formated_time %> </p>
           </div>
           <div>
             <p> <strong> Arrivée </strong> </p>
             <p>  📍<%= @journey.destination_city.capitalize %> </p>
-            <p>  🗓<%= @journey.end_time %> </p>
+            <p>  🗓<%= @journey.formated_end_time %> </p>
           </div>
         </div>
       </div>
