@@ -8,7 +8,7 @@ class JourneysController < ApplicationController
      if params[:journey][:activity_id].present?
        @journeys = @journeys.where(activity_id: params[:journey][:activity_id])
      end
-     if params[:journey][:destination_city].present? && params[:journey][:destination_city] != 'PARTOUT'
+     if params[:journey][:destination_city].present? && params[:journey][:destination_city].downcase != 'partout'
       @journeys = @journeys.where("destination_city ILIKE ?", "%#{params[:journey][:destination_city]}%")
      end
      if params[:journey][:start_time].present?
