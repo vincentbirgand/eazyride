@@ -87,7 +87,7 @@
         </p>
 
         <div class="">
-        <% if @journey.seat_available > 0 %>
+        <% if @journey.seat_available > 0 && @journey.user != current_user %>
           <%= simple_form_for [@journey, @drivee] do |f| %>
             <div class= "text-center"><%= f.submit 'Je réserve', class: "btn btn-success" %></div>
             <% end %>
@@ -110,7 +110,7 @@
     </div>
 
   <div class="cta text-center">
-    <% if @journey.seat_available > 0 %>
+    <% if @journey.seat_available > 0 && @journey.user != current_user %>
       <%= link_to "Confirmer ma réservation", new_journey_drivee_path(@journey), class: "btn btn-success" %>
     <% else %>
       <%= link_to "Chercher un autre trajet", journey_path(@journey), class: "btn btn-success" %>

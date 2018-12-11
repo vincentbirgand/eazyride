@@ -1,16 +1,20 @@
 class ReviewsController < ApplicationController
   def index
     @reviews = Review.all
+    authorize @review
+    @material_reviews = policy_scope(material_review)
   end
 
   def show
     @review = Review.find(params[:id])
+    authorize @review
   end
 
   def new
     @journey = Journey.find(params[:journey_id])
     @review = Review.new
     # @review.journey = @journey
+    authorize @review
   end
 
   def create
@@ -18,6 +22,7 @@ class ReviewsController < ApplicationController
     @review = Review.new(review_params)
     @review.journey = @journey
     @review.reviewer = current_user
+    authorize @review
     if @review.save
       redirect_to journey_path(@journey)
     else
