@@ -102,7 +102,7 @@
           <% @journey.drivees.each do |drivee| %>
           <div class="riders">
           <%= link_to profile_path(drivee.user_id) do %>
-            <%= image_tag "https://res.cloudinary.com/dscu7dmwa/image/upload/v1544179254/image_3.png", class: "avatar", height: 50 %>
+            <%= cl_image_tag  drivee.user.photo, class: "avatar marged-right" %>
           <% end %>
             <%#= A mettre photo de chaque user cliquable  %>
           <h6><%= drivee.user.first_name %></h6>
