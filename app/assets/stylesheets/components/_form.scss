@@ -1,3 +1,15 @@
+// .container-form {
+//   background: white;
+//   border: black 1px solid;
+//   margin-right: 50px;
+//   margin-left: 50px;
+// }
+
+// .row-form {
+//   padding-bottom: 25px;
+//   padding-top: 25px;
+// }
+
 .form-inline {
   display: inline-block;
   align-item: center;
@@ -38,11 +50,12 @@
 form {
     display: block;
     margin-top: 0em;
-    padding-bottom: 25px;
+    padding-bottom: 50px;
     padding-top: 25px;
 }
 
 .form-group-choice {
+  // background: #fff;
   display: block;
   width: auto;
 }
@@ -51,15 +64,17 @@ form {
   display: flex;
   justify-content: space-around;
     label {
-     font-size: 14px;
+     font-size: 15px;
+     // opacity: .4;
   }
 }
 
 .form-choice {
+  background: #fff;
+  color: #A9A9A9;
   padding: 20px;
   border-radius: 5px;
   border: 0.5px solid;
-  opacity: .4;
   flex: 0 0 30%;
   text-align: center;
   &:hover {
@@ -94,12 +109,8 @@ form {
 
 }
 
-// .list-inline > li {
-//   display: inline-block;
-//   padding: 0px 20px;
-// }
-
 .text-center {
   text-align: center;
 }
+
 
