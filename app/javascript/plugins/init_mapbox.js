@@ -108,31 +108,34 @@ const initMapboxIndex = () => {
     map.fitBounds(bounds, { padding: 70, maxZoom: 15 });
   };
 
+  const listenMouseMouve = (map, markerElement, popup, marker) => {
+    map.on('mousemove', (e) => {
+      // console.log(e);
+      // console.log(e.originalEvent.path[4]);
+      // console.log(markerElement);
+      // console.log(e.originalEvent.path[4] == markerElement);
+      if (e.originalEvent.path[4] == markerElement) {
+        popup.setLngLat([ marker.lng, marker.lat ])
+             .addTo(map);
+      } else {
+        popup.remove();
+      }
+    });
+  }
+
   const addMarkersToMap = (map, markers) => {
     markers.forEach((marker) => {
-      const popup = new mapboxgl.Popup().setHTML(marker.infoWindow);
+      const popup = new mapboxgl.Popup({
+        closeButton: false,
+        closeOnClick: false
+      }).setHTML(marker.infoWindow);
 
       const newMarker = new mapboxgl.Marker()
         .setLngLat([ marker.lng, marker.lat ])
-        .setPopup(popup)
         .addTo(map)
 
-      // const newMarkerHtmlElement = newMarker.getElement();
-      // // var myLayer = L.mapbox.featureLayer().addTo(map);
-      // const showPopUp = (event) => {
-      //   // map.getCanvas().style.cursor = 'pointer';
-      //   console.log('show');
-      //   popup.setLngLat([ marker.lng, marker.lat ])
-      //        .addTo(map);
-      // }
-      // const hidePopUp = (event) => {
-      //   console.log('hide');
-      //   // map.getCanvas().style.cursor = '';
-      //   popup.remove();
-      // }
-
-      // newMarkerHtmlElement.addEventListener('mouseenter', showPopUp);
-      // newMarkerHtmlElement.addEventListener('mouseleave', hidePopUp);
+      const newMarkerHtmlElement = newMarker.getElement();
+      listenMouseMouve(map, newMarkerHtmlElement, popup, marker);
     });
   }
 
