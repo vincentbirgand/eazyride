@@ -38,31 +38,3 @@
   text-align: center;
 }
 
-.form-group {
-  display: block;
-  margin-top: 0em;
-  .btn {
-    width: 100%;
-    padding: 10px;
-    font-weight: bold;
-  }
-}
-
-.form-check {
-  display: flex;
-  justify-content: space-between;
-  margin: 20px 0;
-  border-radius: 5px;
-  opacity: 0.4;
-  text-align: center;
-  &:hover {
-    opacity: 1;
-    cursor: pointer;
-  }
-  &.active {
-  background: #74b49b;
-  color: white;
-  opacity: 1;
-  }
-}
-

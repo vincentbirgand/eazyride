@@ -25,9 +25,58 @@
 }
 
 
+.form-group {
+  display: block;
+  margin-top: 0em;
+  .btn {
+    width: 100%;
+    // padding: 10px;
+    font-weight: bold;
+  }
+}
+
+form {
+    display: block;
+    margin-top: 0em;
+    padding-bottom: 25px;
+    padding-top: 25px;
+}
+
+.form-group-choice {
+  display: block;
+  width: auto;
+}
+
+.form-check {
+  display: flex;
+  justify-content: space-around;
+    label {
+     font-size: 14px;
+  }
+}
+
+.form-choice {
+  padding: 20px;
+  border-radius: 5px;
+  border: 0.5px solid;
+  opacity: .4;
+  flex: 0 0 30%;
+  text-align: center;
+  &:hover {
+    cursor: pointer;
+  }
+  &.active {
+  background: $brand-success;
+  color: white;
+  opacity: 1;
+  }
+}
+
+
+
 .icone {
-  padding-top: 30px;
-  padding-bottom: 30px;
+  padding-top: 20px;
+  padding-bottom: 40px;
   background: white;
 }
 
