@@ -11,9 +11,8 @@
 // }
 
 .form-inline {
-  display: inline-block;
-  align-item: center;
-  text-center: center;
+  display: flex;
+  justify-content: center;
 }
 
 #journey {
@@ -113,4 +112,6 @@ form {
   text-align: center;
 }
 
-
+.form-control[readonly] {
+  background-color: white;
+}

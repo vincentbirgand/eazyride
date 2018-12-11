@@ -1,11 +1,12 @@
 .container {
-  max-width: 1000px;
+  // max-width: 1000px;
   margin: 50px auto;
 }
 
 .card-home {
   margin-bottom: 20px;
-  // border: 0.5px solid #000000;
+  border-radius: 5px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
 }
 
 .card-home-photo {
@@ -31,7 +32,7 @@
   justify-content: space-between;
   background: white;
   padding: 10px;
-  height: 100px;
+  height: 110px;
   p {
     color: rgba(0,0,0,0.8);
     font-size: 16px;
