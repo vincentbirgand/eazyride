@@ -1,6 +1,6 @@
 <div class="container-profile">
   <div class="text-center">
-      <img src="https://res.cloudinary.com/dscu7dmwa/image/upload/v1544179254/image_3.png" alt="Avatar" class="avatar-profile">
+    <%= cl_image_tag  current_user.photo, class: "avatar-profile", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
     <h2><%= @user.first_name %></h2>
   </div>
 </br>
@@ -15,9 +15,11 @@
      <h4>Reviews:</h4>
      <% @user.reviews.each do |review| %>
         <p>De: <%= review.reviewer.first_name %></p>
-        <% review.rating.times do%><span class="fa fa-star checked"></span>
-          <% end %>
-        <% 5 - review.rating.times do%><span class="fa fa-star"></span>
+        <% review.rating.to_i.times do %><span class="fa fa-star checked"></span>
+        <% end %>
+        <% stars = review.rating.to_i%>
+        <% stars_new = 5 - stars %>
+        <% stars_new.times do%><span class="fa fa-star"></span>
         <% end %>
         <p>Commentaire: <%= review.description %></p>
      </br>
