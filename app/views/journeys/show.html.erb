@@ -126,7 +126,7 @@
         <div class="riders">
           <% if @journey.user.photo.present? %>
             <%= link_to profile_path(@journey.user_id) do %>
-            <%= cl_image_tag  @journey.user.photo, class: "marged-right" %>
+              <%= cl_image_tag  @journey.user.photo, class: "avatar marged-right" %>
             <% end %>
             <h6><%= @journey.user.first_name %></h6>
           <% else %>

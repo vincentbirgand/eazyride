@@ -17,7 +17,8 @@
 
           <div class="card-trajet-index" >
             <div class="profile text-center">
-              <img src="https://res.cloudinary.com/dscu7dmwa/image/upload/v1544179254/image_3.png" alt="Avatar" class="avatar-index">
+              <%= cl_image_tag  journey.user.photo, class: "avatar-index" %>
+
               <h4><%= journey.user.first_name %></h4>
             </div>
             <div class="desc-trip">

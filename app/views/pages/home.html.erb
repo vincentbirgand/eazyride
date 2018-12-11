@@ -75,7 +75,7 @@
           <div class="card-home-footer">
             <p><strong><%= journey.activity.name %></strong>  <br /> 📍<%= journey.source_city %> <br /> 🏁<%= journey.destination_city %></p>
            <div class="card-footer-controls">
-              <img src="https://res.cloudinary.com/dscu7dmwa/image/upload/v1544179254/image_3.png" alt="Avatar" class="avatar-card">
+            <%= cl_image_tag  journey.user.photo, class: "avatar-card" %>
               <br />
             <div class="text-center"><strong><font color="#74b49b"><%= journey.price %> € </font></strong>
             <p><font color="#74b49b">par place</font></p>

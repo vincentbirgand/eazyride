@@ -25,9 +25,10 @@ u1_vincent = User.create!(
   verified: true,
   email: "vincent@eazyride.com",
   password: "123456",
-
-  address: "16 villa Gaudelet, 75011 Paris, France"
+  address: "16 villa Gaudelet, 75011 Paris, France",
+  remote_photo_url: 'https://res.cloudinary.com/dscu7dmwa/image/upload/v1544520456/moi.jpg'
  )
+u1_vincent.save!
 
  u2_arthur = User.create!(
   first_name: "Arthur",
@@ -40,8 +41,9 @@ u1_vincent = User.create!(
   email: "arthur@eazyride.com",
   password: "123456",
   address: "3 rue de la Pompe, 75016 Paris, France",
-  photo: "https://res.cloudinary.com/dscu7dmwa/image/upload/v1544179254/image_3.png"
+  remote_photo_url: 'https://res.cloudinary.com/dscu7dmwa/image/upload/v1544522064/arthur.jpg'
 )
+u2_arthur.save!
 
 u3_martin = User.create!(
   first_name: "Martin",
@@ -54,8 +56,10 @@ u3_martin = User.create!(
   email: "martin@eazyride.com",
   password: "123456",
   address: "6 rue Euryale Dehaynin, 75019 Paris, France",
-  photo: "https://res.cloudinary.com/dscu7dmwa/image/upload/v1544179254/image_3.png"
+  remote_photo_url: 'https://res.cloudinary.com/dscu7dmwa/image/upload/v1544520432/tinmar.jpg'
 )
+u3_martin.save!
+
 u4_thibaut = User.create!(
   first_name: "Thibaut",
   last_name: "Duroute",
@@ -66,9 +70,11 @@ u4_thibaut = User.create!(
   verified: true,
   email: "thibault@eazyride.com",
   password: "123456",
-
-  address: "26 rue Edouard Vaillant, 93140 Bondy, France"
+  address: "26 rue Edouard Vaillant, 93140 Bondy, France",
+  remote_photo_url: 'https://res.cloudinary.com/dscu7dmwa/image/upload/v1544520391/thibaut.jpg'
 )
+u4_thibaut.save!
+
 u5_pauline = User.create!(
   first_name: "Pauline",
   last_name: "Garcin",
@@ -80,9 +86,9 @@ u5_pauline = User.create!(
   email: "pauline@eazyride.com",
   password: "123456",
   address: "1 rue Alphonse Daudet, 75014 Paris, France",
-
-  # remote_photo_url: 'https://res.cloudinary.com/dscu7dmwa/image/upload/v1544435956/Pauline_Linkedin.jpg'
+  remote_photo_url: 'https://res.cloudinary.com/dscu7dmwa/image/upload/v1544435956/Pauline_Linkedin.jpg'
 )
+  u5_pauline.save!
 # pauline.remote_photo_url = 'https://www.climbing.com/.image/ar_16:9%2Cc_fill%2Ccs_srgb%2Cfl_progressive%2Cg_faces:center%2Cq_auto:good%2Cw_620/MTQ4NTAxMDM1ODA2MTA2NzY1/o4bcgtff7lkuic44pxu4.jpg'
 # pauline.save
 
@@ -96,8 +102,10 @@ u6_jean = User.create!(
   verified: true,
   email: "jean@eazyride.com",
   password: "123456",
-  address: "16 villa Gaudelet, 75011 Paris, France"
+  address: "16 villa Gaudelet, 75011 Paris, France",
+  remote_photo_url: 'https://res.cloudinary.com/dscu7dmwa/image/upload/v1544520243/jc.jpg'
  )
+u6_jean.save!
 
 u7_peichan = User.create!(
   first_name: "Peichan",
@@ -109,8 +117,10 @@ u7_peichan = User.create!(
   verified: true,
   email: "peichan@eazyride.com",
   password: "123456",
-  address: "16 villa Gaudelet, 75011 Paris, France"
+  address: "16 villa Gaudelet, 75011 Paris, France",
+  remote_photo_url: 'https://res.cloudinary.com/dscu7dmwa/image/upload/v1544520401/peishan.png'
  )
+u7_peichan.save!
 
 u8_paul = User.create!(
   first_name: "Paul",
@@ -122,8 +132,10 @@ u8_paul = User.create!(
   verified: true,
   email: "paul@eazyride.com",
   password: "123456",
-  address: "16 villa Gaudelet, 75011 Paris, France"
+  address: "16 villa Gaudelet, 75011 Paris, France",
+  remote_photo_url: 'https://res.cloudinary.com/dscu7dmwa/image/upload/v1544520412/paul.png'
  )
+u8_paul.save!
 
 u9_patrick = User.create!(
   first_name: "Patrick",
@@ -135,8 +147,10 @@ u9_patrick = User.create!(
   verified: true,
   email: "patrick@eazyride.com",
   password: "123456",
-  address: "16 villa Gaudelet, 75011 Paris, France"
+  address: "16 villa Gaudelet, 75011 Paris, France",
+  remote_photo_url: 'https://res.cloudinary.com/dscu7dmwa/image/upload/v1544520423/patrick.jpg'
  )
+u9_patrick.save!
 
 u10_julien = User.create!(
   first_name: "Julien",
@@ -148,8 +162,25 @@ u10_julien = User.create!(
   verified: true,
   email: "julien@eazyride.com",
   password: "123456",
-  address: "16 villa Gaudelet, 75011 Paris, France"
+  address: "16 villa Gaudelet, 75011 Paris, France",
+  remote_photo_url: 'https://res.cloudinary.com/dscu7dmwa/image/upload/v1544522746/julien.jpg'
  )
+u10_julien.save!
+
+u11_jules = User.create!(
+  first_name: "Jules",
+  last_name: "Boiteux",
+  description: "Passionné de kitesurf, je navigue régulièrement et dispose de plusieurs boards et ailes. J'aime aussi faire du ski quand je suis en Rhône Alpes. Je dispose de mon matériel à Lyon.",
+  phone: "07 09 79 09 09",
+  birth_date: "10 Juillet 1992",
+  gender: "man",
+  verified: true,
+  email: "jules@eazyride.com",
+  password: "123456",
+  address: "16 villa Gaudelet, 75011 Paris, France",
+  remote_photo_url: 'https://res.cloudinary.com/dscu7dmwa/image/upload/v1544524674/jules.jpg'
+ )
+u11_jules.save!
 
 puts "10 users created"
 
@@ -213,7 +244,7 @@ j2 = Journey.new(
   end_time: DateTime.new(2018, 12, 20, 18, 30)
 )
 
-j2.user_id = u3_martin.id
+j2.user_id = u11_jules.id
 j2.activity_id = a13.id
 j2.save!
 
@@ -231,7 +262,7 @@ j3 = Journey.new(
   end_time: DateTime.new(2018, 12, 20, 18, 30)
 )
 
-j3.user_id = u6_jean.id
+j3.user_id = u3_martin.id
 j3.activity_id = a13.id
 j3.save!
 
