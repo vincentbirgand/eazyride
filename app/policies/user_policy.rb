@@ -16,8 +16,7 @@ class UserPolicy < ApplicationPolicy
   def create?
     return true
   end
-  # On n'update uniquement son propre profil
-  # def update?
-  #   record.user == user
-  # end
+  def update?
+    return true
+  end
 end

@@ -98,6 +98,7 @@
         </div>
 
       </div>
+      <% if @journey.drivees.present? %>
         <h4>Ils sont aussi du voyage:</h4>
         <div class="other-riders">
           <% @journey.drivees.each do |drivee| %>
@@ -109,6 +110,7 @@
           </div>
           <% end %>
         </div>
+      <% end %>
       </div>
 
   <div class="cta text-center">
@@ -179,6 +181,7 @@
     </div>
   </div>
 
+<% if @journey.messages.present? %>
   <div class="container">
     <h5>Messages</h5>
     <div class="row">
@@ -200,6 +203,7 @@
       <% end %>
         </br>
   </div>
+<% end %>
 
 
 <h5>Itinéaire</h5>
