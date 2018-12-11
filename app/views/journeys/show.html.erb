@@ -123,7 +123,7 @@
     <div class="card-driver">
         <div class="flexed">
           <% if @journey.user.photo.present? %>
-            <%= cl_image_tag  @journey.user.photo, class: "marged-right" %>
+            <%= cl_image_tag  @journey.user.photo, class: "avatar marged-right" %>
           <% else %>
             <%= cl_image_tag 'https://res.cloudinary.com/dscu7dmwa/image/upload/v1544458825/speech-bubbles.png', class: "avatar marged-right" %>
           <% end %>
