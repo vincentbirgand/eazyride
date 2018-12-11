@@ -21,6 +21,7 @@
         <% stars_new = 5 - stars %>
         <% stars_new.times do%><span class="fa fa-star"></span>
         <% end %>
+
         <p>Commentaire: <%= review.description %></p>
      </br>
      <% end%>
@@ -28,6 +29,8 @@
     </br>
 <!--  A gérer avec le pundit selon profil du user ou non -->
  <div class="text-center"><%= link_to "Modifier mon profil", edit_profile_path(@user), class: "btn btn-success" %></div>
+  </br>
+<div class="text-center"><%= link_to "Précédent", :back, class: "btn btn-success" %></div>
   </br>
 </div>
 
