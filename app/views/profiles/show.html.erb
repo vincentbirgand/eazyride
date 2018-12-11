@@ -23,7 +23,9 @@
         <% stars_new = 5 - stars %>
         <% stars_new.times do%><span class="fa fa-star"></span>
         <% end %>
+
         <p style="font-size: 15px">Commentaire: <%= review.description %></p>
+
      </br>
      <% end%>
   <% end %>
@@ -31,10 +33,14 @@
 <% if @user != current_user  %>
   <div class="text-center"><%= link_to "Contactez-le!", profile_path(@user), class: "btn btn-success" %></div>
     </br>
+
 <% else %>
    <div class="text-center"><%= link_to "Modifier mon profil", edit_profile_path(@user), class: "btn btn-success" %></div>
   </div>
 <% end %>
+<div class="text-center"><%= link_to "Précédent", :back, class: "btn btn-success" %></div>
+  </br>
+
 </div>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
