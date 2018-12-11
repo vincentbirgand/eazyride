@@ -1,5 +1,6 @@
-<%= cl_image_tag @journey.activity.photo, class:"banner-page" %>
-
+<%#= cl_image_tag @journey.activity.photo, class:"banner-page" %>
+<div class="banner-page" style="background-image:  linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.2)), url(<%= cl_image_path @journey.activity.photo %>);">
+  </div>
 
 <div class="container">
 

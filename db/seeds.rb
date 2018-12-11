@@ -186,23 +186,23 @@ puts "10 users created"
 
 puts "creating 12 activities"
 
-a1 = Activity.create!(category:"Plongée", name:'Apnée', photo: '')
-a2 = Activity.create!(category:"Sport d'eau", name:'Bodyboard', photo: '')
-a3 = Activity.create!(category:"Sport de montagne", name:'Escalade', photo: 'https://res.cloudinary.com/dscu7dmwa/image/upload/v1544450900/climbing.jpg')
-a4 = Activity.create!(category:"Golf", name:'Golf', photo: '')
-a5 = Activity.create!(category:"Sport d'eau", name:'Kite-Surf', photo: 'https://res.cloudinary.com/dscu7dmwa/image/upload/v1544450832/ocean.jpg')
-a6 = Activity.create!(category:"Sport d'eau", name:'Paddle', photo: '')
-a7 = Activity.create!(category:"Sport de montagne", name:'Parapente', photo: '')
-a8 = Activity.create!(category:"Sport de montagne", name:'Parachutisme', photo: '')
-a9 = Activity.create!(category:"Sport d'eau", name:'Planche à voile', photo: '')
-a10 = Activity.create!(category:"Plongée", name:'Plongée', photo: '')
-a11 = Activity.create!(category:"Randonnée", name:'Randonnée', photo: '')
-a12 = Activity.create!(category:"Running", name:'Running', photo: '')
+a1 = Activity.create!(category:"Plongée", name:'Apnée', photo: 'https://res.cloudinary.com/dscu7dmwa/image/upload/v1544539634/apne%CC%81e.jpg')
+a2 = Activity.create!(category:"Sport d'eau", name:'Bodyboard', photo: 'https://res.cloudinary.com/dscu7dmwa/image/upload/v1544539993/bodyboard.jpg')
+a3 = Activity.create!(category:"Sport de montagne", name:'Escalade', photo: 'https://res.cloudinary.com/dscu7dmwa/image/upload/v1544539144/escalade.jpg')
+a4 = Activity.create!(category:"Golf", name:'Golf', photo: 'https://res.cloudinary.com/dscu7dmwa/image/upload/v1544540808/golf2.jpg')
+a5 = Activity.create!(category:"Sport d'eau", name:'Kite-Surf', photo: 'https://res.cloudinary.com/dscu7dmwa/image/upload/v1544544026/kite_surf.jpg')
+a6 = Activity.create!(category:"Sport d'eau", name:'Paddle', photo: 'https://res.cloudinary.com/dscu7dmwa/image/upload/v1544541219/paddle.jpg')
+a7 = Activity.create!(category:"Sport de montagne", name:'Parapente', photo: 'https://res.cloudinary.com/dscu7dmwa/image/upload/v1544541305/parapente.jpg')
+a8 = Activity.create!(category:"Sport de montagne", name:'Parachutisme', photo: 'https://res.cloudinary.com/dscu7dmwa/image/upload/v1544541443/parachute.jpg')
+a9 = Activity.create!(category:"Sport d'eau", name:'Planche à voile', photo: 'https://res.cloudinary.com/dscu7dmwa/image/upload/v1544541608/planche_a%CC%80_voile.jpg')
+a10 = Activity.create!(category:"Plongée", name:'Plongée', photo: 'https://res.cloudinary.com/dscu7dmwa/image/upload/v1544539440/plonge%CC%81e.jpg')
+a11 = Activity.create!(category:"Randonnée", name:'Randonnée', photo: 'https://res.cloudinary.com/dscu7dmwa/image/upload/v1544541733/randonne%CC%81e.jpg')
+a12 = Activity.create!(category:"Running", name:'Running', photo: 'https://res.cloudinary.com/dscu7dmwa/image/upload/v1544541941/runnning.jpg')
 a13 = Activity.create!(category:'Sport de neige', name:'Ski', photo: 'https://res.cloudinary.com/dscu7dmwa/image/upload/v1544450679/sport_de_neige.jpg')
-a14 = Activity.create!(category:'Sport de neige', name:'Snowboard', photo: 'https://res.cloudinary.com/dscu7dmwa/image/upload/v1544450679/sport_de_neige.jpg')
+a14 = Activity.create!(category:'Sport de neige', name:'Snowboard', photo: 'https://res.cloudinary.com/dscu7dmwa/image/upload/v1544544172/snowboard.jpg')
 a15 = Activity.create!(category:"Sport d'eau", name:'Surf', photo: 'https://res.cloudinary.com/dscu7dmwa/image/upload/v1544450832/ocean.jpg')
-a16 = Activity.create!(category:"Vélo", name:'Vélo', photo: '')
-a17 = Activity.create!(category:"Vélo", name:'VTT', photo: '')
+a16 = Activity.create!(category:"Vélo", name:'Vélo', photo: 'https://res.cloudinary.com/dscu7dmwa/image/upload/v1544542411/cycling.jpg')
+a17 = Activity.create!(category:"Vélo", name:'VTT', photo: 'https://res.cloudinary.com/dscu7dmwa/image/upload/v1544542325/VTT.jpg')
 
 
 
