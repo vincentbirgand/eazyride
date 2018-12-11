@@ -1,4 +1,5 @@
 import mapboxgl from 'mapbox-gl';
+import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder';
 
 function getRoute(map, mapElement){
 
@@ -98,10 +99,6 @@ const initMapbox = () => {
 
 export { initMapbox };
 
-
-
-
-
 const initMapboxIndex = () => {
   const mapElement = document.getElementById('map-index');
 
@@ -113,18 +110,40 @@ const initMapboxIndex = () => {
 
   const addMarkersToMap = (map, markers) => {
     markers.forEach((marker) => {
-      new mapboxgl.Marker()
+      const popup = new mapboxgl.Popup().setHTML(marker.infoWindow);
+
+      const newMarker = new mapboxgl.Marker()
         .setLngLat([ marker.lng, marker.lat ])
-        .addTo(map);
+        .setPopup(popup)
+        .addTo(map)
+
+      // const newMarkerHtmlElement = newMarker.getElement();
+      // // var myLayer = L.mapbox.featureLayer().addTo(map);
+      // const showPopUp = (event) => {
+      //   // map.getCanvas().style.cursor = 'pointer';
+      //   console.log('show');
+      //   popup.setLngLat([ marker.lng, marker.lat ])
+      //        .addTo(map);
+      // }
+      // const hidePopUp = (event) => {
+      //   console.log('hide');
+      //   // map.getCanvas().style.cursor = '';
+      //   popup.remove();
+      // }
+
+      // newMarkerHtmlElement.addEventListener('mouseenter', showPopUp);
+      // newMarkerHtmlElement.addEventListener('mouseleave', hidePopUp);
     });
   }
 
   if (mapElement) { // only build a map if there's a div#map to inject into
     mapboxgl.accessToken = mapElement.dataset.mapboxApiKey;
+
     const map = new mapboxgl.Map({
       container: 'map-index',
       style: 'mapbox://styles/mapbox/streets-v10'
     });
+    map.addControl(new MapboxGeocoder({ accessToken: mapboxgl.accessToken }));
     const markers = JSON.parse(mapElement.dataset.markers);
     addMarkersToMap(map, markers);
     fitMapToMarkers(map, markers);
@@ -132,3 +151,4 @@ const initMapboxIndex = () => {
 };
 
 export { initMapboxIndex };
+

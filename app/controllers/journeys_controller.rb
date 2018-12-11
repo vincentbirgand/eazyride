@@ -26,7 +26,11 @@ class JourneysController < ApplicationController
       results = Geocoder.search(journey.destination_city)
       @long = results.first.data["lon"]
       @lata = results.first.data["lat"]
-      @markers << { lat: @lata, lng: @long }
+      @markers << {
+        lat: @lata,
+        lng: @long,
+        infoWindow: render_to_string(partial: "info_window", locals: { journey: journey })
+      }
     end
   end
 
