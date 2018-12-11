@@ -17,7 +17,7 @@
       </div>
     </div>
     <br />
-    <div class="form-inline"
+    <div class="form-inline">
        <div id="journeys">
         <%= simple_form_for Journey.new, url: journeys_path, method: :get do |f| %>
         <%= f.input :activity_id, collection: Activity.all, prompt: "Choisis ton activité ", label: false %>
