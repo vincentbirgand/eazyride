@@ -35,4 +35,13 @@ class User < ApplicationRecord
   def amount_rating
     self.reviews.count
   end
+
+  def green_stars
+    average_rating.to_i
+  end
+
+  def black_stars
+    stars = green_stars
+    black_stars = 5 - stars
+  end
 end

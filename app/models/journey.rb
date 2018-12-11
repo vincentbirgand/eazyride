@@ -20,3 +20,4 @@ class Journey < ApplicationRecord
     end_time.strftime("%b %d, %Y - %H h %M") if end_time
   end
 end
+
