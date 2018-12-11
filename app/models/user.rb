@@ -29,12 +29,7 @@ class User < ApplicationRecord
   end
 
   def average_rating
-    reviews_done = []
-    self.reviews.each do |review|
-      reviews_done << review.rating
-    end
-    average = reviews_done.inject{ |sum, el| sum + el }.to_f / reviews_done.size
-    average.round(1)
+    (self.reviews.map(&:rating).sum.to_f / self.reviews.length).round(1)
   end
 
   def amount_rating
