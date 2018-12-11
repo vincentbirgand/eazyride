@@ -5,8 +5,10 @@ import 'mapbox-gl/dist/mapbox-gl.css'; // <-- you need to uncomment the styleshe
 import { initAutocomplete } from '../plugins/init_autocomplete';
 import { initMapbox, initMapboxIndex } from '../plugins/init_mapbox';
 import { initTooltip } from '../plugins/init_tooltip';
+import { formClick } from '../plugins/form';
 
 initMapbox();
 initMapboxIndex();
 initAutocomplete();
 initTooltip();
+formClick();
