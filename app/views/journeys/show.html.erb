@@ -14,6 +14,7 @@
       <div class="">
         <h5> <%= @journey.activity.name.capitalize %> à <%= @journey.destination_city.capitalize %> </h5>
         <p> <em><%= @journey.description %></em></p>
+        <p><em><%= @distance.round %> Km</em></p>
 
         <br>
 
@@ -86,7 +87,7 @@
         </p>
 
         <div class="">
-        <% if @journey.seat_available > 0 %>
+        <% if @journey.seat_available > 0 && @journey.user != current_user %>
           <%= simple_form_for [@journey, @drivee] do |f| %>
             <div class= "text-center"><%= f.submit 'Je réserve', class: "btn btn-success" %></div>
             <% end %>
@@ -111,10 +112,25 @@
     </div>
 
   <div class="cta text-center">
-    <%= link_to "Modifier", edit_journey_path(@journey), class: "btn btn-primary" %>
-    <%= link_to "Supprimer", journey_path(@journey),method: :delete, class: "btn btn-danger" %>
+    <% if @journey.seat_available > 0 && @journey.user != current_user %>
+      <%= link_to "Confirmer ma réservation", new_journey_drivee_path(@journey), class: "btn btn-success" %>
+    <% else %>
+      <%= link_to "Chercher un autre trajet", journey_path(@journey), class: "btn btn-success" %>
+    <% end %>
+
+    <% if policy(@journey).edit? %>
+      <%= link_to "Modifier", edit_journey_path(@journey), class: "btn btn-primary" %>
+    <% end %>
+
+    <% if policy(@journey).destroy? %>
+      <%= link_to "Supprimer", journey_path(@journey),method: :delete, class: "btn btn-danger"%>
+    <% end %>
+
+      <%= link_to "Message",  new_journey_message_path(@journey),method: :get, class: "btn btn-primary" %>
+
     <%= link_to "Contacter le conducteur",  new_journey_message_path(@journey),method: :get, class: "btn btn-primary" %>
     <br>
+
     <br>
     <div><%= link_to "Laisser un commentaire",new_journey_review_path(@journey)  %>
     </div>

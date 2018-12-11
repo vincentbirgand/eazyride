@@ -1,7 +1,8 @@
 class JourneysController < ApplicationController
 
   def index
-    @journeys = Journey.where("seat_available > ?", 0)
+
+    @journeys = policy_scope(Journey)
      if params[:journey][:source_city].present?
       @journeys = @journeys.where("source_city ILIKE ?", "%#{params[:journey][:source_city]}%")
      end
@@ -31,9 +32,11 @@ class JourneysController < ApplicationController
 
   def new
     @journey = Journey.new()
+    authorize @journey
   end
 
   def show
+
     @journey = Journey.find(params[:id])
     results = Geocoder.search(@journey.source_city)
     @journey_origin_lon = results.first.data["lon"]
@@ -43,6 +46,7 @@ class JourneysController < ApplicationController
     @journey_dest_lat = results.first.data["lat"]
     @distance = Geocoder::Calculations.distance_between([@journey_origin_lat, @journey_origin_lon], [@journey_dest_lat, @journey_dest_lon])
     @drivee = Drivee.new
+    authorize @journey
   end
 
 
@@ -55,10 +59,12 @@ class JourneysController < ApplicationController
     else
       render :new
     end
+    authorize @journey
   end
 
   def edit
     @journey = Journey.find(params[:id])
+    authorize @journey
   end
 
   def update
@@ -70,11 +76,13 @@ class JourneysController < ApplicationController
     else
       render :edit
     end
+    authorize @journey
   end
 
   def destroy
     @journey = Journey.find(params[:id])
     @journey.destroy
+    authorize @journey
     redirect_to root_path
   end
 
