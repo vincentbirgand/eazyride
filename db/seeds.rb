@@ -408,7 +408,7 @@ r1 = Review.new(
   description: "Super trip, Arthur est très sympa. Je le recommande vivement. A refaire!",
 )
 r1.reviewee_id = u2_arthur.id
-r1.reviewer_id = u1_vincent.id
+r1.reviewer_id = u10_julien.id
 r1.journey_id = j1.id
 r1.save!
 
@@ -432,10 +432,10 @@ r3.save!
 
 r4 = Review.new(
   rating: 4,
-  description: "Vincent était en retard, ce qui nous a malheureusement fait tomber dans les bouchons. Mais il est très sympa et bon esprit. Je le recommande.",
+  description: "Peichan est vraiment une bombe en ski. ce fut un plaisir de rider ensemble",
 )
-r4.reviewee_id = u1_vincent.id
-r4.reviewer_id = u2_arthur.id
+r4.reviewee_id = u7_peichan.id
+r4.reviewer_id = u11_jules.id
 r4.journey_id = j1.id
 r4.save!
 
