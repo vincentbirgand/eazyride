@@ -102,24 +102,15 @@
           <% @journey.drivees.each do |drivee| %>
           <div class="riders">
           <%= link_to profile_path(drivee.user_id) do %>
-
             <%= cl_image_tag  drivee.user.photo, class: "avatar marged-right" %>
-
           <% end %>
-            <%#= A mettre photo de chaque user cliquable  %>
           <h6><%= drivee.user.first_name %></h6>
           </div>
           <% end %>
         </div>
-    </div>
+      </div>
 
   <div class="cta text-center">
-    <% if @journey.seat_available > 0 && @journey.user != current_user %>
-      <%= link_to "Confirmer ma réservation", new_journey_drivee_path(@journey), class: "btn btn-success" %>
-    <% else %>
-      <%= link_to "Chercher un autre trajet", journey_path(@journey), class: "btn btn-success" %>
-    <% end %>
-
     <% if policy(@journey).edit? %>
       <%= link_to "Modifier", edit_journey_path(@journey), class: "btn btn-primary" %>
     <% end %>
@@ -129,8 +120,6 @@
     <% end %>
 
       <%= link_to "Message",  new_journey_message_path(@journey),method: :get, class: "btn btn-primary" %>
-
-    <%= link_to "Contacter le conducteur",  new_journey_message_path(@journey),method: :get, class: "btn btn-primary" %>
     <br>
 
     <br>
@@ -147,11 +136,26 @@
               <%= cl_image_tag  @journey.user.photo, class: "avatar marged-right" %>
             <% end %>
             <h6><%= @journey.user.first_name %></h6>
+            <div class="reviews">
+            <% if @journey.user.reviews.present? %>
+               <% @journey.user.green_stars.times do %><span class="fa fa-star checked" style="font-size : 12px"></span>
+               <% end %>
+               <% @journey.user.black_stars.times do%><span class="fa fa-star" style="font-size : 12px"></span>
+               <% end %>
+                <p style="font-size : 12px; margin-top: -1px" class="flex">- <%= @journey.user.amount_rating %> avis </p>
+               <% else %>
+               <p style="font-size : 12px"><%= "Nouvel Eazyrider!" %></p>
+               <% end %>
+             </div>
           <% else %>
             <%= link_to profile_path(@journey.user_id) do %>
             <%= cl_image_tag 'https://res.cloudinary.com/dscu7dmwa/image/upload/v1544458825/speech-bubbles.png', class: "avatar marged-right" %>
             <% end %>
             <h6><%= @journey.user.first_name %></h6>
+             <% @journey.user.green_stars.times do %><span class="fa fa-star checked" style="font-size : 12px"></span>
+            <% end %>
+             <% @journey.user.black_stars.times do%><span class="fa fa-star" style="font-size : 12px"></span>
+            <% end %>
           <% end %>
 
           <h5>A propos du conducteur</h5>
