@@ -6,10 +6,12 @@ class MessagesController < ApplicationController
   def new
     @journey = Journey.find(params[:journey_id])
     @message = Message.new
+    authorize @message
   end
 
   def show
     @message = Message.find(params[:id])
+    authorize @message
   end
 
   def create
@@ -17,13 +19,10 @@ class MessagesController < ApplicationController
     @message = Message.new(message_params)
     @message.journey = @journey
     @message.user = current_user
-    puts "--------------------"
     p @message
-    puts "--------------------"
     p @message.save!
-    puts "--------------------"
     p params
-    puts "--------------------"
+    authorize @message
     if @message.save
       redirect_to journey_path(@journey)
     else
