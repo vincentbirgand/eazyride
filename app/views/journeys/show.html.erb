@@ -100,9 +100,11 @@
         <div class="other-riders">
           <% @journey.drivees.each do |drivee| %>
           <div class="riders">
-          <img src="https://res.cloudinary.com/dscu7dmwa/image/upload/v1544179254/image_3.png" alt="Avatar" class="avatar">
+          <%= link_to profile_path(drivee.user_id) do %>
+            <%= image_tag "https://res.cloudinary.com/dscu7dmwa/image/upload/v1544179254/image_3.png", class: "avatar", height: 50 %>
+          <% end %>
             <%#= A mettre photo de chaque user cliquable  %>
-          <p><%= drivee.user.first_name %><%= link_to "Profile", profile_path(drivee.user_id) %></p>
+          <h6><%= drivee.user.first_name %></h6>
           </div>
           <% end %>
         </div>
@@ -121,11 +123,17 @@
 
   <div class="right-container">
     <div class="card-driver">
-        <div class="flexed">
+        <div class="riders">
           <% if @journey.user.photo.present? %>
-            <%= cl_image_tag  @journey.user.photo, class: "avatar marged-right" %>
+            <%= link_to profile_path(@journey.user_id) do %>
+              <%= cl_image_tag  @journey.user.photo, class: "avatar marged-right" %>
+            <% end %>
+            <h6><%= @journey.user.first_name %></h6>
           <% else %>
+            <%= link_to profile_path(@journey.user_id) do %>
             <%= cl_image_tag 'https://res.cloudinary.com/dscu7dmwa/image/upload/v1544458825/speech-bubbles.png', class: "avatar marged-right" %>
+            <% end %>
+            <h6><%= @journey.user.first_name %></h6>
           <% end %>
 
           <h5>A propos du conducteur</h5>
