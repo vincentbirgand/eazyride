@@ -3,13 +3,9 @@ class MessagesController < ApplicationController
   def index
   end
 
-
-
   def new
     @journey = Journey.find(params[:journey_id])
     @message = Message.new
-    @message.journey = @journey
-
   end
 
   def show
@@ -17,12 +13,19 @@ class MessagesController < ApplicationController
   end
 
   def create
-    @drivee = Drivee.find(params[:drivee_id])
-    @message = message.new(message_params)
-    @message.drivee = @message
-    @message.sender = current_user
+    @journey = Journey.find(params[:journey_id])
+    @message = Message.new(message_params)
+    @message.journey = @journey
+    @message.user = current_user
+    puts "--------------------"
+    p @message
+    puts "--------------------"
+    p @message.save!
+    puts "--------------------"
+    p params
+    puts "--------------------"
     if @message.save
-      redirect_to new_journey_path(@drivee.journey)
+      redirect_to journey_path(@journey)
     else
       render :new
     end
@@ -32,7 +35,7 @@ class MessagesController < ApplicationController
   private
 
   def message_params
-    params.require(:message).require(:content, :sender_id, :receiver_id, :drivee_id)
+    params.require(:message).permit(:content)
   end
 
 end

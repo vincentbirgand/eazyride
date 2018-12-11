@@ -168,16 +168,34 @@
         <div class="">
         <p>Modèle de la voiture : <%= @journey.car_type%></p>
         </div>
-
-
-
       </div>
     </div>
   </div>
 
+  <div class="container">
+    <h5>Messages</h5>
+    <div class="row">
+    <% @journey.messages.each do |message| %>
+      <div id="tb-testimonial" class="testimonial testimonial-primary-filled"">
+          <div class="testimonial-section">
+          <%= message.content %>
+          </div>
+        <div class="testimonial-desc">
+          <%= link_to profile_path(message.user_id) do %>
+          <%= cl_image_tag  message.user.photo %>
+        <% end %>
+        </div>
+        <div class="testimonial-writer-name">
+          <%= message.user.first_name %>
+        </div>
+      </div>
+        </br>
+      <% end %>
+        </br>
+  </div>
+
+
 <h5>Itinéaire</h5>
-
-
   <div class="container">
     <div class="row">
       <div
@@ -192,7 +210,7 @@
         data-dest-lat="<%= @journey_dest_lat %>"
       ></div>
     </div>
-</div>
+  </div>
 </div>
 
 
