@@ -1,0 +1,25 @@
+<div class="container">
+
+  <div class="card-driver" style="margin : 0px">
+    <h4>Mes trajets proposés</h4>
+    </br>
+      <% @journeys.each do |journey| %>
+      <h5> Trip <%= journey.activity.name %></h5>
+      <p>De <%= journey.source_city %> à <%= journey.destination_city %></p>
+      <p>Le <%= journey.formated_time %></p>
+      <p><%= journey.seat_available %> places disponibles </p>
+      <p><%= link_to "Voir ce trajet", journey_path(journey), class: "btn btn-light-green" %></p>
+      <% end %>
+    </div>
+
+  <div class="card-driver" style="margin : 0px">
+    <h4>Mes voyages</h4>
+      </br>
+      <% @drivees.each do |drivee| %>
+      <h5> Trip <%= drivee.journey.activity.name %></h5>
+      <p>De <%= drivee.journey.source_city %> à <%= drivee.journey.destination_city %></p>
+      <p>Le <%= drivee.journey.formated_time %></p>
+      <p><%= link_to "Voir ce trajet", journey_path(drivee.journey), class: "btn btn-light-green" %></p>
+      <%end%>
+  </div>
+</div>
