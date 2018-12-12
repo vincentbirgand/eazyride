@@ -28,8 +28,9 @@ const launchFireworks = () => {
       limiterTotal = 5,
       limiterTick = 0,
       // this will time the auto launches of fireworks, one launch per 80 loop ticks
-      timerTotal = 80,
-      timerTick = 0,
+      firstLoop = true,
+      timerTotal = 10,
+      timerTick = 5,
       mousedown = false,
       // mouse x coordinate,
       mx,
@@ -239,8 +240,11 @@ const launchFireworks = () => {
         // start the firework at the bottom middle of the screen, then set the random target coordinates, the random y coordinates will be set within the range of the top half of the screen
         fireworks.push( new Firework( cw / 2, ch, random( 0, cw ), random( 0, ch / 2 ) ) );
         timerTick = 0;
+        timerTotal = 50;
+        // console.log("gogogo")
       }
     } else {
+      // console.log("tick")
       timerTick++;
     }
 
