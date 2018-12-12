@@ -9,34 +9,42 @@
               <%= link_to profile_path(@journey.user_id) do %>
                 <%= cl_image_tag  @journey.user.photo, class: "avatar marged-right" %>
               <% end %>
-            <% end %>
-            <div class="name-review">
+              <div class="name-review">
+                <h5><%= @journey.user.first_name %></h5>
+                <p>
+                 <% if @journey.user.reviews.present? %>
+                    <% @journey.user.green_stars.times do %>
+                     <span class="fa fa-star checked" style="font-size : 12px"></span>
+                    <% end %>
+
+                    <% @journey.user.black_stars.times do%>
+                    <span class="fa fa-star" style="font-size : 12px"></span>
+                    <% end %>
+
+                   <p style="font-size : 12px; margin-top: -1px" class="flex">- <%= @journey.user.amount_rating %> avis </p>
+                 <% else %>
+                    <p style="font-size : 12px"><%= "Nouvel Eazyrider!" %></p>
+                 <% end %>
+                </p>
+            <% else %>
+              <%= link_to profile_path(@journey.user_id) do %>
+              <%= cl_image_tag 'https://res.cloudinary.com/dscu7dmwa/image/upload/v1544458825/speech-bubbles.png', class: "avatar marged-right" %>
+              <% end %>
               <h5><%= @journey.user.first_name %></h5>
-              <p>
-               <% if @journey.user.reviews.present? %>
-                  <% @journey.user.green_stars.times do %>
-                   <span class="fa fa-star checked" style="font-size : 12px"></span>
-                  <% end %>
-
-                  <% @journey.user.black_stars.times do%>
-                  <span class="fa fa-star" style="font-size : 12px"></span>
-                  <% end %>
-
-                 <p style="font-size : 12px; margin-top: -1px" class="flex">- <%= @journey.user.amount_rating %> avis </p>
-               <% else %>
-                  <p style="font-size : 12px"><%= "Nouvel Eazyrider!" %></p>
-               <% end %>
-              </p>
+               <% @journey.user.green_stars.times do %><span class="fa fa-star checked" style="font-size : 12px"></span>
+              <% end %>
+               <% @journey.user.black_stars.times do%><span class="fa fa-star" style="font-size : 12px"></span>
+              <% end %>
+            <% end %>
             </div>
           </div>
-          <!-- <h5 class="profile-name">NAME</h5> -->
         </div>
         <div class="sh-profile-cont">
-          <div class="sh-profile-description">Description</div>
+          <div class="sh-profile-description"><%= @journey.user.description%></div>
         </div>
-        <div class="sh-profile-cont">
-          <p>Picto</p>
-          <p>Driver certifié <br> Modèle de voiture</p>
+        <div class="sh-profile-cont flexed-around">
+          <i class="fas fa-check"></i>
+          <p>Driver certifié<br><%= @journey.car_type.capitalize%></p>
         </div>
         <div class="sh-profile-cont">
           <h3 class="sh-pref-title">MES PREFERENCES</h3>
@@ -83,7 +91,22 @@
           </div>
         </div>
       </div>
-    <div class="btn btn-success"></div>
+      <div class="">
+        <% if @journey.seat_available > 0 && @journey.user != current_user %>
+          <%= simple_form_for [@journey, @drivee] do |f| %>
+            <div class= "text-center"><%= f.submit 'Je réserve', class: "btn btn-success" %></div>
+            <% end %>
+        <% else %>
+            <%= link_to "Chercher un autre trajet", root_path, class: "btn btn-success" %>
+        <% end %>
+        <% if policy(@journey).edit? %>
+          <%= link_to "Modifier", edit_journey_path(@journey), class: "btn btn-primary" %>
+        <% end %>
+
+        <% if policy(@journey).destroy? %>
+          <%= link_to "Supprimer", journey_path(@journey),method: :delete, class: "btn btn-danger"%>
+        <% end %>
+      </div>
     </div>
   </div>
 
@@ -106,16 +129,18 @@
       </div>
     </div>
     <div class="sh-overview-cont">
-      <h3 class="sh-pref-title">DETAILS DU TRAJET</h3>
-      <div class="pref-cont flexed-around">
-        <p class="sh-prf1">
-          <% if @journey.seat_available > 0 %>
-            <%= @journey.seat_available %> places disponibles
-            <p><%= @journey.price %> € par place </p>
-          <% else %>
-            <p> Désolé, il n'y a plus de place disponible pour ce trajet ! </p>
-          <% end %>
-        </p>
+      <div class="sh-trajet-cont">
+        <h3 class="sh-pref-title">DETAILS DU TRAJET</h3>
+        <div class="pref-cont flexed">
+          <p class="sh-prf1">
+            <% if @journey.seat_available > 0 %>
+              <%= @journey.seat_available %> places disponibles
+              <p style="margin-left: 80px;"><%= @journey.price %> € par place </p>
+            <% else %>
+              <p style="margin-left: 80px;"> Désolé, il n'y a plus de place disponible pour ce trajet ! </p>
+            <% end %>
+          </p>
+        </div>
       </div>
     </div>
     <div class="sh-overview-cont">
@@ -135,6 +160,7 @@
     </div>
   </div>
 </div>
+
 <div class="container">
   <div class="row">
     <div
@@ -149,5 +175,35 @@
       data-dest-lat="<%= @journey_dest_lat %>"
     ></div>
   </div>
+
+  <div class="container">
+    <h5>Messages</h5>
+    <div class="row">
+    <% @journey.messages.each do |message| %>
+      <div id="tb-testimonial" class="testimonial testimonial-primary-filled"">
+          <div class="testimonial-section">
+          <%= message.content %>
+          </div>
+        <div class="testimonial-desc">
+          <%= link_to profile_path(message.user_id) do %>
+          <%= cl_image_tag  message.user.photo %>
+        <% end %>
+        </div>
+        <div class="testimonial-writer-name">
+          <%= message.user.first_name %>
+        </div>
+      </div>
+        </br>
+      <% end %>
+        </br>
+  </div>
 </div>
+
+<%= link_to "Message",  new_journey_message_path(@journey),method: :get, class: "btn btn-primary" %>
+<br>
+<br>
+<div>
+  <%= link_to "Laisser un commentaire",new_journey_review_path(@journey)%>
+</div>
+
 
