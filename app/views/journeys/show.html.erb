@@ -5,7 +5,7 @@
 <div class="container">
 
 <div class="text-center">
-  <h4> <%= @journey.activity.category.upcase %> | <%= @journey.source_city.capitalize %> - <%= @journey.destination_city.capitalize %>  </h4>
+  <h4> <%= @journey.activity.category.upcase %> | <%= @journey.source_city.capitalize.split(",")[0] %> - <%= @journey.destination_city.capitalize.split(",")[0] %>  </h4>
   <!-- <h6> Temps trajet aller - km </h6> -->
 </div>
 
