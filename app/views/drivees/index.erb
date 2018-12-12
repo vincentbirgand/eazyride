@@ -1,29 +1,35 @@
 <div class="container">
+
+  <% if @journeys.present? %>
   <h4>Mes trajets proposés</h4>
     <div class="card-trip">
       <% @journeys.each do |journey| %>
-      <div class="card-trip-description" style="background-image: linear-gradient(rgba(0.7,0.5,0,0), rgba(0.2,0,0,0)),url(<%= cl_image_path @journeys.first.activity.photo %>);">
+      <div class="card-trip-description" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.1)),url(<%= cl_image_path @journeys.first.activity.photo %>);">
         <h5> Trip <%= journey.activity.name %></h5>
         <p>De <%= journey.source_city %> à <%= journey.destination_city %></p>
         <p>Le <%= journey.formated_time %></p>
-        <p><%= journey.seat_available %> places disponibles </p>
+        <p>Statut: <%= journey.seat_available %> places disponibles </p>
         <p><%= link_to "Voir ce trajet", journey_path(journey), class: "btn btn-success btn-sm" %></p>
       </div>
     </br>
       <% end %>
     </div>
+    <% end %>
 
+  <% if @drivees.present? %>
   <h4>Mes voyages</h4>
     <div class="card-trip">
     <% @drivees.each do |drivee| %>
-      <div class="card-trip-description" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.2)),url(<%= cl_image_path drivee.journey.activity.photo %>);">
+      <div class="card-trip-description" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.1)),url(<%= cl_image_path drivee.journey.activity.photo %>);">
          <h5> Trip <%= drivee.journey.activity.name %></h5>
          <p>De <%= drivee.journey.source_city %> à <%= drivee.journey.destination_city %></p>
          <p>Le <%= drivee.journey.formated_time %></p>
+         <p>Statut:  <%= drivee.status.capitalize %></p>
          <p><%= link_to "Voir ce trajet", journey_path(drivee.journey), class: "btn btn-success btn-sm" %></p>
       </div>
     </br>
       <%end%>
     </div>
+    <% end %>
 
 </div>
