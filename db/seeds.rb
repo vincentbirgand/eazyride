@@ -244,7 +244,7 @@ j2 = Journey.new(
   end_time: DateTime.new(2018, 12, 20, 18, 30)
 )
 
-j2.user_id = u11_jules.id
+j2.user_id = u5_pauline.id
 j2.activity_id = a13.id
 j2.save!
 
