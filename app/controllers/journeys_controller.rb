@@ -20,12 +20,16 @@ class JourneysController < ApplicationController
     @markers = []
 
     @journeys.each do |journey|
-      results = Geocoder.search(journey.destination_city)
-      @long = results.first.data["lon"]
-      @lata = results.first.data["lat"]
+      resultssource = Geocoder.search(journey.source_city)
+    @journey_origin_lon = resultssource.first.data["lon"]
+    @journey_origin_lat = resultssource.first.data["lat"]
+      resultsdestination = Geocoder.search(journey.destination_city)
+    @journey_dest_lon = resultsdestination.first.data["lon"]
+    @journey_dest_lat = resultsdestination.first.data["lat"]
+    @distance = Geocoder::Calculations.distance_between([@journey_origin_lat, @journey_origin_lon], [@journey_dest_lat, @journey_dest_lon])
       @markers << {
-        lat: @lata,
-        lng: @long,
+        lat: @journey_dest_lat,
+        lng: @journey_dest_lon,
         infoWindow: render_to_string(partial: "info_window", locals: { journey: journey })
       }
     end
@@ -37,7 +41,6 @@ class JourneysController < ApplicationController
   end
 
   def show
-
     @journey = Journey.find(params[:id])
     results = Geocoder.search(@journey.source_city)
     @journey_origin_lon = results.first.data["lon"]
