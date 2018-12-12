@@ -38,7 +38,7 @@ const launchFireworks = () => {
 
   // set canvas dimensions
   canvas.width = cw;
-  canvas.height = ch;
+  canvas.height = ch / 6;
 
   // now we are going to setup our function placeholders for the entire demo
 
