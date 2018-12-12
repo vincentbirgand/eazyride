@@ -53,8 +53,16 @@ class JourneysController < ApplicationController
 
   def create
     @journey = Journey.new(journey_params)
-    @journey.save
+
+    @journey.source_city = @journey.source_city.split(",")[0]
+    @journey.destination_city = @journey.destination_city.split(",")[0]
+
+
+    # @journey.save
     @journey.user = current_user
+    puts "----------"
+    p @journey
+    puts "----------"
     if @journey.save
       redirect_to journey_path(@journey)
     else
