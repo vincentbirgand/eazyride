@@ -73,7 +73,7 @@
               <%= link_to "", journey_path(journey), class: "card-link" %>
             </div>
           <div class="card-home-footer">
-            <p><strong><%= journey.activity.name %></strong>  <br /> 📍<%= journey.source_city %> <br /> 🏁<%= journey.destination_city %> <br /><%= journey.formated_time %></p>
+            <p><strong><%= journey.activity.name %></strong>  <br /> 📍<%= journey.source_city.split(",")[0] %> <br /> 🏁<%= journey.destination_city.split(",")[0] %> <br /><%= journey.formated_time %></p>
            <div class="card-footer-controls">
             <%= cl_image_tag  journey.user.photo, class: "avatar-card" %>
               <br />
