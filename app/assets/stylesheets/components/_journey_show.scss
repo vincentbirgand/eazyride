@@ -1,0 +1,125 @@
+.main-cont{
+  display: flex;
+}
+
+.sh-left-cont{
+  flex: 0 0 50%;
+  background-color: gray;
+}
+
+.sh-overview-cont{
+  background-color: blue;
+  margin: 15px;
+}
+
+.overview-title{
+  background-color: green;
+  margin: 20px;
+  text-align: center;
+  font-size: 42px;
+}
+
+.overview-text{
+  background-color: green;
+  margin: 30px;
+  font-size: 24px;
+}
+
+.sh-trajet-cont{
+  background-color: red;
+  margin: 8px;
+  padding: 20px;
+}
+
+.sh-trajet-text1{
+  background-color: red;
+  font-weight: 600;
+  font-size: 32px;
+}
+
+.sh-trajet-text2{
+  background-color: red;
+}
+
+.sh-trajet-text3{
+  background-color: red;
+}
+
+.sh-pref-title{
+  background-color: red;
+  font-weight: 600;
+  font-size: 32px;
+}
+
+.pref-cont{
+  background-color: light-gray;
+}
+
+.sh-prf1{
+  background-color: green;
+}
+
+.others-cont{
+  background-color: light-gray;
+}
+
+.others-title{
+  background-color: green;
+}
+
+.sh-others{
+  background-color: red;
+}
+
+.fa-arrow-left .fa-arrow-left{
+  margin-left: 8px;
+  margin-right: 8px;
+}
+
+.fa-calendar-alt{
+  padding-right: 8px;
+}
+
+.fa-car{
+  padding-right: 8px;
+}
+
+.true{
+  color: $my-green;
+  text-align: center;
+}
+
+.false{
+  color: grey;
+  text-align: center;
+}
+
+
+
+.sh-overview-cont-left{
+  margin: 90px 80px;
+}
+
+.overview-title-left{
+  font-family: liquide;
+  color: white;
+  text-align: center;
+}
+
+.sh-profile-card{
+  background-color: white;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

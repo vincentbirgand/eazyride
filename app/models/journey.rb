@@ -13,11 +13,11 @@ class Journey < ApplicationRecord
 
 
   def formated_time
-    start_time.strftime("%b %d, %Y - %H h %M") if start_time
+    start_time.strftime("%b %d, %Y à %H h %M") if start_time
   end
 
   def formated_end_time
-    end_time.strftime("%b %d, %Y - %H h %M") if end_time
+    end_time.strftime("%b %d, %Y à %H h %M") if end_time
   end
 end
 

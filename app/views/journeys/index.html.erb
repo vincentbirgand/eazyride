@@ -2,7 +2,7 @@
 <body>
 
 <% if @journeys.present?%>
-  <div class="banner-page" style="background-image:  linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.2)), url(<%= cl_image_path @journeys.first.activity.photo %>);">
+  <div class="banner-page" style="background-image:  linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url(<%= cl_image_path @journeys.first.activity.photo %>);">
   </div>
   <%#= cl_image_tag @journeys.first.activity.photo, class:"banner-page" %>
 
