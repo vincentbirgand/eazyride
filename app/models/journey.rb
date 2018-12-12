@@ -12,6 +12,16 @@ class Journey < ApplicationRecord
   has_many :categories, through: :journey_categories
 
 
+  validates :car_type, presence: { message: " - Veuillez indiquer le type de véhicule" }
+  validates :seat_available, presence: { message: " - Veuillez indiquer le nombre de places disponibles" }
+  validates :description, presence: { message: " - Veuillez décrire votre trip" }
+  validates :start_time, presence: { message: " - Veuillez indiquer une date de départ" }
+  validates :end_time, presence: { message: " - Veuillez indiquer une date d'arrivée " }
+  validates :source_city, presence: { message: " - Veuillez indiquer le lieu de départ" }
+  validates :destination_city, presence: { message: " - Veuillez indiquer le lieu d'arrivée" }
+  validates :activity_id, presence: { message: " - Veuillez indiquer une activité" }
+  validates :price, presence: { message: " - Veuillez indiquer le prix par Eazyrider" }
+
   def formated_time
     start_time.strftime("%b %d, %Y - %H h %M") if start_time
   end
@@ -20,4 +30,3 @@ class Journey < ApplicationRecord
     end_time.strftime("%b %d, %Y - %H h %M") if end_time
   end
 end
-

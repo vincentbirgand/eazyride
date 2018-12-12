@@ -3,6 +3,27 @@
   margin: 50px auto;
 }
 
+.card-trip {
+  color: rgba(0,0,0,0.8);
+
+}
+
+.card-trip-description {
+  background: white;
+  width: auto;
+  padding: 10px;
+  align-items: center;
+  box-shadow: 0 0 5px lightgrey;
+  color: white;
+  background-size:cover;
+  align-items:center;
+  border-radius: 5px;
+    p {
+      font-size: 15px;
+    }
+
+}
+
 .card-home {
   margin-bottom: 20px;
   border-radius: 5px;
