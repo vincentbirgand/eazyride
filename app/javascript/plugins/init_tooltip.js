@@ -9,6 +9,11 @@ const initTooltip = () => {
     // Close the tooltip
     $('#journey_destination_city').tooltip('hide')
   });
+
+  $('.journey_destination_city').on('keypress', function(){
+    // Close the tooltip
+    $('#journey_destination_city').tooltip('hide')
+  });
 };
 
 export { initTooltip };
