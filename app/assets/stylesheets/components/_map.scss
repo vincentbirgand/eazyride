@@ -1,31 +1,33 @@
 .mapboxgl-popup {
-  max-width: 200px;
+  max-width: 150px !important;
+  position: relative;
 }
 
 .mapboxgl-popup-content {
   text-align: center;
   font-family: 'Open Sans', sans-serif;
+  padding: 10px 10px 10px !important;
+  border-radius: 10px !important;
 }
 
 .card-map {
   display: flex;
-  text-decoration: none;
+  text-decoration-line: none !important;
   background: white;
-  padding: 8px;
+  padding: 0px;
   cursor: pointer;
   border-radius: 5px;
-  border: 1px solid lightgrey;
-  box-shadow: 0 0 2px lightgrey;
   transition: all 0.3s ease;
   justify-content: space-around;
-  color: #3c3c3c;
-
+  color: #74B49A;
+  &:hover {
+    div {
+      text-decoration-line: none;
+      color: #569F83;
+      border-bottom: 0px;
+    }
   }
-
-.mapboxgl-popup-content {
-  border-radius: 15px !important;
 }
-
-.mapboxgl-popup {
-  position: relative;
+.text-decoration-none:hover {
+  text-decoration: none;
 }
