@@ -122,17 +122,49 @@
   text-decoration: none;
   background: white;
   display: flex;
-  padding: 10px;
+  // padding: 10px;
   cursor: pointer;
-  border-radius: 15px;
-  border: 1px solid lightgrey;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+  // border-radius: 15px;
+  // border: 1px solid lightgrey;
   transition: all 0.3s ease;
   justify-content: space-around;
   align-items: center;
      &:hover {
   // box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
  }
+}
+
+
+.card-trajet-resa-footer {
+  text-decoration: none;
+  background: #74b49b;
+  display: flex;
+  padding: 10px;
+  cursor: pointer;
+  // border-radius: 15px;
+  opacity: 0.7;
+  height: 50px;
+   box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+   justify-content: space-around;
+  align-items: center;
+   h4 {
+    color: white;
+    }
+   p {
+    color: white;
+   }
+}
+
+.card-trajet-profil-footer {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  border-bottom: 1px solid rgba(220,224,244,0.4);
+}
+
+.card-trajet-info-footer {
+  padding-left: 10px;
+  min-width: 100px;
 }
 
 .card-trajet-profil {
@@ -179,8 +211,9 @@
 
 .profile {
   flex: 0 0 20%;
-
 }
+
+
 
 .map {
 

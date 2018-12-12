@@ -26,6 +26,17 @@
       <p><strong>Prix : </strong><strong><font color="#74b49b"><%= @journey.price %> €</font></strong></p>
     </div>
   </li>
+  <div class="card-trajet-resa-footer">
+    <div class="profile">
+     <p><strong>Contacter le driver</strong></p>
+    </div>
+    <div class="desc-trip">
+     <p><%= @journey.user.email %></p>
+    </div>
+    <div class="offer">
+    <p><%= @journey.user.phone %></p>
+  </div>
+  </div>
 </ul>
 
 <div class="resa text-center"><%= link_to "Précédent", :back, class: "btn btn-success-resa" %></div>
