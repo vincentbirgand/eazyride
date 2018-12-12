@@ -232,7 +232,7 @@ j1.save!
 
 j2 = Journey.new(
   car_type: "Porsche Boxter",
-  seat_available: 3,
+  seat_available: 1,
   description: "Salut la communauté, je vous propose un voyage pour aller ski samedi prochain à Méribel au départ de Lyon. J'ai des barres de toit donc de la place pour le matos volumineux. Bons skieurs voulus, préférence pour le hors-pistes. A très vite!",
   source_city: "Lyon",
   destination_city: "Les Arcs 2000",
@@ -251,9 +251,9 @@ j2.save!
 j3 = Journey.new(
   car_type: "Volkswagen Polo",
   seat_available: 2,
-  description: "Hello, je proppose un voyage Lyon à la'Alpe d'Huez, n'hésitez pas à me PM pour plus d'infos. A toute!",
+  description: "Hello, je proppose un voyage Lyon à la station St Hugues Les Egaux, n'hésitez pas à me PM pour plus d'infos. A toute!",
   source_city: "Lyon",
-  destination_city: "Alpe d'Huez",
+  destination_city: "Les Égaux, 38380 Saint-Pierre-de-Chartreuse",
   price: 40,
   accepts_gear: true,
   shares_gear: false,
