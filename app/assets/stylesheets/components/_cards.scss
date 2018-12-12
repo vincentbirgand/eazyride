@@ -3,6 +3,11 @@
   margin: 50px auto;
 }
 
+// .container-recap {
+//   // max-width: 1000px;
+//   // margin: 50px auto;
+// }
+
 .card-home {
   margin-bottom: 20px;
   border-radius: 5px;
@@ -103,10 +108,13 @@
   cursor: pointer;
   border-radius: 15px;
   border: 1px solid lightgrey;
-  box-shadow: 0 0 5px lightgrey;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
   transition: all 0.3s ease;
   justify-content: space-around;
   align-items: center;
+     &:hover {
+  // box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+ }
 }
 
 .card-trajet-profil {
@@ -180,4 +188,18 @@
   &:hover {
     border: 0.5px solid #fff;
   }
+}
+
+.btn-success-resa {
+  background-color: #74b49b;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+  color: #fff;
+  border-radius: 5px;
+  &:hover {
+    color: #fff;
+  }
+}
+
+.resa {
+  padding-bottom: 30px;
 }
