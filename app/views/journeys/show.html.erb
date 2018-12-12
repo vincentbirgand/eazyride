@@ -23,12 +23,12 @@
         <div class= "flexed-around text-center">
           <div>
             <p> <strong> Départ </strong> </p>
-            <p>  📍<%= @journey.source_city.capitalize %> </p>
+            <p>  📍<%= @journey.source_city.capitalize.split(",")[0] %> </p>
             <p>  🗓<%= @journey.formated_time %> </p>
           </div>
           <div>
             <p> <strong> Arrivée </strong> </p>
-            <p>  📍<%= @journey.destination_city.capitalize %> </p>
+            <p>  📍<%= @journey.destination_city.capitalize.split(",")[0] %> </p>
             <p>  🗓<%= @journey.formated_end_time %> </p>
           </div>
         </div>
