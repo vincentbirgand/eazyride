@@ -17,7 +17,7 @@
       </div>
     </div>
     <br />
-    <div class="form-inline"
+    <div class="form-inline">
        <div id="journeys">
         <%= simple_form_for Journey.new, url: journeys_path, method: :get do |f| %>
         <%= f.input :activity_id, collection: Activity.all, prompt: "Choisis ton activité ", label: false %>
@@ -73,7 +73,7 @@
               <%= link_to "", journey_path(journey), class: "card-link" %>
             </div>
           <div class="card-home-footer">
-            <p><strong><%= journey.activity.name %></strong>  <br /> 📍<%= journey.source_city %> <br /> 🏁<%= journey.destination_city %></p>
+            <p><strong><%= journey.activity.name %></strong>  <br /> 📍<%= journey.source_city %> <br /> 🏁<%= journey.destination_city %> <br /><%= journey.formated_time %></p>
            <div class="card-footer-controls">
             <%= cl_image_tag  journey.user.photo, class: "avatar-card" %>
               <br />

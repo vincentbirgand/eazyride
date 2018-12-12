@@ -33,14 +33,14 @@ u1_vincent.save!
  u2_arthur = User.create!(
   first_name: "Arthur",
   last_name: "d'Achon",
-  description: "Passionné de surf, je navigue régulièrement et dispose de plusieurs boards",
+  description: "Passionné de ski, j'aime partager des sessions",
   phone: "07 19 09 09 09",
   birth_date: "18 Aout 1988",
   gender: "man",
   verified: true,
   email: "arthur@eazyride.com",
   password: "123456",
-  address: "3 rue de la Pompe, 75016 Paris, France",
+  address: "41 Quai de Pierre-Scize, 69009 Lyon",
   remote_photo_url: 'https://res.cloudinary.com/dscu7dmwa/image/upload/v1544522064/arthur.jpg'
 )
 u2_arthur.save!
@@ -48,9 +48,9 @@ u2_arthur.save!
 u3_martin = User.create!(
   first_name: "Martin",
   last_name: "Jordan",
-  description: "Passionné de char à voile extrême, je vais régulièrement sur le sable afin de me confronter aux éléments et sentir le vent dans mes cheveux",
+  description: "Passionné de char à voile extrême, je vais régulièrement sur le sable afin de me confronter aux éléments et sentir le vent dans mes cheveux. Je suis aussi un grand passionné de ski et aime en faire lorsque je suis sur Lyon",
   phone: "07 29 09 09 09",
-  birth_date: "28 Septembre 1988",
+  birth_date: "12 Septembre 1992",
   gender: "man",
   verified: true,
   email: "martin@eazyride.com",
@@ -70,7 +70,7 @@ u4_thibaut = User.create!(
   verified: true,
   email: "thibault@eazyride.com",
   password: "123456",
-  address: "26 rue Edouard Vaillant, 93140 Bondy, France",
+  address: "18 Rue Neuve, 69002 Lyon",
   remote_photo_url: 'https://res.cloudinary.com/dscu7dmwa/image/upload/v1544520391/thibaut.jpg'
 )
 u4_thibaut.save!
@@ -80,7 +80,7 @@ u5_pauline = User.create!(
   last_name: "Garcin",
   description: "Passionnée d'escalade, je vais régulièrement m'entrainer et dispose de mon matériel",
   phone: "07 10 10 10 10",
-  birth_date: "28 Avril 1988",
+  birth_date: "28 Février 1994",
   gender: "female",
   verified: true,
   email: "pauline@eazyride.com",
@@ -95,14 +95,14 @@ u5_pauline = User.create!(
 u6_jean = User.create!(
   first_name: "Jean",
   last_name: "Charles",
-  description: "Passionné de kitesurf, je navigue régulièrement et dispose de plusieurs boards et ailes. J'aime aussi faire du ski quand je suis en Rhône Alpes. Je dispose de mon matériel à Lyon.",
+  description: "Passionné de plongée, j'aime aller découvrir de nouveaux spots avec d'autres personnes.",
   phone: "07 09 19 09 09",
   birth_date: "28 Juillet 1992",
   gender: "man",
   verified: true,
   email: "jean@eazyride.com",
   password: "123456",
-  address: "16 villa Gaudelet, 75011 Paris, France",
+  address: "6 Place Sainte-Anne, 35000 Rennes",
   remote_photo_url: 'https://res.cloudinary.com/dscu7dmwa/image/upload/v1544520243/jc.jpg'
  )
 u6_jean.save!
@@ -110,7 +110,7 @@ u6_jean.save!
 u7_peichan = User.create!(
   first_name: "Peichan",
   last_name: "Lee",
-  description: "Passionné de kitesurf, je navigue régulièrement et dispose de plusieurs boards et ailes. J'aime aussi faire du ski quand je suis en Rhône Alpes. Je dispose de mon matériel à Lyon.",
+  description: "Très grosse rideuse, j'aime les sensations forte qui permettent de m'envoler...",
   phone: "07 09 29 09 09",
   birth_date: "28 Juillet 1992",
   gender: "man",
@@ -125,9 +125,9 @@ u7_peichan.save!
 u8_paul = User.create!(
   first_name: "Paul",
   last_name: "Cotché",
-  description: "Passionné de kitesurf, je navigue régulièrement et dispose de plusieurs boards et ailes. J'aime aussi faire du ski quand je suis en Rhône Alpes. Je dispose de mon matériel à Lyon.",
+  description: "Depuis tout petit, je fais du surf dès que je peux et je suis donc très heureux d'avoir découvert Eazyride. Cela m'a permis de rencontrer plein de gens qui ont la même passion que moi.",
   phone: "07 09 39 09 09",
-  birth_date: "28 Juillet 1992",
+  birth_date: "17 Juillet 1976",
   gender: "man",
   verified: true,
   email: "paul@eazyride.com",
@@ -140,7 +140,7 @@ u8_paul.save!
 u9_patrick = User.create!(
   first_name: "Patrick",
   last_name: "Fontaine",
-  description: "Passionné de kitesurf, je navigue régulièrement et dispose de plusieurs boards et ailes. J'aime aussi faire du ski quand je suis en Rhône Alpes. Je dispose de mon matériel à Lyon.",
+  description: "Passionné de kitesurf, je navigue régulièrement et dispose de plusieurs boards et ailes.",
   phone: "07 09 49 09 09",
   birth_date: "28 Juillet 1992",
   gender: "man",
@@ -155,7 +155,7 @@ u9_patrick.save!
 u10_julien = User.create!(
   first_name: "Julien",
   last_name: "Dupont",
-  description: "Passionné de kitesurf, je navigue régulièrement et dispose de plusieurs boards et ailes. J'aime aussi faire du ski quand je suis en Rhône Alpes. Je dispose de mon matériel à Lyon.",
+  description: "Grand fan de kitesurf, je navigue régulièrement et dispose de plusieurs boards et ailes. J'aime découvrir de nouveaux spots avec d'autres rider.",
   phone: "07 09 59 09 09",
   birth_date: "28 Juillet 1992",
   gender: "man",
@@ -170,14 +170,14 @@ u10_julien.save!
 u11_jules = User.create!(
   first_name: "Jules",
   last_name: "Boiteux",
-  description: "Passionné de kitesurf, je navigue régulièrement et dispose de plusieurs boards et ailes. J'aime aussi faire du ski quand je suis en Rhône Alpes. Je dispose de mon matériel à Lyon.",
+  description: "Originaire de la région, je fais du ski depuis mes 8ans. J'aime partagé ma passion avec d'autres personnes. Motivé pour faire un peu de hors piste si tout le monde est chaud ;)",
   phone: "07 09 79 09 09",
   birth_date: "10 Juillet 1992",
   gender: "man",
   verified: true,
   email: "jules@eazyride.com",
   password: "123456",
-  address: "16 villa Gaudelet, 75011 Paris, France",
+  address: "25 Rue de l'Arbre Sec, 69001 Lyon",
   remote_photo_url: 'https://res.cloudinary.com/dscu7dmwa/image/upload/v1544524674/jules.jpg'
  )
 u11_jules.save!
@@ -186,23 +186,23 @@ puts "10 users created"
 
 puts "creating 12 activities"
 
-a1 = Activity.create!(category:"Plongée", name:'Apnée', photo: '')
-a2 = Activity.create!(category:"Sport d'eau", name:'Bodyboard', photo: '')
-a3 = Activity.create!(category:"Sport de montagne", name:'Escalade', photo: 'https://res.cloudinary.com/dscu7dmwa/image/upload/v1544450900/climbing.jpg')
-a4 = Activity.create!(category:"Golf", name:'Golf', photo: '')
-a5 = Activity.create!(category:"Sport d'eau", name:'Kite-Surf', photo: 'https://res.cloudinary.com/dscu7dmwa/image/upload/v1544450832/ocean.jpg')
-a6 = Activity.create!(category:"Sport d'eau", name:'Paddle', photo: '')
-a7 = Activity.create!(category:"Sport de montagne", name:'Parapente', photo: '')
-a8 = Activity.create!(category:"Sport de montagne", name:'Parachutisme', photo: '')
-a9 = Activity.create!(category:"Sport d'eau", name:'Planche à voile', photo: '')
-a10 = Activity.create!(category:"Plongée", name:'Plongée', photo: '')
-a11 = Activity.create!(category:"Randonnée", name:'Randonnée', photo: '')
-a12 = Activity.create!(category:"Running", name:'Running', photo: '')
+a1 = Activity.create!(category:"Plongée", name:'Apnée', photo: 'https://res.cloudinary.com/dscu7dmwa/image/upload/v1544539634/apne%CC%81e.jpg')
+a2 = Activity.create!(category:"Sport d'eau", name:'Bodyboard', photo: 'https://res.cloudinary.com/dscu7dmwa/image/upload/v1544539993/bodyboard.jpg')
+a3 = Activity.create!(category:"Sport de montagne", name:'Escalade', photo: 'https://res.cloudinary.com/dscu7dmwa/image/upload/v1544539144/escalade.jpg')
+a4 = Activity.create!(category:"Golf", name:'Golf', photo: 'https://res.cloudinary.com/dscu7dmwa/image/upload/v1544540808/golf2.jpg')
+a5 = Activity.create!(category:"Sport d'eau", name:'Kite-Surf', photo: 'https://res.cloudinary.com/dscu7dmwa/image/upload/v1544544026/kite_surf.jpg')
+a6 = Activity.create!(category:"Sport d'eau", name:'Paddle', photo: 'https://res.cloudinary.com/dscu7dmwa/image/upload/v1544541219/paddle.jpg')
+a7 = Activity.create!(category:"Sport de montagne", name:'Parapente', photo: 'https://res.cloudinary.com/dscu7dmwa/image/upload/v1544541305/parapente.jpg')
+a8 = Activity.create!(category:"Sport de montagne", name:'Parachutisme', photo: 'https://res.cloudinary.com/dscu7dmwa/image/upload/v1544541443/parachute.jpg')
+a9 = Activity.create!(category:"Sport d'eau", name:'Planche à voile', photo: 'https://res.cloudinary.com/dscu7dmwa/image/upload/v1544541608/planche_a%CC%80_voile.jpg')
+a10 = Activity.create!(category:"Plongée", name:'Plongée', photo: 'https://res.cloudinary.com/dscu7dmwa/image/upload/v1544539440/plonge%CC%81e.jpg')
+a11 = Activity.create!(category:"Randonnée", name:'Randonnée', photo: 'https://res.cloudinary.com/dscu7dmwa/image/upload/v1544541733/randonne%CC%81e.jpg')
+a12 = Activity.create!(category:"Running", name:'Running', photo: 'https://res.cloudinary.com/dscu7dmwa/image/upload/v1544541941/runnning.jpg')
 a13 = Activity.create!(category:'Sport de neige', name:'Ski', photo: 'https://res.cloudinary.com/dscu7dmwa/image/upload/v1544450679/sport_de_neige.jpg')
-a14 = Activity.create!(category:'Sport de neige', name:'Snowboard', photo: 'https://res.cloudinary.com/dscu7dmwa/image/upload/v1544450679/sport_de_neige.jpg')
+a14 = Activity.create!(category:'Sport de neige', name:'Snowboard', photo: 'https://res.cloudinary.com/dscu7dmwa/image/upload/v1544544172/snowboard.jpg')
 a15 = Activity.create!(category:"Sport d'eau", name:'Surf', photo: 'https://res.cloudinary.com/dscu7dmwa/image/upload/v1544450832/ocean.jpg')
-a16 = Activity.create!(category:"Vélo", name:'Vélo', photo: '')
-a17 = Activity.create!(category:"Vélo", name:'VTT', photo: '')
+a16 = Activity.create!(category:"Vélo", name:'Vélo', photo: 'https://res.cloudinary.com/dscu7dmwa/image/upload/v1544542411/cycling.jpg')
+a17 = Activity.create!(category:"Vélo", name:'VTT', photo: 'https://res.cloudinary.com/dscu7dmwa/image/upload/v1544542325/VTT.jpg')
 
 
 
@@ -251,9 +251,9 @@ j2.save!
 j3 = Journey.new(
   car_type: "Volkswagen Polo",
   seat_available: 2,
-  description: "Hello, je proppose un voyage Lyon à la Station de Savoie Grand Revard, n'hésitez pas à me PM pour plus d'infos. A toute!",
+  description: "Hello, je proppose un voyage Lyon à la'Alpe d'Huez, n'hésitez pas à me PM pour plus d'infos. A toute!",
   source_city: "Lyon",
-  destination_city: "Station de Savoie Grand Revard",
+  destination_city: "Alpe d'Huez",
   price: 40,
   accepts_gear: true,
   shares_gear: false,
@@ -408,7 +408,7 @@ r1 = Review.new(
   description: "Super trip, Arthur est très sympa. Je le recommande vivement. A refaire!",
 )
 r1.reviewee_id = u2_arthur.id
-r1.reviewer_id = u1_vincent.id
+r1.reviewer_id = u10_julien.id
 r1.journey_id = j1.id
 r1.save!
 
@@ -432,10 +432,10 @@ r3.save!
 
 r4 = Review.new(
   rating: 4,
-  description: "Vincent était en retard, ce qui nous a malheureusement fait tomber dans les bouchons. Mais il est très sympa et bon esprit. Je le recommande.",
+  description: "Peichan est vraiment une bombe en ski. ce fut un plaisir de rider ensemble",
 )
-r4.reviewee_id = u1_vincent.id
-r4.reviewer_id = u2_arthur.id
+r4.reviewee_id = u7_peichan.id
+r4.reviewer_id = u11_jules.id
 r4.journey_id = j1.id
 r4.save!
 
@@ -444,12 +444,12 @@ puts " 2 drivees for journey 1"
 
 d1 = Drivee.new(status: "En attente")
 d1.journey_id = j1.id
-d1.user_id = u1_vincent.id
+d1.user_id = u11_jules.id
 d1.save!
 
 d2 = Drivee.new(status: "En attente")
 d2.journey_id = j1.id
-d2.user_id = u3_martin.id
+d2.user_id = u7_peichan.id
 d2.save!
 
 puts " 2 drivees created"

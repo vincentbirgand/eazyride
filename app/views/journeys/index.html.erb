@@ -1,4 +1,10 @@
-<%= cl_image_tag @journeys.first.activity.photo, class:"banner-page" %>
+<html>
+<body>
+
+<% if @journeys.present?%>
+  <div class="banner-page" style="background-image:  linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.2)), url(<%= cl_image_path @journeys.first.activity.photo %>);">
+  </div>
+
 
 <div class="main-container-index">
   <div class="left-container-index">
@@ -37,3 +43,17 @@
     <% end %>
   </div>
 </div>
+<% else %>
+
+
+<div class="banner-page" style="background-image:  linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.2)), url(<%= cl_image_path 'https://res.cloudinary.com/dscu7dmwa/image/upload/v1544539993/bodyboard.jpg'%>);">
+</div>
+<h5 class="text-center"> Désolé, il n'y a actuellement pas de trajet disponible pour cette activité</h5>
+<br>
+<div class= "text-center" ><%= link_to "Chercher une autre activité", root_path, class: "btn btn-success" %></div>
+
+<% end %>
+
+
+</body>
+</html>

@@ -1,6 +1,6 @@
 <div class="container-profile">
   <div class="text-center">
-      <img src="https://res.cloudinary.com/dscu7dmwa/image/upload/v1544179254/image_3.png" alt="Avatar" class="avatar-profile">
+    <%= cl_image_tag  @user.photo, class: "avatar-profile"%>
     <h2><%= @user.first_name %></h2>
   </div>
 </br>
@@ -12,23 +12,41 @@
     <p>Note globale: <%= @user.average_rating %>/5 - <%= @user.amount_rating %> avis</p>
     <br>
   </div>
-     <h4>Reviews:</h4>
-     <% @user.reviews.each do |review| %>
-        <p>De: <%= review.reviewer.first_name %></p>
-        <% review.rating.times do%><span class="fa fa-star checked"></span>
-          <% end %>
-        <% 5 - review.rating.times do%><span class="fa fa-star"></span>
+
+  <% if @user.reviews.present? %>
+    <h4>Avis reçus:</h4>
+    <% @user.reviews.each do |review| %>
+    <div class="reviews" style="display: flex">
+      <div class="review-profile" style="margin-right: 20px">
+        <%= cl_image_tag  review.reviewer.photo, class: "avatar" %>
+          <p style="font-size: 13px ; text-align: center"><%= review.reviewer.first_name %></p>
+      </div>
+      <div class="review-comment">
+        <% review.rating.to_i.times do %><span class="fa fa-star checked"></span>
         <% end %>
-        <p>Commentaire: <%= review.description %></p>
+        <% stars = review.rating.to_i%>
+        <% stars_new = 5 - stars %>
+        <% stars_new.times do%><span class="fa fa-star"></span>
+        <% end %>
+          <p style="font-size: 15px"><%= review.description %></p>
+      </div>
+    </div>
+
      </br>
      <% end%>
-  <div class="text-center"><%= link_to "Contactez-le!", edit_profile_path(@user), class: "btn btn-success" %></div>
+  <% end %>
+
+<% if @user != current_user  %>
+  <div class="text-center"><%= link_to "Contactez-le!", profile_path(@user), class: "btn btn-success" %></div>
     </br>
-<!--  A gérer avec le pundit selon profil du user ou non -->
- <div class="text-center"><%= link_to "Modifier mon profil", edit_profile_path(@user), class: "btn btn-success" %></div>
-  </br>
+
+<% else %>
+   <div class="text-center"><%= link_to "Modifier mon profil", edit_profile_path(@user), class: "btn btn-success" %></div>
+  </div>
+<% end %>
+
 </div>
+<div class="text-center"><%= link_to "Précédent", :back, class: "btn btn-light" %></div>
+</br>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-

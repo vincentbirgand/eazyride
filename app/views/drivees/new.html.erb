@@ -15,13 +15,14 @@
           <div class="desc-trip">
             <h4>Date et heure</h4>
             <br />
-            <p><strong>Début :</strong> <%= @journey.start_time %></p>
-            <p><strong>Fin :</strong> <%= @journey.end_time %></p>
+            <p><strong>Début :</strong> <%= @journey.formated_time %></p>
+            <p><strong>Fin :</strong> <%= @journey.formated_end_time%></p>
           </div>
           <div class="offer">
             <h4> Détails</h4>
             <br />
             <p><strong>Voiture :</strong> <%= @journey.car_type%></p>
+            <%= link_to "Back", :back  %>
             <p><strong>Prix : </strong><strong><font color="#74b49b"><%= @journey.price %> €</font></strong></p>
           </div>
        </li>

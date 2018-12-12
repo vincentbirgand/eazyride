@@ -7,11 +7,11 @@ const formClick = () => {
   // const formElement = document.getElementsByClassName('form-choice');
   const formElement = document.querySelectorAll('.form-choice');
   if (formElement) {
-    console.log(formElement);
+    // console.log(formElement);
     // je mets un event listener sur le form
     formElement.forEach((element) => {
       element.addEventListener("click", (event) => {
-        console.log("event", event);
+        // console.log("event", event);
         event.currentTarget.classList.toggle("active");
       });
     });

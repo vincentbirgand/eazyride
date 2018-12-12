@@ -9,8 +9,8 @@ class User < ApplicationRecord
 
   has_many :reviews, foreign_key: :reviewee_id
 
-  has_many :sent_messages, foreign_key: :sender_id, class_name: "Message"
-  has_many :received_messages, foreign_key: :receiver_id, class_name: "Review"
+  has_many :messages
+
 
   def name
     "#{first_name.capitalize} #{last_name.capitalize}"
@@ -34,5 +34,14 @@ class User < ApplicationRecord
 
   def amount_rating
     self.reviews.count
+  end
+
+  def green_stars
+    average_rating.to_i
+  end
+
+  def black_stars
+    stars = green_stars
+    black_stars = 5 - stars
   end
 end
