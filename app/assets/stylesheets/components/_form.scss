@@ -1,14 +1,29 @@
-// .container-form {
-//   background: white;
-//   border: black 1px solid;
-//   margin-right: 50px;
-//   margin-left: 50px;
-// }
+.container-form {
+  display: flex;
+ }
 
-// .row-form {
-//   padding-bottom: 25px;
-//   padding-top: 25px;
-// }
+.left {
+ background-image: linear-gradient(to top, #213146, #233d5b, #244970, #245587, #21629e);
+ // background-image: linear-gradient(to bottom, #213146, #233d5b, #244970, #245587, #21629e);
+ position: relative;
+ min-width: 50vw;
+ height: 110vh;
+ // background-color: #213146;
+
+}
+
+.image-left {
+ position: absolute;
+ top: 220px;
+ right: 220px;
+  h2 {
+    color: #fff;
+  }
+  h4 {
+    color: #fff;
+  }
+}
+
 
 .form-inline {
   display: flex;

@@ -12,13 +12,10 @@ class JourneysController < ApplicationController
      if params[:journey][:destination_city].present? && params[:journey][:destination_city].downcase != 'partout'
       @journeys = @journeys.where("destination_city ILIKE ?", "%#{params[:journey][:destination_city]}%")
      end
-     if params[:journey][:start_time].present?
-      search_start_time_mindnight = DateTime.parse(params[:journey][:start_time])
-      search_start_time_end_of_the_day = search_start_time_mindnight.end_of_day
-      @journeys = @journeys.select do |journey|
-        journey.start_time.day == search_start_time_mindnight.day && journey.start_time.month == search_start_time_mindnight.month
-      end
-     end
+    if params[:journey][:start_time].present?
+      search_start_date = DateTime.parse(params[:journey][:start_time]).to_date
+      @journeys = @journeys.where("date(start_time) = ?", search_start_date)
+    end
 
     @markers = []
 
@@ -59,8 +56,16 @@ class JourneysController < ApplicationController
 
   def create
     @journey = Journey.new(journey_params)
-    @journey.save
+
+    @journey.source_city = @journey.source_city.split(",")[0]
+    @journey.destination_city = @journey.destination_city.split(",")[0]
+
+
+    # @journey.save
     @journey.user = current_user
+    puts "----------"
+    p @journey
+    puts "----------"
     if @journey.save
       redirect_to journey_path(@journey)
     else

@@ -20,9 +20,12 @@
           <h4><%= journey.user.first_name %></h4>
         </div>
         <div class="desc-trip">
-          <h4><%= journey.source_city %> / <%= journey.destination_city %></h4>
+          <h4><%= journey.source_city.split(",")[0] %> / <%= journey.destination_city.split(",")[0] %></h4>
           <p><%= journey.formated_time %></p>
           <!-- <p><%= journey.car_type %></p> -->
+
+
+
         </div>
         <div class="offer">
           <h4><font color="#74b49b"><%= journey.price %> €</font> <font color="#74b49b">/rider </font></h4>

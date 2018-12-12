@@ -1,34 +1,34 @@
-<html>
-<body>
+<!--
+<body style="background-color: #EDEDED"> -->
 
+<canvas id="canvas-fireworks">Canvas is not supported in your browser.</canvas>
 
-  <ul class="container">
-    <h3 class="text-center">Récapitulatif de ta réservation pour l'activité <%= @journey.activity.name %> </h3>
-    <br />
-    <li class="card-trajet-resa" >
-          <div class="profile" >
-            <h4>Trajet</h4>
-            <br />
-            <p><strong>Départ : </strong> <%= @journey.source_city %></p>
-            <p><strong>Arrivée :</strong> <%= @journey.destination_city %></p>
-          </div>
-          <div class="desc-trip">
-            <h4>Date et heure</h4>
-            <br />
-            <p><strong>Début :</strong> <%= @journey.formated_time %></p>
-            <p><strong>Fin :</strong> <%= @journey.formated_end_time%></p>
-          </div>
-          <div class="offer">
-            <h4> Détails</h4>
-            <br />
-            <p><strong>Voiture :</strong> <%= @journey.car_type%></p>
-            <%= link_to "Back", :back  %>
-            <p><strong>Prix : </strong><strong><font color="#74b49b"><%= @journey.price %> €</font></strong></p>
-          </div>
-       </li>
-    </ul>
+<ul class="container">
+  <h3 class="text-center">Récapitulatif de ta réservation pour l'activité <%= @journey.activity.name %> </h3>
+  <br />
+  <li class="card-trajet-resa" >
+    <div class="profile" >
+      <h4>Trajet</h4>
+      <br />
+      <p><strong>Départ : </strong> <%= @journey.source_city %></p>
+      <p><strong>Arrivée :</strong> <%= @journey.destination_city %></p>
+    </div>
+    <div class="desc-trip">
+      <h4>Date et heure</h4>
+      <br />
+      <p><strong>Début :</strong> <%= @journey.formated_time %></p>
+      <p><strong>Fin :</strong> <%= @journey.formated_end_time%></p>
+    </div>
+    <div class="offer">
+      <h4> Détails</h4>
+      <br />
+      <p><strong>Voiture :</strong> <%= @journey.car_type%></p>
+      <p><strong>Prix : </strong><strong><font color="#74b49b"><%= @journey.price %> €</font></strong></p>
+    </div>
+  </li>
+</ul>
 
+<div class="resa text-center"><%= link_to "Précédent", :back, class: "btn btn-success-resa" %></div>
 
+<!-- </body> -->
 
-</body>
-</html>
