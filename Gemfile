@@ -18,6 +18,7 @@ gem 'webpacker'
 gem 'devise'
 gem 'geocoder'
 gem 'pundit'
+gem 'i18n'
 
 
 gem 'dotenv-rails', groups: [:development, :test]

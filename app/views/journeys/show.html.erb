@@ -22,7 +22,7 @@
                     <% end %>
                     <p style="font-size : 12px; margin-top: 0px; margin-bottom: -2px; margin-left: 10px;" class="flex">- <%= @journey.user.amount_rating %> avis </p>
                  <% else %>
-                    <p style="font-size : 16px"><%= "Nouvel Eazyrider!" %></p>
+                    <p style="font-size : 20px"><%= "Nouvel Eazyrider!" %></p>
                  <% end %>
                 </p>
               </div>
@@ -44,7 +44,7 @@
         </div>
         <div class="sh-profile-cont flexed-around">
           <i class="far fa-check-circle"></i>
-          <p style="font-size : 16px; color: #4F4F4F;">Driver certifié<br><%= @journey.car_type.capitalize%></p>
+          <p style="font-size : 14px; color: #4F4F4F;margin-bottom: 0px; text-transform: uppercase;">Driver certifié<br><%= @journey.car_type.capitalize%></p>
         </div>
         <div class="sh-profile-cont">
           <h3 class="sh-pref-title">MES PREFERENCES</h3>
@@ -113,7 +113,7 @@
 
   <div class="sh-right-cont" style="background: white;">
     <div class="sh-overview-cont">
-      <h2 class="overview-title">MA JOURNEE DE <%= @journey.activity.name.upcase %> IN <%= @journey.destination_city.upcase.split(",")[0] %></h2>
+      <h2 class="overview-title">MA JOURNEE DE <%= @journey.activity.name.upcase %> A <span style= "color:#74b49b;"><%= @journey.destination_city.upcase.split(",")[0] %></span></h2>
       <p class="overview-text"><%= @journey.description %></p>
     </div>
     <div class="sh-overview-cont flexed">
@@ -165,8 +165,10 @@
     </div>
     <% else %>
     <div class="sh-overview-cont">
-      <h3 class="others-title">AUTRES VOYAGEURS</h3>
-      <h6>Aucun Eazyrider pour le moment, sois le premier!</h6>
+      <div class="sh-trajet-cont">
+        <h3 class="others-title">AUTRES VOYAGEURS</h3>
+        <p>Aucun Eazyrider pour le moment, sois le premier!</p>
+      </div>
     </div>
     <% end %>
   </div>
@@ -214,5 +216,5 @@
 </div>
 </div>
 
-<!-- <br>
-<br> -->
+
+
