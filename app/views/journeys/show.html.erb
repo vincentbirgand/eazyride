@@ -1,93 +1,97 @@
-<%#= cl_image_tag @journey.activity.photo, class:"banner-page" %>
-<div class="banner-page" style="background-image:  linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.2)), url(<%= cl_image_path @journey.activity.photo %>);">
-  </div>
+<div class="main-cont">
+  <div class="sh-left-cont" style="background-image:  linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url(<%= cl_image_path @journey.activity.photo %>);">
+    <h2 class="overview-title-left"><%= @journey.activity.category.upcase %></h2>
+    <div class="sh-overview-cont-left">
+      <div class="sh-profile-card">
+        <div class="sh-profile-cont">
+          <div class="flexed">
+            <% if @journey.user.photo.present? %>
+              <%= link_to profile_path(@journey.user_id) do %>
+                <%= cl_image_tag  @journey.user.photo, class: "avatar marged-right" %>
+              <% end %>
+              <div class="name-review">
+                <h5><%= @journey.user.first_name %></h5>
+                <p>
+                 <% if @journey.user.reviews.present? %>
+                    <% @journey.user.green_stars.times do %>
+                     <span class="fa fa-star checked" style="font-size : 12px"></span>
+                    <% end %>
 
-<div class="container">
+                    <% @journey.user.black_stars.times do%>
+                    <span class="fa fa-star" style="font-size : 12px"></span>
+                    <% end %>
 
-<div class="text-center">
-  <h4> <%= @journey.activity.category.upcase %> | <%= @journey.source_city.capitalize.split(",")[0] %> - <%= @journey.destination_city.capitalize.split(",")[0] %>  </h4>
-  <!-- <h6> Temps trajet aller - km </h6> -->
-</div>
-
-<div class="main-container-journey">
-  <div class="left-container">
-    <div class="">
-      <div class="">
-        <h5> <%= @journey.activity.name.capitalize %> à <%= @journey.destination_city.capitalize %> </h5>
-        <p> <em><%= @journey.description %></em></p>
-        <p><em><%= @distance.round %> Km</em></p>
-
-        <br>
-
-
-        <div class= "flexed-around text-center">
-          <div>
-            <p> <strong> Départ </strong> </p>
-            <p>  📍<%= @journey.source_city.capitalize.split(",")[0] %> </p>
-            <p>  🗓<%= @journey.formated_time %> </p>
+                   <p style="font-size : 12px; margin-top: -1px" class="flex">- <%= @journey.user.amount_rating %> avis </p>
+                 <% else %>
+                    <p style="font-size : 12px"><%= "Nouvel Eazyrider!" %></p>
+                 <% end %>
+                </p>
+            <% else %>
+              <%= link_to profile_path(@journey.user_id) do %>
+              <%= cl_image_tag 'https://res.cloudinary.com/dscu7dmwa/image/upload/v1544458825/speech-bubbles.png', class: "avatar marged-right" %>
+              <% end %>
+              <h5><%= @journey.user.first_name %></h5>
+               <% @journey.user.green_stars.times do %><span class="fa fa-star checked" style="font-size : 12px"></span>
+              <% end %>
+               <% @journey.user.black_stars.times do%><span class="fa fa-star" style="font-size : 12px"></span>
+              <% end %>
+            <% end %>
+            </div>
           </div>
-          <div>
-            <p> <strong> Arrivée </strong> </p>
-            <p>  📍<%= @journey.destination_city.capitalize.split(",")[0] %> </p>
-            <p>  🗓<%= @journey.formated_end_time %> </p>
+        </div>
+        <div class="sh-profile-cont">
+          <div class="sh-profile-description"><%= @journey.user.description%></div>
+        </div>
+        <div class="sh-profile-cont flexed-around">
+          <i class="fas fa-check"></i>
+          <p>Driver certifié<br><%= @journey.car_type.capitalize%></p>
+        </div>
+        <div class="sh-profile-cont">
+          <h3 class="sh-pref-title">MES PREFERENCES</h3>
+          <div class="pref-cont flexed-around">
+            <p class="sh-prf1">
+              <% if @journey.shares_gear == true %>
+                <div class="true">
+                  <i class="fas fa-check"></i>
+                  <p>Je partage<br>mon activité</p>
+                </div>
+              <% else %>
+                <div class="false">
+                <i class="fas fa-times"></i>
+                <p>Je partage<br>mon activité </p>
+                </div>
+              <% end %>
+            </p>
+            <p class="sh-prf2">
+              <% if @journey.lends_gear == true %>
+                 <div class="true">
+                  <i class="fas fa-check"></i>
+                  <p> Je prête<br>du matériel </p>
+                  </div>
+              <% else %>
+                <div class="false">
+                <i class="fas fa-times"></i>
+                <p> Je prête<br>du matériel </p>
+                </div>
+              <% end %>
+            </p>
+            <p class="sh-prf3">
+              <% if @journey.accepts_gear == true %>
+                <div class="true">
+                <i class="fas fa-check"></i>
+                <p>J'accepte de<br>transporter votre matériel </p>
+                </div>
+              <% else %>
+                <div class="false">
+                <i class="fas fa-times"></i>
+                <p>J'accepte de<br>transporter votre matériel </p>
+                </div>
+              <% end %>
+            </p>
           </div>
         </div>
       </div>
-    </div>
-<br>
-    <div class="">
-      <div class="flexed">
-        <% if @journey.shares_gear == true %>
-          <div class="true">
-            <i class="fas fa-check"></i>
-            <p>Je partage<br>mon activité</p>
-          </div>
-        <% else %>
-          <div class="false">
-          <i class="fas fa-times"></i>
-          <p>Je partage<br>mon activité </p>
-          </div>
-        <% end %>
-
-        <br>
-        <br>
-
-        <% if @journey.lends_gear == true %>
-           <div class="true">
-            <i class="fas fa-check"></i>
-            <p> Je prête<br>du matériel </p>
-            </div>
-        <% else %>
-          <div class="false">
-          <i class="fas fa-times"></i>
-          <p> Je prête<br>du matériel </p>
-          </div>
-        <% end %>
-
-        <% if @journey.accepts_gear == true %>
-          <div class="true">
-          <i class="fas fa-check"></i>
-          <p>J'accepte de<br>transporter votre matériel </p>
-          </div>
-        <% else %>
-          <div class="false">
-          <i class="fas fa-times"></i>
-          <p>J'accepte de<br>transporter votre matériel </p>
-          </div>
-        <% end %>
-        </div>
-
-        <div class="center">
-        <p>
-          <% if @journey.seat_available > 0 %>
-            <%= @journey.seat_available %> places disponibles
-            <p><%= @journey.price %> € par place </p>
-          <% else %>
-            <p> Désolé, il n'y a plus de place disponible pour ce trajet ! </p>
-          <% end %>
-        </p>
-
-        <div class="">
+      <div class="">
         <% if @journey.seat_available > 0 && @journey.user != current_user %>
           <%= simple_form_for [@journey, @drivee] do |f| %>
             <div class= "text-center"><%= f.submit 'Je réserve', class: "btn btn-success" %></div>
@@ -95,12 +99,55 @@
         <% else %>
             <%= link_to "Chercher un autre trajet", root_path, class: "btn btn-success" %>
         <% end %>
-        </div>
+        <% if policy(@journey).edit? %>
+          <%= link_to "Modifier", edit_journey_path(@journey), class: "btn btn-primary" %>
+        <% end %>
 
+        <% if policy(@journey).destroy? %>
+          <%= link_to "Supprimer", journey_path(@journey),method: :delete, class: "btn btn-danger"%>
+        <% end %>
       </div>
-      <% if @journey.drivees.present? %>
-        <h4>Ils sont aussi du voyage:</h4>
-        <div class="other-riders">
+    </div>
+  </div>
+
+
+  <div class="sh-right-cont">
+    <div class="sh-overview-cont">
+      <h2 class="overview-title">MA JOURNEE DE <%= @journey.activity.name.upcase %> IN <%= @journey.destination_city.upcase.split(",")[0] %></h2>
+      <p class="overview-text"><%= @journey.description %></p>
+    </div>
+    <div class="sh-overview-cont flexed-around">
+      <div class="sh-trajet-cont">
+        <h3 class="sh-trajet-text1">ALLER</h3>
+        <p class="sh-trajet-text2"><i class="far fa-calendar-alt"></i><%= @journey.formated_time %></p>
+        <p class="sh-trajet-text3"><i class="fas fa-car"></i><%= @journey.source_city.capitalize.split(",")[0] %> <i class="fas fa-arrow-right"></i> <%= @journey.destination_city.capitalize.split(",")[0] %></p>
+      </div>
+      <div class="sh-trajet-cont">
+        <h3 class="sh-trajet-text1">RETOUR</h3>
+        <p class="sh-trajet-text2"><i class="far fa-calendar-alt"></i><%= @journey.formated_end_time %></p>
+        <p class="sh-trajet-text3"><i class="fas fa-car"></i><%= @journey.destination_city.capitalize.split(",")[0] %> <i class="fas fa-arrow-left"></i> <%= @journey.source_city.capitalize.split(",")[0] %></p>
+      </div>
+    </div>
+    <div class="sh-overview-cont">
+      <div class="sh-trajet-cont">
+        <h3 class="sh-pref-title">DETAILS DU TRAJET</h3>
+        <div class="pref-cont flexed">
+          <p class="sh-prf1">
+            <% if @journey.seat_available > 0 %>
+              <%= @journey.seat_available %> places disponibles
+              <p style="margin-left: 80px;"><%= @journey.price %> € par place </p>
+              <p><%= @distance.round %> Km</p>
+            <% else %>
+              <p style="margin-left: 80px;"> Désolé, il n'y a plus de place disponible pour ce trajet ! </p>
+            <% end %>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="sh-overview-cont">
+      <h3 class="others-title">AUTRES VOYAGEURS</h3>
+      <div class="others-cont">
+        <div class="sh-others">
           <% @journey.drivees.each do |drivee| %>
           <div class="riders">
           <%= link_to profile_path(drivee.user_id) do %>
@@ -110,78 +157,26 @@
           </div>
           <% end %>
         </div>
-      <% end %>
-      </div>
-
-  <div class="cta text-center">
-    <% if policy(@journey).edit? %>
-      <%= link_to "Modifier", edit_journey_path(@journey), class: "btn btn-primary" %>
-    <% end %>
-
-    <% if policy(@journey).destroy? %>
-      <%= link_to "Supprimer", journey_path(@journey),method: :delete, class: "btn btn-danger"%>
-    <% end %>
-
-      <%= link_to "Message",  new_journey_message_path(@journey),method: :get, class: "btn btn-primary" %>
-    <br>
-
-    <br>
-    <div><%= link_to "Laisser un commentaire",new_journey_review_path(@journey)  %>
-    </div>
-    </div>
-  </div>
-
-  <div class="right-container">
-    <div class="card-driver">
-        <div class="riders">
-          <% if @journey.user.photo.present? %>
-            <%= link_to profile_path(@journey.user_id) do %>
-              <%= cl_image_tag  @journey.user.photo, class: "avatar marged-right" %>
-            <% end %>
-            <h6><%= @journey.user.first_name %></h6>
-            <div class="reviews">
-            <% if @journey.user.reviews.present? %>
-               <% @journey.user.green_stars.times do %><span class="fa fa-star checked" style="font-size : 12px"></span>
-               <% end %>
-               <% @journey.user.black_stars.times do%><span class="fa fa-star" style="font-size : 12px"></span>
-               <% end %>
-                <p style="font-size : 12px; margin-top: -1px" class="flex">- <%= @journey.user.amount_rating %> avis </p>
-               <% else %>
-               <p style="font-size : 12px"><%= "Nouvel Eazyrider!" %></p>
-               <% end %>
-             </div>
-          <% else %>
-            <%= link_to profile_path(@journey.user_id) do %>
-            <%= cl_image_tag 'https://res.cloudinary.com/dscu7dmwa/image/upload/v1544458825/speech-bubbles.png', class: "avatar marged-right" %>
-            <% end %>
-            <h6><%= @journey.user.first_name %></h6>
-             <% @journey.user.green_stars.times do %><span class="fa fa-star checked" style="font-size : 12px"></span>
-            <% end %>
-             <% @journey.user.black_stars.times do%><span class="fa fa-star" style="font-size : 12px"></span>
-            <% end %>
-          <% end %>
-
-          <h5>A propos du conducteur</h5>
-        </div>
-
-        <div class="line-para">
-        <p><%= @journey.user.description%></p>
-        </div>
-
-        <p><%#= @journey.reviews%></p>
-
-        <div class="line-para">
-        <p><i class="far fa-check-circle"></i> Conducteur validé</p>
-        </div>
-
-        <div class="">
-        <p>Modèle de la voiture : <%= @journey.car_type%></p>
-        </div>
       </div>
     </div>
   </div>
+</div>
 
-<% if @journey.messages.present? %>
+<div class="container">
+  <div class="row">
+    <div
+      id="map"
+      style="width: 100%;
+      height: 600px;"
+      data-markers="<%#= @markers.to_json %>"
+      data-mapbox-api-key="<%= ENV['mapboxgl.accessToken'] %>"
+      data-orig-lon="<%= @journey_origin_lon %>"
+      data-orig-lat="<%= @journey_origin_lat %>"
+      data-dest-lon="<%= @journey_dest_lon %>"
+      data-dest-lat="<%= @journey_dest_lat %>"
+    ></div>
+  </div>
+
   <div class="container">
     <h5>Messages</h5>
     <div class="row">
@@ -203,37 +198,11 @@
       <% end %>
         </br>
   </div>
-<% end %>
-
-
-<h5>Itinéaire</h5>
-  <div class="container">
-    <div class="row">
-      <div
-        id="map"
-        style="width: 100%;
-        height: 600px;"
-        data-markers="<%#= @markers.to_json %>"
-        data-mapbox-api-key="<%= ENV['mapboxgl.accessToken'] %>"
-        data-orig-lon="<%= @journey_origin_lon %>"
-        data-orig-lat="<%= @journey_origin_lat %>"
-        data-dest-lon="<%= @journey_dest_lon %>"
-        data-dest-lat="<%= @journey_dest_lat %>"
-      ></div>
-    </div>
-  </div>
 </div>
 
-
-<div
-  id="map"
-  style="width: 100%;
-  height: 300px;"
-  data-markers="<%#= @markers.to_json %>"
-  data-mapbox-api-key="<%= ENV['mapboxgl.accessToken'] %>"
-  data-orig-lat="<%= @journey_origin_lon %>"
-  data-orig-lon="<%= @journey_origin_lat %>"
-  data-dest-lat="<%= @journey_dest_lon %>"
-  data-dest-lon="<%= @journey_dest_lat %>"
-></div>
-
+<%= link_to "Message",  new_journey_message_path(@journey),method: :get, class: "btn btn-primary" %>
+<br>
+<br>
+<div>
+  <%= link_to "Laisser un commentaire",new_journey_review_path(@journey)%>
+</div>
