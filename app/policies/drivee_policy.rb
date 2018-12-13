@@ -4,6 +4,11 @@ class DriveePolicy < ApplicationPolicy
       scope.all
     end
   end
+
+  def show?
+    return true
+  end
+
   def new?
     create?
   end

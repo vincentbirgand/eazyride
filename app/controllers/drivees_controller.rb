@@ -1,4 +1,15 @@
 class DriveesController < ApplicationController
+  def index
+    @journeys = policy_scope(Journey).where(user_id: current_user)
+    @drivees = policy_scope(Drivee).where(user_id: current_user)
+
+  end
+
+  def show
+    @journey = Journey.find(params[:journey_id])
+    authorize @drivee
+  end
+
   def new
     @journey = Journey.find(params[:journey_id])
     @drivee = Drivee.new
@@ -18,4 +29,7 @@ class DriveesController < ApplicationController
     @journey.save
     redirect_to new_journey_drivee_path(@journey)
   end
+
+
+
 end

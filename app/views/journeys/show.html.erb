@@ -145,6 +145,7 @@
         </div>
       </div>
     </div>
+    <% if @journey.drivees.present? %>
     <div class="sh-overview-cont">
       <div class="sh-trajet-cont">
         <h3 class="others-title">AUTRES VOYAGEURS</h3>
@@ -162,6 +163,12 @@
         </div>
       </div>
     </div>
+    <% else %>
+    <div class="sh-overview-cont">
+      <h3 class="others-title">AUTRES VOYAGEURS</h3>
+      <h6>Aucun Eazyrider pour le moment, sois le premier!</h6>
+    </div>
+    <% end %>
   </div>
 </div>
 
@@ -208,6 +215,3 @@
 <%= link_to "Message",  new_journey_message_path(@journey),method: :get, class: "btn btn-primary" %>
 <br>
 <br>
-<br>
-
-

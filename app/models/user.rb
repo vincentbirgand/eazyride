@@ -1,7 +1,7 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
-  devise :database_authenticatable, :registerable,
+  devise :database_authenticatable, #:registerable,
          :recoverable, :rememberable, :validatable
   mount_uploader :photo, PhotoUploader
 
@@ -29,7 +29,11 @@ class User < ApplicationRecord
   end
 
   def average_rating
-    (self.reviews.map(&:rating).sum.to_f / self.reviews.length).round(1)
+    if self.reviews.present?
+      (self.reviews.map(&:rating).sum.to_f / self.reviews.length).round(1)
+    else
+      "test"
+    end
   end
 
   def amount_rating
