@@ -2,15 +2,16 @@
 <body>
 
 <% if @journeys.present?%>
-  <div class="banner-page" style="background-image:  linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url(<%= cl_image_path @journeys.first.activity.photo %>);">
-  </div>
+
 
 
 <div class="main-container-index">
   <div class="left-container-index">
-    <h3 class="text-center">
+    <div class="banner-page" style="display: flex; justify-content: center; align-items: center; background-image:  linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.4)), url(<%= cl_image_path @journeys.first.activity.photo %>);">
+    <h3 class="text-center" >
       Liste des trajets pour l'activité <%= @journeys.first.activity.name %>
     </h3>
+    </div>
     <br/>
     <% @journeys.each do |journey|%>
       <div class="card-trajet-index" >
@@ -38,7 +39,7 @@
 
   <div class="right-container-index">
     <% if @markers.present? %>
-      <div style="width: 100%; height: 800px"
+      <div style="width: 100%; height: 100vh; position: sticky !important; top: 0 !important; right: 0px ! important;"
            id="map-index"
            data-markers="<%= @markers.to_json %>"
            data-mapbox-api-key="<%= ENV["mapboxgl.accessToken"] %>">

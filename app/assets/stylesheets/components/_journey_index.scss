@@ -1,13 +1,17 @@
 .main-container-index{
   // background-color: yellow;
   display: flex;
-  margin: 20px;
+  // margin: 20px;
 }
 
 
 .left-container-index{
   flex: 0 0 50%;
   // background-color: green;
+  h3 {
+    margin-top: 0;
+  }
+
 }
 
 .right-container-index{
