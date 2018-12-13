@@ -1,4 +1,5 @@
 import mapboxgl from 'mapbox-gl';
+import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder';
 
 function getRoute(map, mapElement){
 
@@ -98,10 +99,6 @@ const initMapbox = () => {
 
 export { initMapbox };
 
-
-
-
-
 const initMapboxIndex = () => {
   const mapElement = document.getElementById('map-index');
 
@@ -111,20 +108,45 @@ const initMapboxIndex = () => {
     map.fitBounds(bounds, { padding: 70, maxZoom: 15 });
   };
 
+  const listenMouseMouve = (map, markerElement, popup, marker) => {
+    map.on('mousemove', (e) => {
+      // console.log(e);
+      // console.log(e.originalEvent.path[4]);
+      // console.log(markerElement);
+      // console.log(e.originalEvent.path[4] == markerElement);
+      if (e.originalEvent.path[4] == markerElement) {
+        popup.setLngLat([ marker.lng, marker.lat ])
+             .addTo(map);
+      } else {
+        popup.remove();
+      }
+    });
+  }
+
   const addMarkersToMap = (map, markers) => {
     markers.forEach((marker) => {
-      new mapboxgl.Marker()
+      const popup = new mapboxgl.Popup({
+        closeButton: false,
+        closeOnClick: false
+      }).setHTML(marker.infoWindow);
+
+      const newMarker = new mapboxgl.Marker()
         .setLngLat([ marker.lng, marker.lat ])
-        .addTo(map);
+        .addTo(map)
+
+      const newMarkerHtmlElement = newMarker.getElement();
+      listenMouseMouve(map, newMarkerHtmlElement, popup, marker);
     });
   }
 
   if (mapElement) { // only build a map if there's a div#map to inject into
     mapboxgl.accessToken = mapElement.dataset.mapboxApiKey;
+
     const map = new mapboxgl.Map({
       container: 'map-index',
       style: 'mapbox://styles/mapbox/streets-v10'
     });
+    map.addControl(new MapboxGeocoder({ accessToken: mapboxgl.accessToken }));
     const markers = JSON.parse(mapElement.dataset.markers);
     addMarkersToMap(map, markers);
     fitMapToMarkers(map, markers);
@@ -132,3 +154,4 @@ const initMapboxIndex = () => {
 };
 
 export { initMapboxIndex };
+

@@ -2,7 +2,6 @@ class ReviewsController < ApplicationController
   def index
     @reviews = Review.all
     authorize @review
-    @material_reviews = policy_scope(material_review)
   end
 
   def show

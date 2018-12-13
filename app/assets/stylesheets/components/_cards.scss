@@ -3,10 +3,36 @@
   margin: 50px auto;
 }
 
+
+.card-trip {
+  color: rgba(0,0,0,0.8);
+
+}
+
+.card-trip-description {
+  background: white;
+  width: auto;
+  padding: 10px;
+  align-items: center;
+  box-shadow: 0 0 5px lightgrey;
+  color: white;
+  background-size:cover;
+  align-items:center;
+  border-radius: 5px;
+    p {
+      font-size: 15px;
+    }
+
+}
+
+
 .card-home {
   margin-bottom: 20px;
   border-radius: 5px;
   box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+   &:hover {
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+ }
 }
 
 .card-home-photo {
@@ -16,6 +42,7 @@
    position: relative;
    opacity: 1;
    transition: .5s ease;
+   border-radius: 5px;
 }
 
 .card-home-title {
@@ -33,6 +60,7 @@
   background: white;
   padding: 10px;
   height: 110px;
+  border-radius: 5px;
   p {
     color: rgba(0,0,0,0.8);
     font-size: 16px;
@@ -94,14 +122,49 @@
   text-decoration: none;
   background: white;
   display: flex;
-  padding: 10px;
+  // padding: 10px;
   cursor: pointer;
-  border-radius: 15px;
-  border: 1px solid lightgrey;
-  box-shadow: 0 0 5px lightgrey;
+  // border-radius: 15px;
+  // border: 1px solid lightgrey;
   transition: all 0.3s ease;
   justify-content: space-around;
   align-items: center;
+     &:hover {
+  // box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+ }
+}
+
+
+.card-trajet-resa-footer {
+  text-decoration: none;
+  background: #74b49b;
+  display: flex;
+  padding: 10px;
+  cursor: pointer;
+  // border-radius: 15px;
+  opacity: 0.7;
+  height: 50px;
+   box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+   justify-content: space-around;
+  align-items: center;
+   h4 {
+    color: white;
+    }
+   p {
+    color: white;
+   }
+}
+
+.card-trajet-profil-footer {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  border-bottom: 1px solid rgba(220,224,244,0.4);
+}
+
+.card-trajet-info-footer {
+  padding-left: 10px;
+  min-width: 100px;
 }
 
 .card-trajet-profil {
@@ -148,8 +211,9 @@
 
 .profile {
   flex: 0 0 20%;
-
 }
+
+
 
 .map {
 
@@ -168,4 +232,25 @@
     background-color: #5c8d89;
     opacity: 0.9;
     border-radius: 3px;
+}
+
+.btn-success {
+  border-radius: 5px;
+  &:hover {
+    border: 0.5px solid #fff;
+  }
+}
+
+.btn-success-resa {
+  background-color: #74b49b;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+  color: #fff;
+  border-radius: 5px;
+  &:hover {
+    color: #fff;
+  }
+}
+
+.resa {
+  padding-bottom: 30px;
 }
