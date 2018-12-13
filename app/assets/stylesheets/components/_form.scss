@@ -13,9 +13,11 @@
 }
 
 .right-row {
-background-image: linear-gradient(to top, #213146, #233d5b, #244970, #245587, #21629e);
+
+// background-image: linear-gradient(to top, #213146, #233d5b, #244970, #245587, #21629e);
  // background-image: linear-gradient(to bottom, #213146, #233d5b, #244970, #245587, #21629e);
  position: relative;
+ background: white;
  min-width: 50vw;
  height: 110vh;
 }

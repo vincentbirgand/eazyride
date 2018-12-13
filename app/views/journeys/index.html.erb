@@ -20,7 +20,7 @@
           <h5><%= journey.user.first_name %></h5>
         </div>
         <div class="desc-trip" style="width: 350px">
-          <h4><%= journey.source_city.split(",")[0] %> / </i><%= journey.destination_city.split(",")[0] %></h4>
+          <h4><%= journey.source_city.split(",")[0] %> <i class="fas fa-arrow-right"></i> <%= journey.destination_city.split(",")[0] %></h4>
           <p><%= journey.formated_time %></p>
           <p><%= journey.seat_available %> places restantes </p>
           <!-- <p><%= journey.car_type %></p> -->

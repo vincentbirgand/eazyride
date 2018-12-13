@@ -6,17 +6,60 @@
   align-items: center;
   justify-content: space-between;
   padding: 30px 0;
-  p {
-  color: rgba(0,0,0,0.3);
- }
+  // p {
+  // color: white;
+  // }
+  // h4 {
+  // color: white;
+  // }
 }
 
 .footer-info {
   padding-left: 50px;
   margin-left: 35px;
+  p {
+    font-size: 16px;
+  }
 }
 
+
 .footer-links {
-  padding-right: 50px;
-  margin-right: 50px;
+  // display: flex;
+  align-items: center;
+}
+
+
+
+.footer-eazyride {
+  background: #e5e5e5;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 0;
+  font-size: 14px;
+  padding: 12px 0;
+}
+
+
+
+.footer-copyright {
+  // color: white;
+  // padding-right: 50px;
+  // margin-right: 50px;
+}
+
+.footer-wagon {
+  // color: white;
+  padding-left: 50px;
+  margin-left: 35px;
+}
+
+.fa-facebook {
+  content: "\f09a";
+  margin-right: 10px;
+}
+
+.fa-instagram {
+  content: "\f16d";
+  margin-right: 10px;
 }
