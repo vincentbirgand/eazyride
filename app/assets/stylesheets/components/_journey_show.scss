@@ -1,0 +1,141 @@
+.main-cont{
+  display: flex;
+}
+
+.sh-left-cont{
+  flex: 0 0 50%;
+}
+
+.sh-overview-cont{
+  margin: 15px;
+}
+
+.overview-title{
+  margin: 20px;
+  font-size: 32px;
+}
+
+.overview-text{
+  margin: 20px;
+  color: #4F4F4F;
+  font-weight: 300;
+  font-size: 16px;
+}
+
+.sh-trajet-cont{
+  margin: 8px;
+  padding: 20px;
+}
+
+.sh-trajet-text1{
+  font-weight: 600;
+  font-size: 24px;
+}
+
+.sh-trajet-text2{
+  color: #4F4F4F;
+  font-weight: 300;
+  font-size: 16px;
+}
+
+.sh-trajet-text3{
+}
+
+.sh-pref-title{
+  font-weight: 600;
+  font-size: 24px;
+}
+
+.pref-cont{
+}
+
+.sh-prf1{
+}
+
+.others-title{
+  font-weight: 600;
+  font-size: 24px;
+}
+
+.sh-others{
+}
+
+.fa-arrow-left .fa-arrow-left{
+  margin-left: 8px;
+  margin-right: 8px;
+}
+
+.fa-calendar-alt{
+  padding-right: 8px;
+  color: $my-green;
+}
+
+.fa-car{
+  padding-right: 8px;
+}
+
+.true{
+  color: $my-green;
+  text-align: center;
+}
+
+.false{
+  color: #4F4F4F;
+  text-align: center;
+}
+
+.fa-check-circle{
+  color: $my-green;
+  size:10x;
+}
+
+
+.sh-overview-cont-left{
+  margin: 90px 80px;
+  margin-top: 25px;
+}
+
+.overview-title-left{
+  font-family: liquide;
+  color: white;
+  text-align: center;
+
+}
+
+.sh-profile-card{
+  background-color: white;
+  padding: 5px;
+  border-radius: 10px;
+}
+
+
+.sh-profile-cont{
+  margin: 25px;
+  margin-top: 25px;
+}
+
+.sh-profile-description{
+  color: #4F4F4F;
+  font-size: 16px;
+}
+
+.pref-cont{
+  p{
+    font-size: 14px;
+  }
+}
+
+.btn-success{
+
+}
+
+.name-review
+  h5{
+    font-size: 24px;
+  }
+
+
+
+
+
+
