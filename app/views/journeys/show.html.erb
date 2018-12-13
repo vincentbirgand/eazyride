@@ -98,7 +98,7 @@
             <div class= "text-center"><%= f.submit 'Je réserve', class: "btn btn-success-sh" %></div>
             <% end %>
         <% else %>
-            <%#= link_to "Chercher un autre trajet", root_path, class: "btn btn-success" %>
+
         <% end %>
         <% if policy(@journey).edit? %>
           <%= link_to "Modifier", edit_journey_path(@journey), class: "btn btn-primary" %>
@@ -121,12 +121,12 @@
       <div class="sh-trajet-cont">
         <h3 class="sh-trajet-text1">ALLER</h3>
         <p class="sh-trajet-text2"><i class="far fa-calendar-alt"></i><%= @journey.formated_time %></p>
-        <p class="sh-trajet-text3"><i class="fas fa-car"></i><%= @journey.source_city.capitalize.split(",")[0] %> <i class="fas fa-arrow-right"></i> <%= @journey.destination_city.capitalize.split(",")[0] %></p>
+        <p class="sh-trajet-text3"><i class="fas fa-car"></i><%= @journey.source_city.split(",")[0] %> <i class="fas fa-arrow-right"></i> <%= @journey.destination_city.split(",")[0] %></p>
       </div>
       <div class="sh-trajet-cont">
         <h3 class="sh-trajet-text1">RETOUR</h3>
         <p class="sh-trajet-text2"><i class="far fa-calendar-alt"></i><%= @journey.formated_end_time %></p>
-        <p class="sh-trajet-text3"><i class="fas fa-car"></i><%= @journey.destination_city.capitalize.split(",")[0] %> <i class="fas fa-arrow-right"></i> <%= @journey.source_city.capitalize.split(",")[0] %></p>
+        <p class="sh-trajet-text3"><i class="fas fa-car"></i><%= @journey.destination_city.split(",")[0] %> <i class="fas fa-arrow-right"></i> <%= @journey.source_city.split(",")[0] %></p>
       </div>
     </div>
     <div class="sh-overview-cont">
@@ -156,10 +156,10 @@
               <% @journey.drivees.each do |drivee| %>
               <%= link_to profile_path(drivee.user_id) do %>
                 <%= cl_image_tag  drivee.user.photo, class: "avatar marged-right marged-left" %>
+              <h6 style="text-align:center ; color:#333333"><%= drivee.user.first_name %></h6>
               <% end %>
-              <h6><%= drivee.user.first_name %></h6>
-            </div>
             <% end %>
+            </div>
           </div>
         </div>
       </div>
@@ -188,9 +188,7 @@
               <%= link_to profile_path(message.user_id) do %>
               <%= cl_image_tag  message.user.photo %>
             <% end %>
-            </div>
-            <div class="testimonial-writer-name">
-              <%= message.user.first_name %>
+            <h6 style="color:#569f83" ><%= message.user.first_name %></h6>
             </div>
           </div>
           <% end %>

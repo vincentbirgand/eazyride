@@ -33,7 +33,7 @@ u1_vincent.save!
  u2_arthur = User.create!(
   first_name: "Arthur",
   last_name: "d'Achon",
-  description: "Passionné de ski, j'aime partager des sessions",
+  description: "Passionné de ski, j'aime partager des sessions en Haute-Savoie. Je peux aussi prêter du matériel si besoin.",
   phone: "07 19 09 09 09",
   birth_date: "18 Aout 1988",
   gender: "man",
