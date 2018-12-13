@@ -9,7 +9,11 @@
     <p><i class="far fa-envelope"></i> <%= @user.email %></p>
     <p><i class="fas fa-phone"></i> <%= @user.phone %></p>
     <p><i class="fas fa-map-marker-alt"></i> <%= @user.address %></p>
+    <% if @user.average_rating != "test" %>
     <p>Note globale: <%= @user.average_rating %>/5 - <%= @user.amount_rating %> avis</p>
+    <% else %>
+    <p>Note globale: <%= @user.first_name %> n'a pas encore d'avis</p>
+    <% end%>
     <br>
   </div>
 

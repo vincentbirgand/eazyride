@@ -25,7 +25,11 @@
          <p>De <%= drivee.journey.source_city %> à <%= drivee.journey.destination_city %></p>
          <p>Le <%= drivee.journey.formated_time %></p>
          <p>Statut:  <%= drivee.status.capitalize %></p>
-         <p><%= link_to "Voir ce trajet", journey_path(drivee.journey), class: "btn btn-success btn-sm" %></p>
+         <div class="">
+          <%= link_to "Voir ce trajet", journey_path(drivee.journey), class: "btn btn-success btn-sm" %>
+          <%= link_to "Laisser un avis", new_journey_review_path(drivee.journey), class: "btn btn-primary btn-sm" %>
+         </div>
+
       </div>
     </br>
       <%end%>
