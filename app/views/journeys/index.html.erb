@@ -13,30 +13,32 @@
     </h3>
     <br/>
     <% @journeys.each do |journey|%>
-      <div class="card-trajet-index" >
+      <%= link_to journey_path(journey) do %>
+        <div class="card-trajet-index">
 
-        <div class="profile text-center">
-          <%= cl_image_tag  journey.user.photo, class: "avatar-index"  %>
+          <div class="profile text-center">
+            <%= cl_image_tag  journey.user.photo, class: "avatar-index"  %>
 
-          <h5><%= journey.user.first_name %></h5>
+            <h5><%= journey.user.first_name %></h5>
+          </div>
+          <div class="desc-trip" style="width: 350px">
+            <h4><%= journey.source_city.split(",")[0] %> <i class="fas fa-arrow-right"></i> <%= journey.destination_city.split(",")[0] %></h4>
+            <p style="margin-top: 40px"><%= journey.formated_time %></p>
+
+            <!-- <p><%= journey.car_type %></p> -->
+
+
+
+          </div>
+          <div class="offer" style="width: 150px">
+            <h3 style="text-align:center"><font color="#74b49b"><%= journey.price.to_i %> €</font> <font color="#74b49b"> </font></h3>
+            <p style="text-align:center"><%= journey.seat_available %> places restantes </p>
+            <%#= link_to "", journey_path(journey), class: "card-link" %>
+          </div>
         </div>
-        <div class="desc-trip" style="width: 350px">
-          <h4><%= journey.source_city.split(",")[0] %> <i class="fas fa-arrow-right"></i> <%= journey.destination_city.split(",")[0] %></h4>
-          <p style="margin-top: 40px"><%= journey.formated_time %></p>
-
-          <!-- <p><%= journey.car_type %></p> -->
-
-
-
-        </div>
-        <div class="offer" style="width: 150px">
-          <h3 style="text-align:center"><font color="#74b49b"><%= journey.price.to_i %> €</font> <font color="#74b49b"> </font></h3>
-          <p style="text-align:center"><%= journey.seat_available %> places restantes </p>
-          <%= link_to "", journey_path(journey), class: "card-link" %>
-        </div>
-      </div>
-    <% end %>
-  </div>
+        <% end %>
+      <% end %>
+    </div>
 
   <div class="right-container-index">
     <% if @markers.present? %>
