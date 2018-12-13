@@ -111,7 +111,7 @@
   </div>
 
 
-  <div class="sh-right-cont">
+  <div class="sh-right-cont" style="background: white;">
     <div class="sh-overview-cont">
       <h2 class="overview-title">MA JOURNEE DE <%= @journey.activity.name.upcase %> IN <%= @journey.destination_city.upcase.split(",")[0] %></h2>
       <p class="overview-text"><%= @journey.description %></p>
@@ -187,8 +187,8 @@
     ></div>
   </div>
 
-  <div class="container">
-    <div class="row">
+  <div class="container-message">
+<!--     <div class="row"> -->
     <h3>Messages</h3>
     <% if @journey.messages.present? %>
       <% @journey.messages.each do |message| %>
@@ -210,8 +210,9 @@
       <p>Il n'y a pas encore de message sur ce trajet. N'hésite pas à en laissez un!</p>
       <% end %>
     </div>
+    <%= link_to "Envoyer un message",  new_journey_message_path(@journey),method: :get, class: "btn btn-primary" %>
+</div>
 </div>
 
-<%= link_to "Message",  new_journey_message_path(@journey),method: :get, class: "btn btn-primary" %>
-<br>
-<br>
+<!-- <br>
+<br> -->
