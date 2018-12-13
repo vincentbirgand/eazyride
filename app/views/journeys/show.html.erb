@@ -1,4 +1,5 @@
-<div class="main-cont">
+<body style="background-color: white">
+  <div class="main-cont">
   <div class="sh-left-cont" style="background-image:  linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url(<%= cl_image_path @journey.activity.photo %>);">
     <h2 class="overview-title-left"><%= @journey.activity.category.upcase %></h2>
     <div class="sh-overview-cont-left">
@@ -174,21 +175,6 @@
   </div>
 </div>
 
-<div class="container">
-  <div class="row">
-    <div
-      id="map"
-      style="width: 100%;
-      height: 600px;"
-      data-markers="<%#= @markers.to_json %>"
-      data-mapbox-api-key="<%= ENV['mapboxgl.accessToken'] %>"
-      data-orig-lon="<%= @journey_origin_lon %>"
-      data-orig-lat="<%= @journey_origin_lat %>"
-      data-dest-lon="<%= @journey_dest_lon %>"
-      data-dest-lat="<%= @journey_dest_lat %>"
-    ></div>
-  </div>
-
   <div class="container-message">
 <!--     <div class="row"> -->
     <h3>Messages</h3>
@@ -211,10 +197,23 @@
       <% else %>
       <p>Il n'y a pas encore de message sur ce trajet. N'hésite pas à en laissez un!</p>
       <% end %>
+    <%= link_to "Envoyer un message",  new_journey_message_path(@journey),method: :get, class: "btn btn-success-light btn-sm" %>
     </div>
-    <%= link_to "Envoyer un message",  new_journey_message_path(@journey),method: :get, class: "btn btn-primary" %>
-</div>
-</div>
 
+  <div class="row">
+    <div
+      id="map"
+      style="width: 100%;
+      height: 600px;"
+      data-markers="<%#= @markers.to_json %>"
+      data-mapbox-api-key="<%= ENV['mapboxgl.accessToken'] %>"
+      data-orig-lon="<%= @journey_origin_lon %>"
+      data-orig-lat="<%= @journey_origin_lat %>"
+      data-dest-lon="<%= @journey_dest_lon %>"
+      data-dest-lat="<%= @journey_dest_lat %>"
+    ></div>
+  </div>
+</div>
+</body>
 
 

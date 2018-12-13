@@ -7,14 +7,8 @@
 
 <div class="main-container-index">
   <div class="left-container-index">
-    <div class="banner-page" style="display: flex; justify-content: center; align-items: center; background-image:  linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.4)), url(<%= cl_image_path @journeys.first.activity.photo %>);">
-    <h3 class="text-center" >
-      Liste des trajets pour l'activité <%= @journeys.first.activity.name %>
-    </h3>
-    </div>
-    <br/>
     <% @journeys.each do |journey|%>
-      <%= link_to journey_path(journey) do %>
+      <%= link_to journey_path(journey), style:"text-decoration:none" do %>
         <div class="card-trajet-index">
 
           <div class="profile text-center">
