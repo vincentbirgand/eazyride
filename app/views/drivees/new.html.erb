@@ -10,8 +10,8 @@
     <div class="profile" >
       <h4>Trajet</h4>
       <br />
-      <p><strong>Départ : </strong> <%= @journey.source_city %></p>
-      <p><strong>Arrivée :</strong> <%= @journey.destination_city %></p>
+      <p><strong>Départ : </strong> <%= @journey.source_city.split(",")[0] %></p>
+      <p><strong>Arrivée :</strong> <%= @journey.destination_city.split(",")[0] %></p>
     </div>
     <div class="desc-trip">
       <h4>Date et heure</h4>
@@ -26,20 +26,15 @@
       <p><strong>Prix : </strong><strong><font color="#74b49b"><%= @journey.price %> €</font></strong></p>
     </div>
   </li>
-  <div class="card-trajet-resa-footer">
-    <div class="profile">
-     <p><strong>Contacter le driver</strong></p>
-    </div>
-    <div class="desc-trip">
-     <p><%= @journey.user.email %></p>
-    </div>
-    <div class="offer">
-    <p><%= @journey.user.phone %></p>
-  </div>
+   <div class="card-trajet-resa-footer" >
+      <p><strong>Contacter le driver</strong> :  <%= @journey.user.email %> /  <%= @journey.user.phone %></p>
   </div>
 </ul>
+
 
 <div class="resa text-center"><%= link_to "Précédent", :back, class: "btn btn-success-resa" %></div>
 
 <!-- </body> -->
+
+
 
