@@ -98,7 +98,7 @@
             <div class= "text-center"><%= f.submit 'Je réserve', class: "btn btn-success-sh" %></div>
             <% end %>
         <% else %>
-            <%= link_to "Chercher un autre trajet", root_path, class: "btn btn-success" %>
+            <%#= link_to "Chercher un autre trajet", root_path, class: "btn btn-success" %>
         <% end %>
         <% if policy(@journey).edit? %>
           <%= link_to "Modifier", edit_journey_path(@journey), class: "btn btn-primary" %>
@@ -195,7 +195,7 @@
           </div>
           <% end %>
       <% else %>
-      <p>Il n'y a pas encore de message sur ce trajet. N'hésite pas à en laissez un!</p>
+      <p>Il n'y a pas encore de message sur ce trajet. N'hésite pas à en laisser un!</p>
       <% end %>
     <%= link_to "Envoyer un message",  new_journey_message_path(@journey),method: :get, class: "btn btn-success-light btn-sm" %>
     </div>
