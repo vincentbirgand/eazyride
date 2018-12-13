@@ -11,6 +11,9 @@
       text-align: center;
       justify-content: space-between;
     }
+    h5{
+      color: $my-green;
+    }
   }
 }
 
@@ -24,20 +27,14 @@
 
 
 
-.true{
-  color: $my-green;
-}
 
-.false{
-  color: grey;
-}
 
 .card-driver{
   border: solid 0.5px light-gray;
   margin-left: 82px;
   padding: 35px;
   margin-bottom: 10px;
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  box-shadow: 0 6px 20px 0 rgba(0,0,0,.19);
   transition: 0.3s;
 }
 

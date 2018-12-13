@@ -6,6 +6,7 @@ class ProfilesController < ApplicationController
 
   def edit
     @user = current_user
+    authorize @user
   end
 
   def update
@@ -13,6 +14,7 @@ class ProfilesController < ApplicationController
     @user.update(user_params)
     @user.save
     redirect_to profile_path(@user)
+    authorize @user
   end
 
   private
