@@ -22,7 +22,7 @@ function getRoute(map, mapElement){
         }
       },
       paint: {
-        'line-width': 2
+        'line-width': 3
       }
     });
     map.addLayer({
@@ -84,7 +84,7 @@ const initMapbox = () => {
     mapboxgl.accessToken = mapElement.dataset.mapboxApiKey;
     const map = new mapboxgl.Map({
       container: 'map',
-      style: 'mapbox://styles/mapbox/streets-v10',
+      style: 'mapbox://styles/mapbox/satellite-streets-v10',
       center: [mapElement.dataset.origLon, mapElement.dataset.origLat],
       zoom: 5
     });
@@ -144,7 +144,7 @@ const initMapboxIndex = () => {
 
     const map = new mapboxgl.Map({
       container: 'map-index',
-      style: 'mapbox://styles/mapbox/streets-v10'
+      style: 'mapbox://styles/mapbox/satellite-streets-v10'
     });
     map.addControl(new MapboxGeocoder({ accessToken: mapboxgl.accessToken }));
     const markers = JSON.parse(mapElement.dataset.markers);
