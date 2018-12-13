@@ -16,7 +16,15 @@
 }
 
 .overview-text{
+<<<<<<< HEAD
+  margin: 20px;
+=======
+<<<<<<< HEAD
+  margin: 20px;
+=======
   margin: 15px;
+>>>>>>> 4f4d9d29273753d8cb8c295d5b9d4e1b3d95b8dc
+>>>>>>> master
   color: #4F4F4F;
   font-weight: 300;
   font-size: 16px;
@@ -53,6 +61,8 @@
 }
 
 .others-title{
+  font-weight: 600;
+  font-size: 24px;
 }
 
 .sh-others{
@@ -78,7 +88,7 @@
 }
 
 .false{
-  color: $my-gray;
+  color: #4F4F4F;
   text-align: center;
 }
 
@@ -112,11 +122,26 @@
   margin-top: 25px;
 }
 
+.sh-profile-description{
+  color: #4F4F4F;
+  font-size: 16px;
+}
+
+.pref-cont{
+  p{
+    font-size: 14px;
+  }
+}
 
 
 .btn-success{
 
 }
+
+.name-review
+  h5{
+    font-size: 24px;
+  }
 
 
 
