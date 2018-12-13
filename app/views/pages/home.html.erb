@@ -77,8 +77,8 @@
            <div class="card-footer-controls">
             <%= cl_image_tag  journey.user.photo, class: "avatar-card" %>
               <br />
-            <div class="text-center"><strong><font color="#74b49b"><%= journey.price %> € </font></strong>
-            <p><font color="#74b49b">par place</font></p>
+            <div class="text-center"><strong><font color="#74b49b"><%= journey.price.to_i %> € </font></strong>
+            <p><font color="#74b49b">la place</font></p>
             </div>
            </div>
          </div>

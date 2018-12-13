@@ -144,6 +144,7 @@
         </div>
       </div>
     </div>
+    <% if @journey.drivees.present? %>
     <div class="sh-overview-cont">
       <h3 class="others-title">AUTRES VOYAGEURS</h3>
       <div class="others-cont">
@@ -159,6 +160,12 @@
         </div>
       </div>
     </div>
+    <% else %>
+    <div class="sh-overview-cont">
+      <h3 class="others-title">AUTRES VOYAGEURS</h3>
+      <h6>Aucun Eazyrider pour le moment, sois le premier!</h6>
+    </div>
+    <% end %>
   </div>
 </div>
 

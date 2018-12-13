@@ -29,7 +29,11 @@ class User < ApplicationRecord
   end
 
   def average_rating
-    (self.reviews.map(&:rating).sum.to_f / self.reviews.length).round(1)
+    if self.reviews.present?
+      (self.reviews.map(&:rating).sum.to_f / self.reviews.length).round(1)
+    else
+      "test"
+    end
   end
 
   def amount_rating
