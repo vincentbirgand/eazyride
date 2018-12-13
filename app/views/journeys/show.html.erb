@@ -113,19 +113,19 @@
 
   <div class="sh-right-cont">
     <div class="sh-overview-cont">
-      <h2 class="overview-title">MA JOURNEE DE <%= @journey.activity.name.upcase %> IN <%= @journey.destination_city.upcase %></h2>
+      <h2 class="overview-title">MA JOURNEE DE <%= @journey.activity.name.upcase %> IN <%= @journey.destination_city.upcase.split(",")[0] %></h2>
       <p class="overview-text"><%= @journey.description %></p>
     </div>
     <div class="sh-overview-cont flexed-around">
       <div class="sh-trajet-cont">
         <h3 class="sh-trajet-text1">ALLER</h3>
         <p class="sh-trajet-text2"><i class="far fa-calendar-alt"></i><%= @journey.formated_time %></p>
-        <p class="sh-trajet-text3"><i class="fas fa-car"></i><%= @journey.source_city.capitalize %> <i class="fas fa-arrow-right"></i> <%= @journey.destination_city.capitalize %></p>
+        <p class="sh-trajet-text3"><i class="fas fa-car"></i><%= @journey.source_city.capitalize.split(",")[0] %> <i class="fas fa-arrow-right"></i> <%= @journey.destination_city.capitalize.split(",")[0] %></p>
       </div>
       <div class="sh-trajet-cont">
         <h3 class="sh-trajet-text1">RETOUR</h3>
         <p class="sh-trajet-text2"><i class="far fa-calendar-alt"></i><%= @journey.formated_end_time %></p>
-        <p class="sh-trajet-text3"><i class="fas fa-car"></i><%= @journey.destination_city.capitalize %> <i class="fas fa-arrow-left"></i> <%= @journey.source_city.capitalize %></p>
+        <p class="sh-trajet-text3"><i class="fas fa-car"></i><%= @journey.destination_city.capitalize.split(",")[0] %> <i class="fas fa-arrow-left"></i> <%= @journey.source_city.capitalize.split(",")[0] %></p>
       </div>
     </div>
     <div class="sh-overview-cont">
@@ -136,6 +136,7 @@
             <% if @journey.seat_available > 0 %>
               <%= @journey.seat_available %> places disponibles
               <p style="margin-left: 80px;"><%= @journey.price %> € par place </p>
+              <p><%= @distance.round %> Km</p>
             <% else %>
               <p style="margin-left: 80px;"> Désolé, il n'y a plus de place disponible pour ce trajet ! </p>
             <% end %>
