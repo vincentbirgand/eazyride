@@ -1,3 +1,5 @@
+require 'i18n'
+
 class Journey < ApplicationRecord
   belongs_to :activity
   belongs_to :user
@@ -23,10 +25,10 @@ class Journey < ApplicationRecord
   validates :price, presence: { message: " - Veuillez indiquer le prix par Eazyrider" }
 
   def formated_time
-    start_time.strftime("%b %d, %Y à %H h %M") if start_time
+    I18n.l(start_time, format: '%d %B %Y à %H h %M')
   end
 
   def formated_end_time
-    end_time.strftime("%b %d, %Y à %H h %M") if end_time
+    I18n.l(end_time, format: '%d %B %Y à %H h %M')
   end
 end
