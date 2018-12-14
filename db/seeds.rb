@@ -494,14 +494,14 @@ puts " 2 drivees created"
 puts " adding 2 messages"
 
 m1 = Message.new(
-  content: "Hello Arthur, j'ai cassé mes batons, aurais-tu une paire en plus à tout hasard? A samedi :)",
+  content: "Hello Arthur, je vois que tu es à Fourvière, tu penses que tu peux venir me chercher à la cathédrale?",
   )
 m1.journey_id = j1.id
 m1.user_id = u7_peishan.id
 m1.save!
 
 m2 = Message.new(
-  content: "Salut Peishan, yes pas de soucis, je te ramène ça. A samedi!",
+  content: "Salut Peishan, yes pas de soucis, je peux passer te prendre devant à 9h10. A jeudi!",
   )
 m2.journey_id = j1.id
 m2.user_id = u2_arthur.id
