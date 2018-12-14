@@ -22,7 +22,8 @@ function getRoute(map, mapElement){
         }
       },
       paint: {
-        'line-width': 3
+        'line-width': 4,
+        "line-color": '#00B5FE'
       }
     });
     map.addLayer({
