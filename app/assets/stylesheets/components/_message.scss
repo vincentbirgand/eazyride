@@ -77,6 +77,17 @@
     border-top-color: #74b49b;
 }
 
+.testimonial.testimonial-primary-unfilled .testimonial-section{
+    color: #74b49b;
+    background-color: white;
+    border-color: #74b49b;
+    font-size: larger;
+}
+
+.testimonial.testimonial-primary-unfilled .testimonial-section:after{
+    border-top-color: #74b49b;
+}
+
 .testimonial.testimonial-primary-filled .testimonial-desc{
 
 }
