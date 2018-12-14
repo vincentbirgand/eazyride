@@ -108,14 +108,14 @@ u6_jean = User.create!(
 u6_jean.save!
 
 u7_peishan = User.create!(
-  first_name: "Peichan",
+  first_name: "Peishan",
   last_name: "Lee",
   description: "Très grosse rideuse, j'aime les sensations fortes qui me permettent de m'envoler...",
   phone: "07 09 29 09 09",
   birth_date: "28 Juillet 1992",
   gender: "female",
   verified: true,
-  email: "peichan@eazyride.com",
+  email: "peishan@eazyride.com",
   password: "123456",
   address: "16 villa Gaudelet, 75011 Paris, France",
   remote_photo_url: 'https://res.cloudinary.com/dscu7dmwa/image/upload/v1544520401/peishan.png'
@@ -477,7 +477,7 @@ r8.journey_id = j2.id
 r8.save!
 
 
-puts " 7 reviews created"
+puts " 8 reviews created"
 puts " 2 drivees for journey 1"
 
 d1 = Drivee.new(status: "En attente")
@@ -491,6 +491,23 @@ d2.user_id = u7_peishan.id
 d2.save!
 
 puts " 2 drivees created"
+puts " adding 2 messages"
+
+m1 = Message.new(
+  content: "Hello Arthur, j'ai cassé mes batons, aurais-tu une paire en plus à tout hasard? A samedi :)",
+  )
+m1.journey_id = j1.id
+m1.user_id = u7_peishan.id
+m1.save!
+
+m2 = Message.new(
+  content: "Salut Peishan, yes pas de soucis, je te ramène ça. A samedi!",
+  )
+m2.journey_id = j1.id
+m2.user_id = u2_arthur.id
+m2.save!
+
+puts "Comments done"
 puts "Seed finished!"
 
 
