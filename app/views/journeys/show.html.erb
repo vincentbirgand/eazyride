@@ -1,7 +1,6 @@
 <body style="background-color: white">
   <div class="main-cont">
   <div class="sh-left-cont" style="background-image:  linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url(<%= cl_image_path @journey.activity.photo %>);">
-    <h2 class="overview-title-left"><%= @journey.activity.category.upcase %></h2>
     <div class="sh-overview-cont-left">
       <div class="sh-profile-card">
         <div class="sh-profile-cont">
@@ -21,7 +20,7 @@
                     <% @journey.user.black_stars.times do%>
                     <span class="fa fa-star" style="font-size : 12px"></span>
                     <% end %>
-                    <p style="font-size : 12px; margin-top: 0px; margin-bottom: -2px; margin-left: 10px;" class="flex">- <%= @journey.user.amount_rating %> avis </p>
+                    <p style="font-size : 12px; margin-top: 0px; margin-bottom: -2px; margin-left: 10px; width: 100px;" class="flex">- <%= @journey.user.amount_rating %> avis </p>
                  <% else %>
                     <p style="font-size : 20px"><%= "Nouvel Eazyrider!" %></p>
                  <% end %>
@@ -38,18 +37,18 @@
               <% end %>
             <% end %>
             </div>
+            <div class="sh-profile-cont driver-certif">
+              <i class="far fa-check-circle"></i>
+              <p style="font-size : 14px; color: #4F4F4F;margin-bottom: 0px; text-transform: uppercase;">Driver certifié<br><%= @journey.car_type.capitalize%></p>
+            </div>
           </div>
         </div>
         <div class="sh-profile-cont">
           <div class="sh-profile-description"><%= @journey.user.description%></div>
         </div>
-        <div class="sh-profile-cont flexed-around">
-          <i class="far fa-check-circle"></i>
-          <p style="font-size : 14px; color: #4F4F4F;margin-bottom: 0px; text-transform: uppercase;">Driver certifié<br><%= @journey.car_type.capitalize%></p>
-        </div>
+
         <div class="sh-profile-cont">
-          <h3 class="sh-pref-title">MES PREFERENCES</h3>
-          <div class="pref-cont flexed-around">
+         <div class="pref-cont flexed-around">
             <p class="sh-prf1">
               <% if @journey.shares_gear == true %>
                 <div class="true">
@@ -60,6 +59,19 @@
                 <div class="false">
                 <i class="fas fa-times"></i>
                 <p>Je partage<br>mon activité </p>
+                </div>
+              <% end %>
+            </p>
+            <p class="sh-prf3">
+              <% if @journey.accepts_gear == true %>
+                <div class="true">
+                <i class="fas fa-check"></i>
+                <p>Je peux transporter<br>du matériel </p>
+                </div>
+              <% else %>
+                <div class="false">
+                <i class="fas fa-times"></i>
+                <p>Je peux transporter<br>du matériel </p>
                 </div>
               <% end %>
             </p>
@@ -76,25 +88,13 @@
                 </div>
               <% end %>
             </p>
-            <p class="sh-prf3">
-              <% if @journey.accepts_gear == true %>
-                <div class="true">
-                <i class="fas fa-check"></i>
-                <p>J'accepte de transporter<br>votre matériel </p>
-                </div>
-              <% else %>
-                <div class="false">
-                <i class="fas fa-times"></i>
-                <p>J'accepte de transporter<br>votre matériel </p>
-                </div>
-              <% end %>
-            </p>
           </div>
         </div>
       </div>
       <div class="">
         <% if @journey.seat_available > 0 && @journey.user != current_user %>
           <%= simple_form_for [@journey, @drivee] do |f| %>
+            <div><%= link_to "Envoyer un message",  new_journey_message_path(@journey),method: :get, class: "btn btn-primary btn-primary-show" %></div>
             <div class= "text-center"><%= f.submit 'Je réserve', class: "btn btn-success-sh" %></div>
             <% end %>
         <% else %>
@@ -131,7 +131,7 @@
     </div>
     <div class="sh-overview-cont">
       <div class="sh-trajet-cont">
-        <h3 class="sh-pref-title">DETAILS DU TRAJET</h3>
+        <h3 class="sh-pref-title">DETAILS</h3>
         <div class="detail-cont flexed">
           <p class="sh-prf1">
             <% if @journey.seat_available > 0 %>
@@ -149,7 +149,7 @@
     <% if @journey.drivees.present? %>
     <div class="sh-overview-cont">
       <div class="sh-trajet-cont">
-        <h3 class="others-title">AUTRES VOYAGEURS</h3>
+        <h3 class="others-title">EAZYRIDERS</h3>
         <div class="others-cont">
           <div class="sh-others flexed">
             <div class="riders flexed">
@@ -167,7 +167,7 @@
     <% else %>
     <div class="sh-overview-cont">
       <div class="sh-trajet-cont">
-        <h3 class="others-title">AUTRES VOYAGEURS</h3>
+        <h3 class="others-title">EAZYRIDERS</h3>
         <p>Aucun Eazyrider pour le moment, sois le premier!</p>
       </div>
     </div>
