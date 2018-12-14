@@ -2,12 +2,9 @@
 <%= link_to journey_path(journey), class: "text-decoration-none" do %>
   <div class="card-map">
     <%= cl_image_tag  journey.user.photo, class: "avatar" %>
-
-        <ul>
-          <div class="journeyusername"> <%= journey.user.first_name %> </div>
-        <!--   <div class="distanceround"><%= @distance.round %> Km</div> -->
-          <div class="journeydestinationcity"><%= journey.destination_city %></div>
-       </ul>
+      <div> <%= journey.user.first_name %> </div>
+      <!--   <div class="distanceround"><%= @distance.round %> Km</div> -->
+      <div><%= journey.destination_city %></div>
     </div>
 <% end %>
 
