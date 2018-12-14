@@ -41,7 +41,7 @@
   <% end %>
 
 <% if @user != current_user  %>
-  <div class="text-center"><%= link_to "Contactez-le!", profile_path(@user), class: "btn btn-success" %></div>
+  <div class="text-center"><%= link_to "Envoyer un message", profile_path(@user), class: "btn btn-success" %></div>
     </br>
 
 <% else %>

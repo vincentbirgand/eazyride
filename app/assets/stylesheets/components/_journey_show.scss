@@ -1,5 +1,8 @@
 .main-cont{
   display: flex;
+  background-color: white;
+  border-top: 1px solid #ebebeb;
+
 }
 
 .sh-left-cont{
@@ -13,6 +16,7 @@
 .overview-title{
   margin: 20px;
   font-size: 32px;
+  margin-top: 36px;
 }
 
 .overview-text{
@@ -86,7 +90,8 @@
 
 .fa-check-circle{
   color: $my-green;
-  size:10x;
+  font-size: 32px;
+  margin-right: 20px;
 }
 
 
@@ -117,6 +122,7 @@
 .sh-profile-description{
   color: #4F4F4F;
   font-size: 16px;
+  font-weight: 700;
 }
 
 .pref-cont{
@@ -131,6 +137,9 @@
   height: 60px;
   border-radius: 10px;
   font-size: 24px;
+  background-color: $my-green;
+  color: white;
+  width: 480px;
 }
 
 .name-review
@@ -138,9 +147,14 @@
     font-size: 24px;
   }
 
-
-
-
+.container-message {
+  background: white;
+  margin: 50px auto;
+  padding-top: 25px;
+  padding-bottom: 25px;
+  padding-left: 15px;
+  width: auto;
+}
 
 
 

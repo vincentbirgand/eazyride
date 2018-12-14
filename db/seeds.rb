@@ -33,7 +33,7 @@ u1_vincent.save!
  u2_arthur = User.create!(
   first_name: "Arthur",
   last_name: "d'Achon",
-  description: "Passionné de ski, j'aime partager des sessions",
+  description: "Passionné de ski, j'aime partager des sessions en Haute-Savoie. Je peux aussi prêter du matériel si besoin.",
   phone: "07 19 09 09 09",
   birth_date: "18 Aout 1988",
   gender: "man",
@@ -409,16 +409,16 @@ r1 = Review.new(
 )
 r1.reviewee_id = u2_arthur.id
 r1.reviewer_id = u10_julien.id
-r1.journey_id = j1.id
+r1.journey_id = j4.id
 r1.save!
 
 r2 = Review.new(
-  rating: 1,
-  description: "A fuir!!! Arthur est arrivé en retard, et ne s'est même pas excusé. Conduite désastreuse. Fuyez pour votre sécurité!",
+  rating: 4,
+  description: "Merci Arthur pour cette super session. C'était un réel plaisir de passer cette journée avec toi.",
 )
 r2.reviewee_id = u2_arthur.id
 r2.reviewer_id = u3_martin.id
-r2.journey_id = j1.id
+r2.journey_id = j4.id
 r2.save!
 
 r3 = Review.new(
@@ -431,15 +431,53 @@ r3.journey_id = j1.id
 r3.save!
 
 r4 = Review.new(
-  rating: 4,
-  description: "Peichan est vraiment une bombe en ski. ce fut un plaisir de rider ensemble",
+  rating: 5,
+  description: "Peichan est vraiment une bombe en ski. C'était un plaisir de rider ensemble.",
 )
 r4.reviewee_id = u7_peichan.id
 r4.reviewer_id = u11_jules.id
-r4.journey_id = j1.id
+r4.journey_id = j3.id
 r4.save!
 
-puts " 4 reviews created"
+r5 = Review.new(
+  rating: 4,
+  description: "Super session avec Peishan à Val Thorens. Elle est sympa, de bonne humeur et en plus de ça, excellente skieuse.",
+)
+r5.reviewee_id = u7_peichan.id
+r5.reviewer_id = u9_patrick.id
+r5.journey_id = j3.id
+r5.save!
+
+r6 = Review.new(
+  rating: 5,
+  description: "Je recommande mille fois Peichan. Un vrai plaisir de partager un bon moment de ski avec elle.",
+)
+r6.reviewee_id = u7_peichan.id
+r6.reviewer_id = u5_pauline.id
+r6.journey_id = j2.id
+r6.save!
+
+
+r7 = Review.new(
+  rating: 4,
+  description: "Top! Peishan est très sympa, un plaisir de rider avec elle. A refaire!",
+)
+r7.reviewee_id = u7_peichan.id
+r7.reviewer_id = u6_jean.id
+r7.journey_id = j2.id
+r7.save!
+
+r8 = Review.new(
+  rating: 5,
+  description: "Super trip, super rideuse, du soleil, bref, une journée de rêve. Merci Peishan! ",
+)
+r8.reviewee_id = u7_peichan.id
+r8.reviewer_id = u10_julien.id
+r8.journey_id = j2.id
+r8.save!
+
+
+puts " 7 reviews created"
 puts " 2 drivees for journey 1"
 
 d1 = Drivee.new(status: "En attente")
