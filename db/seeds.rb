@@ -413,8 +413,8 @@ r1.journey_id = j1.id
 r1.save!
 
 r2 = Review.new(
-  rating: 1,
-  description: "A fuir!!! Arthur est arrivé en retard, et ne s'est même pas excusé. Conduite désastreuse. Fuyez pour votre sécurité!",
+  rating: 4,
+  description: "Merci Athur pour cette superbe session. Ce fut un réel plaisir de passer cette journée avec toi.",
 )
 r2.reviewee_id = u2_arthur.id
 r2.reviewer_id = u3_martin.id
