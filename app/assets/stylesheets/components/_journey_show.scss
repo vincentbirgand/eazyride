@@ -2,15 +2,16 @@
   display: flex;
   background-color: white;
   border-top: 1px solid #ebebeb;
-
+  height: calc(100vh - 70px);
 }
 
 .sh-left-cont{
-  flex: 0 0 50%;
+  flex: 0 0 56%;
 }
 
 .sh-overview-cont{
-  margin: 15px;
+  padding: 5px 0;
+  margin: 0 10px;
 }
 
 .overview-title{
@@ -20,15 +21,14 @@
 }
 
 .overview-text{
-  margin: 20px;
+  margin: 20px 20px 0 20px;
   color: #4F4F4F;
   font-weight: 300;
   font-size: 16px;
 }
 
 .sh-trajet-cont{
-  margin: 8px;
-  padding: 20px;
+  padding: 0 20px;
 }
 
 .sh-trajet-text1{
@@ -96,8 +96,7 @@
 
 
 .sh-overview-cont-left{
-  margin: 90px 80px;
-  margin-top: 25px;
+  margin: 90px 131px;
 }
 
 .overview-title-left{
@@ -109,7 +108,7 @@
 
 .sh-profile-card{
   background-color: white;
-  padding: 5px;
+  padding: 1px;
   border-radius: 10px;
 }
 
@@ -131,15 +130,23 @@
   }
 }
 
-
 .btn-success-sh{
-  width: 370px;
+  width: 100%;
   height: 60px;
   border-radius: 10px;
   font-size: 24px;
   background-color: $my-green;
   color: white;
-  width: 480px;
+}
+
+.btn-primary-show{
+  width: 100%;
+  height: 60px;
+  border-radius: 10px;
+  font-size: 24px;
+  color: white;
+  padding-top: 10px;
+  margin-bottom: 10px;
 }
 
 .name-review
@@ -156,5 +163,9 @@
   width: auto;
 }
 
-
+.driver-certif {
+      width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
 
