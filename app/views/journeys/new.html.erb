@@ -15,7 +15,7 @@
          <!--  <div class="container-form"> -->
         <%= simple_form_for @journey do |f| %>
      <!--   <form action=""> -->
-        <h2 class="text-center">Ajouter un nouveau trajet</h2>
+        <h2 class="text-center">Ajouter un trajet</h2>
         <br />
         <div class="row">
           <div class="col-xs-6">
@@ -64,9 +64,9 @@
         </div>
         <div class="form-group-choice">
           <div class="form-check">
-            <%= f.input :shares_gear, label: "J'accepte de partager mon activité", input_html: {class: "hidden"}, label_html: { class: "form-choice" } %>
-             <%= f.input :lends_gear, label: "J'accepte de partager mon matériel", input_html: {class: "hidden"}, label_html: { class: "form-choice" } %>
-            <%= f.input :accepts_gear, label: "J'accepte du matériel dans ma voiture", input_html: {class: "hidden"}, label_html: { class: "form-choice" } %>
+            <%= f.input :shares_gear, label: "Je partage mon activité", input_html: {class: "hidden"}, label_html: { class: "form-choice" } %>
+             <%= f.input :lends_gear, label: "Je prête mon matériel", input_html: {class: "hidden"}, label_html: { class: "form-choice" } %>
+            <%= f.input :accepts_gear, label: "Je peux transporter du matériel", input_html: {class: "hidden"}, label_html: { class: "form-choice" } %>
           </div>
         </div>
         <div class="form-group">

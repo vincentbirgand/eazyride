@@ -33,7 +33,7 @@ u1_vincent.save!
  u2_arthur = User.create!(
   first_name: "Arthur",
   last_name: "d'Achon",
-  description: "Passionné de ski, j'aime partager des sessions en Haute-Savoie. Je peux aussi prêter du matériel si besoin.",
+  description: "Passionné de ski, j'aime partager des sessions en Haute-Savoie. Je peux aussi prêter du matériel si besoin",
   phone: "07 19 09 09 09",
   birth_date: "18 Aout 1988",
   gender: "man",
@@ -63,7 +63,7 @@ u3_martin.save!
 u4_thibaut = User.create!(
   first_name: "Thibaut",
   last_name: "Duroute",
-  description: "Passionné de ski de fond, je vais régulièrement sur les pistes et dispose de mon matériels",
+  description: "Passionné de ski de fond, je vais régulièrement sur les pistes et dispose de mon matériel",
   phone: "07 69 69 69 69",
   birth_date: "28 Janvier 1988",
   gender: "man",
@@ -95,7 +95,7 @@ u5_pauline = User.create!(
 u6_jean = User.create!(
   first_name: "Jean",
   last_name: "Charles",
-  description: "Passionné de plongée, j'aime aller découvrir de nouveaux spots avec d'autres personnes.",
+  description: "Passionné de plongée, j'aime aller découvrir de nouveaux spots avec d'autres personnes",
   phone: "07 09 19 09 09",
   birth_date: "28 Juillet 1992",
   gender: "man",
@@ -107,25 +107,25 @@ u6_jean = User.create!(
  )
 u6_jean.save!
 
-u7_peichan = User.create!(
-  first_name: "Peichan",
+u7_peishan = User.create!(
+  first_name: "Peishan",
   last_name: "Lee",
-  description: "Très grosse rideuse, j'aime les sensations forte qui permettent de m'envoler...",
+  description: "Très grosse rideuse, j'aime les sensations fortes qui me permettent de m'envoler...",
   phone: "07 09 29 09 09",
   birth_date: "28 Juillet 1992",
-  gender: "man",
+  gender: "female",
   verified: true,
-  email: "peichan@eazyride.com",
+  email: "peishan@eazyride.com",
   password: "123456",
   address: "16 villa Gaudelet, 75011 Paris, France",
   remote_photo_url: 'https://res.cloudinary.com/dscu7dmwa/image/upload/v1544520401/peishan.png'
  )
-u7_peichan.save!
+u7_peishan.save!
 
 u8_paul = User.create!(
   first_name: "Paul",
   last_name: "Cotché",
-  description: "Depuis tout petit, je fais du surf dès que je peux et je suis donc très heureux d'avoir découvert Eazyride. Cela m'a permis de rencontrer plein de gens qui ont la même passion que moi.",
+  description: "Depuis tout petit, je fais du surf dès que je peux et je suis donc très heureux d'avoir découvert Eazyride. Cela m'a permis de rencontrer plein de gens qui partage la même passion que moi",
   phone: "07 09 39 09 09",
   birth_date: "17 Juillet 1976",
   gender: "man",
@@ -140,7 +140,7 @@ u8_paul.save!
 u9_patrick = User.create!(
   first_name: "Patrick",
   last_name: "Fontaine",
-  description: "Passionné de kitesurf, je navigue régulièrement et dispose de plusieurs boards et ailes.",
+  description: "Passionné de kitesurf, je navigue régulièrement et dispose de plusieurs boards et ailes",
   phone: "07 09 49 09 09",
   birth_date: "28 Juillet 1992",
   gender: "man",
@@ -155,7 +155,7 @@ u9_patrick.save!
 u10_julien = User.create!(
   first_name: "Julien",
   last_name: "Dupont",
-  description: "Grand fan de kitesurf, je navigue régulièrement et dispose de plusieurs boards et ailes. J'aime découvrir de nouveaux spots avec d'autres rider.",
+  description: "Grand fan de kitesurf, je navigue régulièrement et dispose de plusieurs boards et ailes. J'aime découvrir de nouveaux spots avec d'autres riders",
   phone: "07 09 59 09 09",
   birth_date: "28 Juillet 1992",
   gender: "man",
@@ -170,7 +170,7 @@ u10_julien.save!
 u11_jules = User.create!(
   first_name: "Jules",
   last_name: "Boiteux",
-  description: "Originaire de la région, je fais du ski depuis mes 8ans. J'aime partagé ma passion avec d'autres personnes. Motivé pour faire un peu de hors piste si tout le monde est chaud ;)",
+  description: "Originaire de la région, je fais du ski depuis mes 8ans. J'aime partager ma passion avec d'autres personnes. Motivé pour faire un peu de hors piste si tout le monde est chaud ;)",
   phone: "07 09 79 09 09",
   birth_date: "10 Juillet 1992",
   gender: "man",
@@ -233,7 +233,7 @@ j1.save!
 j2 = Journey.new(
   car_type: "Porsche Boxter",
   seat_available: 1,
-  description: "Salut la communauté, je vous propose un voyage pour aller ski samedi prochain à Méribel au départ de Lyon. J'ai des barres de toit donc de la place pour le matos volumineux. Bons skieurs voulus, préférence pour le hors-pistes. A très vite!",
+  description: "Salut la communauté, je vous propose un voyage pour aller skier samedi prochain à Méribel au départ de Lyon. J'ai des barres de toit donc de la place pour le matos volumineux. Bons skieurs voulus, préférence pour le hors-piste. A très vite!",
   source_city: "Lyon, Auvergne-Rhône-Alpes, France",
   destination_city: "Les Arcs 2000",
   price: 30,
@@ -251,7 +251,7 @@ j2.save!
 j3 = Journey.new(
   car_type: "Volkswagen Polo",
   seat_available: 2,
-  description: "Hello, je proppose un voyage Lyon à la station St Hugues Les Egaux, n'hésitez pas à me PM pour plus d'infos. A toute!",
+  description: "Hello, je propose un voyage de Lyon à la station St Hugues Les Egaux, n'hésitez pas à me PM pour plus d'infos. A tout!",
   source_city: "Lyon, Auvergne-Rhône-Alpes, France",
   destination_city: "Valfréjus",
   price: 40,
@@ -306,7 +306,7 @@ j5.save!
 j6 = Journey.new(
   car_type: "clio 2",
   seat_available: 3,
-  description: "Je pars faire de la plongée à Etel au départ de Rennes et j'ai deux places dans ma voiture. Je pars avec mon frère, nous recherchons des passionés de plongée pour partager un bon moment!. Nous plongerons avec le club d'Etel.",
+  description: "Je pars faire de la plongée à Etel au départ de Rennes et j'ai deux places dans ma voiture. Je pars avec mon frère, nous recherchons des passionés de plongée pour partager un bon moment! Nous plongerons avec le club d'Etel",
   source_city: "Rennes, Bretagne, France",
   destination_city: "Étel, Bretagne, France",
   price: 13,
@@ -335,14 +335,14 @@ j7 = Journey.new(
   end_time: DateTime.new(2018, 12, 15, 18, 30)
 )
 
-j7.user_id = u7_peichan.id
+j7.user_id = u7_peishan.id
 j7.activity_id = a15.id
 j7.save!
 
 j8 = Journey.new(
   car_type: "Renault Laguna",
   seat_available: 2,
-  description: "Hello, je proppose un voyage sur de Paris à Quiberon, n'hésitez pas à me PM pour plus d'infos. A toute!",
+  description: "Hello, je proppose un voyage sur de Paris à Quiberon, n'hésitez pas à me PM pour plus d'infos. A tout!",
   source_city: "Paris 14e Arrondissement, Paris, Île-de-France, France",
   destination_city: "Quiberon, Bretagne, France",
   price: 50,
@@ -434,7 +434,7 @@ r4 = Review.new(
   rating: 5,
   description: "Peichan est vraiment une bombe en ski. C'était un plaisir de rider ensemble.",
 )
-r4.reviewee_id = u7_peichan.id
+r4.reviewee_id = u7_peishan.id
 r4.reviewer_id = u11_jules.id
 r4.journey_id = j3.id
 r4.save!
@@ -443,7 +443,7 @@ r5 = Review.new(
   rating: 4,
   description: "Super session avec Peishan à Val Thorens. Elle est sympa, de bonne humeur et en plus de ça, excellente skieuse.",
 )
-r5.reviewee_id = u7_peichan.id
+r5.reviewee_id = u7_peishan.id
 r5.reviewer_id = u9_patrick.id
 r5.journey_id = j3.id
 r5.save!
@@ -452,7 +452,7 @@ r6 = Review.new(
   rating: 5,
   description: "Je recommande mille fois Peichan. Un vrai plaisir de partager un bon moment de ski avec elle.",
 )
-r6.reviewee_id = u7_peichan.id
+r6.reviewee_id = u7_peishan.id
 r6.reviewer_id = u5_pauline.id
 r6.journey_id = j2.id
 r6.save!
@@ -462,7 +462,7 @@ r7 = Review.new(
   rating: 4,
   description: "Top! Peishan est très sympa, un plaisir de rider avec elle. A refaire!",
 )
-r7.reviewee_id = u7_peichan.id
+r7.reviewee_id = u7_peishan.id
 r7.reviewer_id = u6_jean.id
 r7.journey_id = j2.id
 r7.save!
@@ -471,13 +471,13 @@ r8 = Review.new(
   rating: 5,
   description: "Super trip, super rideuse, du soleil, bref, une journée de rêve. Merci Peishan! ",
 )
-r8.reviewee_id = u7_peichan.id
+r8.reviewee_id = u7_peishan.id
 r8.reviewer_id = u10_julien.id
 r8.journey_id = j2.id
 r8.save!
 
 
-puts " 7 reviews created"
+puts " 8 reviews created"
 puts " 2 drivees for journey 1"
 
 d1 = Drivee.new(status: "En attente")
@@ -487,10 +487,27 @@ d1.save!
 
 d2 = Drivee.new(status: "En attente")
 d2.journey_id = j1.id
-d2.user_id = u7_peichan.id
+d2.user_id = u7_peishan.id
 d2.save!
 
 puts " 2 drivees created"
+puts " adding 2 messages"
+
+m1 = Message.new(
+  content: "Hello Arthur, j'ai cassé mes batons, aurais-tu une paire en plus à tout hasard? A samedi :)",
+  )
+m1.journey_id = j1.id
+m1.user_id = u7_peishan.id
+m1.save!
+
+m2 = Message.new(
+  content: "Salut Peishan, yes pas de soucis, je te ramène ça. A samedi!",
+  )
+m2.journey_id = j1.id
+m2.user_id = u2_arthur.id
+m2.save!
+
+puts "Comments done"
 puts "Seed finished!"
 
 

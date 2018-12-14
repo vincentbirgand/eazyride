@@ -98,14 +98,9 @@
             <div class= "text-center"><%= f.submit 'Je réserve', class: "btn btn-success-sh" %></div>
             <% end %>
         <% else %>
-
         <% end %>
         <% if policy(@journey).edit? %>
-          <%= link_to "Modifier", edit_journey_path(@journey), class: "btn btn-primary" %>
-        <% end %>
-
-        <% if policy(@journey).destroy? %>
-          <%= link_to "Supprimer", journey_path(@journey),method: :delete, class: "btn btn-danger"%>
+          <div style="margin-top: 13px;"><%= link_to "Modifier",  edit_journey_path(@journey),method: :get, class: "btn btn-primary btn-primary-show" %></div>
         <% end %>
       </div>
     </div>
@@ -140,7 +135,7 @@
               <p style= "margin-left:60px;"><%= @distance.round %> Km</p>
           </p>
             <% else %>
-              <p style="margin-left: 80px;"> Désolé, il n'y a plus de place disponible pour ce trajet ! </p>
+              <p> Désolé, il n'y a plus de place disponible pour ce trajet ! </p>
             <% end %>
           </p>
         </div>
